@@ -14,7 +14,11 @@ recent version of Node installed.
 
 ## Running
 
+In the repository run :
 
+    node app.js
+
+Connect on the localhost:8080 port.
 
 ## Testing
 
