@@ -6,6 +6,7 @@
         "express": "4.4.1",
         "requirejs": "2.1.14",
         "socket.io": "1.0.4",
-        "mocha": "1.20.1"    
+        "mocha": "1.20.1",
+        "phantom": "0.6.3"    
     }
 }

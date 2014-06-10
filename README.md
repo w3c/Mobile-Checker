@@ -12,6 +12,8 @@ you can simply clone this repository and run:
 In order to get all the dependencies installed. Naturally, this requires that you have a reasonably
 recent version of Node installed.
 
+This application require phantomjs. download [here](phantomjs.org).
+
 ## Running
 
 In the repository run :
