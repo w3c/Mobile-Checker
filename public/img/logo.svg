@@ -1,0 +1,10 @@
+<svg width="433px" height="433px" viewBox="0 0 433 433" xmlns="http://www.w3.org/2000/svg">
+  <circle stroke="#979797" stroke-width="6" fill="#fff" cx="216.5" cy="216.5" r="213.5"></circle>
+  <g transform="translate(67.000000, 66.000000)">
+    <circle fill="#3EB400" cx="228" cy="134" r="75" fill-opacity='0.7'></circle>
+    <circle fill="#EFD100" cx="195" cy="216" r="75" fill-opacity='0.7'></circle>
+    <circle fill="#A60E0B" cx="105" cy="216" r="75" fill-opacity='0.7'></circle>
+    <circle fill="#0E3F92" cx="150"  cy="75" r="75" fill-opacity='0.7'></circle>
+    <circle fill="#6200B7" cx="75"  cy="134" r="75" fill-opacity='0.7'></circle>
+  </g>
+</svg>

@@ -1,0 +1,65 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+.navbar{
+	height: 100px;
+	background-color: #005A9C;
+	border-bottom: 10px solid #f5f5f5;
+}
+
+.navbar-brand{
+	color: white;
+	margin-top: 20px;
+	font-size: 30px;
+}
+
+.container {
+  width: auto;
+  max-width: 680px;
+  padding: 0 15px;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+a:hover{
+	color: white;
+}
+
+.checker{
+	text-align: center;
+	margin-top: 100px;
+	margin-bottom: 100px;
+}	
+
+.btn{
+	background-color: #005A9C;
+	color: white;
+	width: 250px;
+}
+
+.btn:hover{
+	color: white;
+}
+
+.btn:focus{
+	color: white;
+}
+
+#footer{
+	position: absolute;
+  	bottom: 0;
+  	width: 100%;
+  	/* Set the fixed height of the footer here */
+  	height: 60px;
+	background-color: #333;
+	background-color: #f5f5f5;
+	color: white;
+	text-align: center;
+}
