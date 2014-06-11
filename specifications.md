@@ -1,6 +1,6 @@
 #Specifications - Mobile Checker
 
-Mobile Checker is a checker for mobile's developers who want to improve their code.
+The Mobile Checker is a tool for Web developers who want to make their Web page or Web app work better on mobile devices.
 
 
 ##mobile checker v0.0.1
@@ -13,7 +13,7 @@ Mobile Checker is a checker for mobile's developers who want to improve their co
 
 * result feed to show result of mobile checker like a tab.
 
-* show website on a smartphone (optionnal).
+* show checked website on a smartphone (optionnal).
 
 * progress bar (optionnal).
 
@@ -23,7 +23,7 @@ Mobile Checker is a checker for mobile's developers who want to improve their co
 
 * give size of page with details.
 
-* take a screenshot and put it into a smartphone picture.
+* take a screenshot and put it into a smartphone frame.
 
 * give the content of .html, .css, .js etc...
 
