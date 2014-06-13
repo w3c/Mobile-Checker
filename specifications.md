@@ -1,37 +1,40 @@
 #Specifications - Mobile Checker
 
-Mobile Checker is a checker for mobile's developers who want to improve their code.
+The Mobile Checker is a tool for Web developers who want to make their Web page or Web app work better on mobile devices.
 
 
 ##mobile checker v0.0.1
 
 ###interface
 
-* simply form where we can insert an url.
+* simply form where we can insert an url. (done) 
 
-* design based on [Validator Suite](https://validator-suite.w3.org/).
+* design based on [Validator Suite](https://validator-suite.w3.org/). (done but it will be change)
 
-* result feed to show result of mobile checker like a tab.
+* result feed to show result of mobile checker like a tab. 
 
-* show website on a smartphone (optionnal).
+* show checked website on a smartphone (optionnal).
 
 * progress bar (optionnal).
 
 ###functionalities
 
-* calculate speedloading.
+* calculate speedloading. (done, show in console)
 
 * give size of page with details.
 
-* take a screenshot and put it into a smartphone picture.
+* take a screenshot and put it into a smartphone frame.
 
-* give the content of .html, .css, .js etc...
+* give the content of .html, .css, .js etc... 
 
 ###packages
 
-* express
-* phantomjs
-* socketio
+* "express": "4.4.1",
+* "requirejs": "2.1.14",
+* "socket.io": "1.0.4",
+* "mocha": "1.20.1",
+* "phantom": "0.6.3"    
+
 
 ###tests
 

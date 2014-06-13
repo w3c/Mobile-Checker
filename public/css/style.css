@@ -52,6 +52,22 @@ a:hover{
 	color: white;
 }
 
+#report{
+	color: black;
+	padding: 0;
+
+
+}
+
+.report-navigation{
+	background-color: #333;
+	float: left;
+}
+
+.report-content{
+	background-color: #f5f5f5;
+}
+
 #footer{
 	position: absolute;
   	bottom: 0;
