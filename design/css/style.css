@@ -47,6 +47,7 @@ body {
   background-color: #005A9C;
   box-shadow: -2px 0px 8px 0px rgba(0, 0, 0, 0.33) inset;
   text-align: center;
+  font-family: "Ubuntu";
 }
 .sidebar-head h1{
   color: white;
@@ -66,18 +67,18 @@ body {
   margin-top: 185px;
 }
 .nav-sidebar > li > a > span {
-  padding-right: 40px;
+  padding-right: 20px;
   font-size: 18;
 }
 .nav-sidebar > li > h1 {
-  margin-left: 70px;
+  margin-left: 60px;
   margin-bottom: 50px;
   color : #666;
   font-family: "Helvetica";
 }
 .nav-sidebar > li > a {
   padding-right: 20px;
-  padding-left: 50px;
+  padding-left: 30px;
   padding-top: 20px;
   padding-bottom: 20px;
   margin-left: 20px;
@@ -97,6 +98,18 @@ body {
 }
 .nav-sidebar > li > a:focus {
   background-color: white;
+  color: #333;
+}
+.nav-sidebar > .off > a {
+  color: #999;
+}
+.nav-sidebar > .off > a:hover {
+  background-color: transparent;
+  color: #999;
+}
+.nav-sidebar > .off > a:focus {
+  background-color: transparent;
+  color: #999;
 }
 
 /*Head main content (navtop) */
@@ -106,33 +119,37 @@ body {
   background-color: #005A9C;
   color: white;
 
+
 }
 /*
  * Main content
  */
 
 .main {
-  padding: 20px;
 }
 @media (min-width: 768px) {
   .main {
-    padding-right: 40px;
-    padding-left: 40px;
+    padding: 0;
   }
 }
 .main .page-header {
   margin-top: 0;
 
 }
-.main > h1 {
-  margin-top: 35px;
+.main > .page-title{
+  background-color: #FCFCFB;
+  border: 1px solid #eee;
+}
+.main > .page-title > h1 {
+  margin-top: 0px;
   margin-bottom: 50px;
   color : #666;
   font-family: "Helvetica";
-  font-family: "Ubuntu Light";
+  font-size: 80px;
+  margin-bottom: 0px;
 }
 .main > .check-form {
-  margin-top: 40px;
+  margin-top: 150px;
   font-family: "Ubuntu Light";
 }
 .main > .input-options {
@@ -155,6 +172,20 @@ body {
   font-family: "Ubuntu Light";
   font-size: 20px;
 }
+                                 
+.main > .smartphone-view {
+  text-align: center;
+}
+.main > .export{
+  text-align: center;
+  font-size: 200px;
+  margin-top: 200px;
+}
+.main > .report{
+}
+.main > .report img{
+  margin-top: 50px;
+}                                      
 /*
  * Placeholder dashboard ideas
  */
