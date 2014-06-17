@@ -9,23 +9,23 @@ The Mobile Checker is a tool for Web developers who want to make their Web page 
 
 * simply form where we can insert an url. (done) 
 
-* design based on [Validator Suite](https://validator-suite.w3.org/). (done but it will be change)
+* design based on [Validator Suite](https://validator-suite.w3.org/). (done and note based on validator suite #AmazingDesign)
 
-* result feed to show result of mobile checker like a tab. 
+* template of result feed to show result of mobile checker like a tab. (done)
 
-* show checked website on a smartphone (optionnal).
+* show checked website on a smartphone (optionnal). (done)
 
-* progress bar (optionnal).
+* progress bar (optionnal). (in progress...)
 
 ###functionalities
 
 * calculate speedloading. (done, show in console)
 
-* give size of page with details.
+* give size of page with details. (in progress)
 
-* take a screenshot and put it into a smartphone frame.
+* take a screenshot and put it in views tab. (done)
 
-* give the content of .html, .css, .js etc... 
+* give the content of .html, .css, .js etc... (in progress)
 
 ###packages
 
@@ -38,6 +38,7 @@ The Mobile Checker is a tool for Web developers who want to make their Web page 
 
 ###tests
 
+coming soon... i hope.
 
 ##mobile checker v0.0.2
 
