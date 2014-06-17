@@ -7,6 +7,8 @@ var express = require("express"),
     checkline = require("./lib/checkline"),
     events = require("events");
 
+var fs = require("fs");
+
 app.use(express.static("public"));
 
 function Sink () {}
@@ -16,14 +18,29 @@ app.get('/', function(req, res){
   res.sendfile('index.html');
 });
 
+app.get('/views', function(req, res){
+  res.sendfile('./public/views.html');
+});
+
+app.get('/report', function(req, res){
+  res.sendfile('./public/report.html');
+});
+
+app.get('/sources', function(req, res){
+  res.sendfile('./public/sources.html');
+});
+
+app.get('/export', function(req, res){
+  res.sendfile('./public/export.html');
+});
+
 io.on('connection', function(socket){
   console.log('user connect');
   socket.on('url sent', function(url){
     var sink = new Sink;
     checkline.run(url, sink);
-    sink.on("getReport end", function(_page){
-      console.log(_page.title);
-      socket.emit("report", _page);
+    sink.on("getReport end", function(report){
+      socket.emit("report", report);
     });
   }); 
 });

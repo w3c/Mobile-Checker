@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset='utf-8'>
+		<title>Mobile Checker</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+
+	<body>
+		<header class="navbar navbar-fixed-top">
+			<div class="container">
+        		<div class="navbar-header">
+          			<a class="navbar-brand" href="/">
+          				<img src='img/logo.svg' width='40' height='40' alt='Logo for the Mobile Checker'>
+            			Mobile Checker for Developers
+          			</a>
+        		</div>
+      		</div>
+		</header>
+
+		<div class="container">
+			<div class="col-md-10 col-md-offset-1 checker">
+				<img src="img/smartphone.svg" width='200' height='600' alt="smartphone example">
+				<form class="">
+					<div class="form-group">
+						<input id="url" class="form-control" placeholder="http://example.com">
+					</div>
+					<button type="submit" class="btn">check it now !</button>
+				</form>
+			</div>
+		</div>
+
+		<div id="report" class="col-md-12">
+		</div>
+
+		<div id="footer">
+			<div class="container">
+				 <p class="text-muted">MobileChecker 2014 version pre-alpha 0.0.1</p>
+			</div>
+		</div>
+
+	<script src='js/jquery.min.js'></script>
+    <script src='js/bootstrap.min.js'></script>
+    <script src='js/socket.io.js'></script>
+    <script src='js/script.js'></script>
+	</body>
+
+</html>
