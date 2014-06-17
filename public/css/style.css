@@ -152,13 +152,12 @@ body {
   margin-top: 150px;
   font-family: "Ubuntu Light";
 }
-.main > .input-options {
-  margin-top: 40px;
-  border: 1px solid #eee;
-  border-radius: 5px 5px;
-  height: 500px;
-  background-color: #FCFCFB;
-  box-shadow: 4px 4px 2px 0px rgba(0, 0, 0, 0.33);
+.main > .check-form > .input-options {
+  margin-top: 30px;
+  font-family: "Ubuntu Light";
+}
+.main > .check-form > .input-options > label {
+  margin-top: 20px;
   font-family: "Ubuntu Light";
 }
 .main > form > .send-btn{

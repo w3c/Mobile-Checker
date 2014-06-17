@@ -36,9 +36,10 @@ app.get('/export', function(req, res){
 
 io.on('connection', function(socket){
   console.log('user connect');
-  socket.on('url sent', function(url){
+  socket.on('url sent', function(options){
+    console.log(options);
     var sink = new Sink;
-    checkline.run(url, sink);
+    checkline.run(options, sink);
     sink.on("getReport end", function(report){
       socket.emit("report", report);
     });

@@ -1,15 +1,29 @@
 var socket = io();
 
+var parameters = {
+	widthView : 600,
+	heightView : 900,
+	url : 'undefined'
+};
+
 $('form').submit(function(){
-	socket.emit('url sent', $('#url').val());
+	parameters.url = $('#url').val();
+	socket.emit('url sent', parameters);
     $('#url').val('');
     $('#report .report-navigation').remove();
     $('#report .report-content').remove();
     return false;
 });
 
+$( "input" ).change(function() {
+	parameters.widthView = $('#width-range').val();
+	parameters.heightView = $('#height-range').val();
+	$("#widthView").text(parameters.widthView);
+	$("#heightView").text(parameters.heightView);
+});
+
 socket.on('report', function(report){
-	
+
 	$("#aviews").attr("href", "/views");
 	$("#areport").attr("href", "/report");
 	$("#asources").attr("href", "/sources");
