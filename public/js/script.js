@@ -9,7 +9,13 @@ $('form').submit(function(){
 });
 
 socket.on('report', function(report){
-    $("li").removeClass("off")
+	
+	$("#aviews").attr("href", "/views");
+	$("#areport").attr("href", "/report");
+	$("#asources").attr("href", "/sources");
+	$("#aexport").attr("href", "/export");
+    $("li").removeClass("off");
+	
 	$('#report').append($('<div class="col-md-2 report-navigation"></div>'));
 	$('#report').append($('<div class="col-md-10 report-content"><div class="page-header"></div></div>'));
 	$('.report-content .page-header').append($('<h1>').text(report.title));
