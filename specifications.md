@@ -9,7 +9,7 @@ The Mobile Checker is a tool for Web developers who want to make their Web page 
 
 * simply form where we can insert an url. (done) 
 
-* design based on [Validator Suite](https://validator-suite.w3.org/). (done and note based on validator suite #AmazingDesign)
+* design based on [Validator Suite](https://validator-suite.w3.org/). (done and not based on validator suite. #AmazingDesign still)
 
 * template of result feed to show result of mobile checker like a tab. (done)
 
