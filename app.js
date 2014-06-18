@@ -8,6 +8,7 @@ var express = require("express"),
     events = require("events");
 
 var fs = require("fs");
+var step;
 
 app.use(express.static("public"));
 
@@ -37,9 +38,15 @@ app.get('/export', function(req, res){
 io.on('connection', function(socket){
   console.log('user connect');
   socket.on('url sent', function(options){
-    console.log(options);
     var sink = new Sink;
+    socket.emit('startprogress', 2);
+    step = 0;
     checkline.run(options, sink);
+    sink.on("stepdone", function(){
+      step = step + 1;
+      console.log(step);
+      socket.emit("inprogress", step);
+    });
     sink.on("getReport end", function(report){
       socket.emit("report", report);
     });

@@ -171,6 +171,9 @@ body {
   font-family: "Ubuntu Light";
   font-size: 20px;
 }
+.main > .showprogress {
+  margin-top: 300px;
+}
                                  
 .main > .smartphone-view {
   text-align: center;
