@@ -4,6 +4,11 @@
 
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
+  --background-image: url('../img/bg-pattern.png');
+  background-color: #EFEADD;
+  background-image: url('../img/bg-pattern.png');
+
+  
 }
 
 
@@ -36,22 +41,20 @@ body {
     display: block;
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-    background-color: #FCFCFB;
-    box-shadow: -2px -1px 8px 0px rgba(0, 0, 0, 0.33) inset;
+    background-color: #3C3C3C;
   }
 }
 
 /*shortcut profil*/
 .sidebar-head{
   height: 150px;
-  background-color: #005A9C;
-  box-shadow: -2px 0px 8px 0px rgba(0, 0, 0, 0.33) inset;
+  background-color: #333;
+  --box-shadow: -2px 2px 8px 0px rgba(0, 0, 0, 0.33) inset;
   text-align: center;
-  font-family: "Ubuntu";
+  margin-top: 0px;
 }
-.sidebar-head h1{
-  color: white;
-  font-size: 100px;
+.sidebar-head img{
+  margin-top: 30px;
 }
 
 .sidebar-head span{
@@ -64,38 +67,37 @@ body {
   margin-right: -21px; /* 20px padding + 1px border */
   margin-bottom: 20px;
   margin-left: -20px;
-  margin-top: 185px;
+  margin-top: 150px;
+  text-align: center;
 }
 .nav-sidebar > li > a > span {
-  padding-right: 20px;
   font-size: 18;
 }
 .nav-sidebar > li > h1 {
-  margin-left: 60px;
-  margin-bottom: 50px;
+  margin-left: 0px;
   color : #666;
   font-family: "Helvetica";
+  text-align: center;
 }
 .nav-sidebar > li > a {
-  padding-right: 20px;
-  padding-left: 30px;
   padding-top: 20px;
   padding-bottom: 20px;
-  margin-left: 20px;
-  font-size: 20px;
-  color : #333;
+  font-size: 25px;
+  color : white;
   font-family: "Ubuntu Light";
 }
 
-.nav-sidebar > .active > a {
-  color: #fff;
-  background-color: #428bca;
+.nav-sidebar > li > .active {
+  color: #333;
+  background-color: #FCFCFB;
+  border-right: 5px solid #333;
+  --background-image: url('../img/bg-pattern.png');
 }
 .nav-sidebar > li > a:hover {
-  background-color: #005A9C;
-  color: white;
+  color: #333;
   --box-shadow: -4px 0px 8px rgba(0, 0, 0, 0.33) inset;
 }
+
 .nav-sidebar > li > a:focus {
   background-color: white;
   color: #333;
@@ -115,17 +117,48 @@ body {
 /*Head main content (navtop) */
 
 .nav-head{
-  height: 150px;
-  background-color: #005A9C;
+  height: 140px;
+  background-color: #FCFCFB;
+  color: #666;
+}
+.nav-head > .logo{
+  text-align: center;
+}
+.nav-head > .logo > img{
+  margin-top: 30px;
+}
+.nav-head > div > h1{
+  margin-top: 30px;
+  font-family: "Lato", "Helvetica", "sans-serif";
+}
+.nav-head > .login-options{
+  margin-top: 20px;
+}
+.nav-head > .login-options > #signin-btn {
+  width: 100%;
+  background-color: #30B4C5;
+  height: 40px;
   color: white;
 
-
+}
+.nav-head > .login-options > #signup-btn {
+  width: 100%;
+  background-color: #F99D1C;
+  margin-top: 20px;
+  color: white;
+  height: 40px;
+}
+.stripes{
+  height: 10px;
+  background-image: url('../img/stripes.svg');
+  box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.33);
 }
 /*
  * Main content
  */
 
 .main {
+  --background-image: url('../img/bg-pattern.png');
 }
 @media (min-width: 768px) {
   .main {
@@ -137,24 +170,45 @@ body {
 
 }
 .main > .page-title{
-  background-color: #FCFCFB;
-  border: 1px solid #eee;
+  margin-top: 20px;
+  background-color: #EFEADD;
+  border-bottom: 1px solid #eee;
 }
 .main > .page-title > h1 {
   margin-top: 0px;
   margin-bottom: 50px;
   color : #666;
   font-family: "Helvetica";
-  font-size: 80px;
   margin-bottom: 0px;
 }
+.main > .top-menu {
+  text-align: center;
+  color: #999;
+  background-color: #3C3C3C;
+  padding: 15px;
+  font-size: 15px;
+}
+.main > .top-menu > a > span{
+  margin-right: 5%;
+  margin-left: 5%;
+  color: #999;
+}
 .main > .check-form {
-  margin-top: 150px;
+  margin-top: 300px;
   font-family: "Ubuntu Light";
 }
+.main > .check-form > .input-group input{
+  height: 40px;
+}
 .main > .check-form > .input-options {
-  margin-top: 30px;
+  margin-top: 50px;
   font-family: "Ubuntu Light";
+  background-color: #FCFCFB;
+  height: 500px;
+  box-shadow: +2px +2px 3px rgba(0, 0, 0, 0.33) inset;
+  border-bottom: 1px solid #999;
+  color: #333;
+
 }
 .main > .check-form > .input-options > label {
   margin-top: 20px;
@@ -165,18 +219,16 @@ body {
   margin-top: 40px;
 }
 .main > form > .send-btn > button{
-  width: 150px;
-  background-color: #005A9C;
+  background-color: #694D9F;
   color: white;
-  font-family: "Ubuntu Light";
   font-size: 20px;
+  font-family: "Helvetica";
 }
 .main > .showprogress {
   margin-top: 300px;
 }
                                  
 .main > .smartphone-view {
-  text-align: center;
 }
 .main > .export{
   text-align: center;
@@ -185,9 +237,51 @@ body {
 }
 .main > .report{
 }
-.main > .report img{
+.main > .report > img{
   margin-top: 50px;
-}                                      
+}
+.main > .smartphone-view > img{
+  margin-top: 50px;
+  border: 20px solid #333;
+  border-radius: 10px;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .main > .smartphone-view > img{
+    width: 40%;
+    margin-left: 40px;
+  }
+}
+
+.main > .sourcefile > h3 {
+  background-color: #333;
+  border-radius: 5px 5px 0px 0px;
+  margin-bottom: 0px;
+  color: white;
+}
+
+.main > .sourcefile > #htmlFile {
+  border-radius: 0px 0px 5px 5px;
+}
+
+/* supplements things*/
+
+.more{
+  text-align: center;
+  font-size: 50px;
+  margin-top: 50px;
+  
+}     
+.more > a > span{
+  margin: 5%;
+}
+.more > a{
+  color: #666;
+}
+.more > a:hover {
+  color: #D02E27;
+}
+
 /*
  * Placeholder dashboard ideas
  */

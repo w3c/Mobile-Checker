@@ -5,34 +5,23 @@ var express = require("express"),
 	  version = require("./package.json").version,
     util = require("util"),
     checkline = require("./lib/checkline"),
-    events = require("events");
+    events = require("events"),
+    logger  = require('morgan');
 
 var fs = require("fs");
 var step;
 
+app.use(logger());
 app.use(express.static("public"));
 
 function Sink () {}
 util.inherits(Sink, events.EventEmitter);
 
+
+
+
 app.get('/', function(req, res){
   res.sendfile('index.html');
-});
-
-app.get('/views', function(req, res){
-  res.sendfile('./public/views.html');
-});
-
-app.get('/report', function(req, res){
-  res.sendfile('./public/report.html');
-});
-
-app.get('/sources', function(req, res){
-  res.sendfile('./public/sources.html');
-});
-
-app.get('/export', function(req, res){
-  res.sendfile('./public/export.html');
 });
 
 io.on('connection', function(socket){
@@ -40,15 +29,17 @@ io.on('connection', function(socket){
   socket.on('url sent', function(options){
     var sink = new Sink;
     socket.emit('startprogress', 2);
-    step = 0;
     checkline.run(options, sink);
+    step = 0;
     sink.on("stepdone", function(){
       step = step + 1;
       console.log(step);
       socket.emit("inprogress", step);
+      return step;
     });
     sink.on("getReport end", function(report){
       socket.emit("report", report);
+      return report;
     });
   }); 
 });

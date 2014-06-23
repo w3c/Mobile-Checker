@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+	<rect id="stripe" width="20%" height="100%" />
+</defs>
+<use xlink:href="#stripe" x="0" fill="#30B4C5" />
+<use xlink:href="#stripe" x="20%" fill="#694D9F" />
+<use xlink:href="#stripe" x="40%" fill="#E54E27" />
+<use xlink:href="#stripe" x="60%" fill="#D02E27" />
+<use xlink:href="#stripe" x="80%" fill="#F99D1C" />
+</svg>
