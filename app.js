@@ -6,6 +6,7 @@ var express = require("express"),
     util = require("util"),
     checkline = require("./lib/checkline"),
     events = require("events"),
+    Q = require('q'),
     logger  = require('morgan');
 
 var fs = require("fs");
@@ -33,7 +34,7 @@ io.on('connection', function(socket){
     step = 0;
     sink.on("stepdone", function(){
       step = step + 1;
-      console.log(step);
+      console.log('step' + step + 'done');
       socket.emit("inprogress", step);
       return step;
     });

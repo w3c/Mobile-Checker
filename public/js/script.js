@@ -133,6 +133,9 @@ socket.on('report', function(report){
 	$(".stripes").attr("class", "col-md-11 col-md-offset-1 stripes");
 	$('.smartphone-view').append($('<img src="screenshots/screenshot.png" alt="frame">'));
 	$('#htmlFile').text(sources);
+	$('.main').removeClass('col-md-10');
+	$('.main').addClass('col-md-11');
+	$('#time').text(report.speed + 'ms');
 	//$("#aviews").attr("href", "/views");
 	//$("#areport").attr("href", "/report");
 	//$("#asources").attr("href", "/sources");

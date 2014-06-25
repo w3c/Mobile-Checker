@@ -5,8 +5,9 @@
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
   --background-image: url('../img/bg-pattern.png');
-  background-color: #EFEADD;
-  background-image: url('../img/bg-pattern.png');
+  background-color: #FCFCFB;
+  --background-image: url('../img/bg-pattern.png');
+  background-color: #e8e5de;
 
   
 }
@@ -240,6 +241,49 @@ body {
 .main > .report > img{
   margin-top: 50px;
 }
+.main > .report > #speedtime {
+  background-color: white;
+  border: 1px solid #eee;
+  box-shadow: +2px +2px 3px rgba(0, 0, 0, 0.33);
+  margin-top: 50px;
+  color: #3C3C3C;
+  padding: 0;
+  
+}
+
+.main > .report > #speedtime > .head {
+  
+  margin: 0px;
+  color: #FCFCFB;
+  background-color: #3C3C3C;
+  font-family: "lato";
+}
+.main > .report > #speedtime > .head > .icon {
+  text-align: center;
+  font-size: 50px;
+  padding-top: 10px;
+}
+.main > .report > #speedtime > .head > .title {
+  font-size: 50px;
+  text-align: center;
+}
+
+
+.main > .report > #speedtime > #speed-icon {
+  margin-top: 20px;
+  font-size: 100px;
+  color: #333;
+  text-align: center;
+}
+
+.main > .report > #speedtime > #time {
+  padding: 20px;
+  font-family: "Lato";
+  font-size: 60px;
+  color: #30B4C5;
+  text-align: center;
+}
+
 .main > .smartphone-view > img{
   margin-top: 50px;
   border: 20px solid #333;
@@ -264,23 +308,6 @@ body {
   border-radius: 0px 0px 5px 5px;
 }
 
-/* supplements things*/
-
-.more{
-  text-align: center;
-  font-size: 50px;
-  margin-top: 50px;
-  
-}     
-.more > a > span{
-  margin: 5%;
-}
-.more > a{
-  color: #666;
-}
-.more > a:hover {
-  color: #D02E27;
-}
 
 /*
  * Placeholder dashboard ideas
