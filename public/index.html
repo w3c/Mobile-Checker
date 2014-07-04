@@ -4,124 +4,160 @@
 	<head>
 		<meta charset='utf-8'>
 		<title>Mobile Checker</title>
-		<link rel="shortcut icon" type="image/x-icon" href="img/node.svg">
+		<link rel="shortcut icon" type="image/x-icon" href="img/earth.svg">
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<link rel="stylesheet" type="text/css" href="css/home.css">
+		<link rel="stylesheet" type="text/css" href="css/dashboard.css">
 	</head>
 
 	<body>
 
+		<header class="navbar">
+			<div id="header-logo" class="col-md-1 col-md-offset-2 navbar-brand">
+				<img src="img/earth.svg" height="50px">
+			</div>
+			<div id="header-title" class="col-md-3 navbar-brand">
+				<h4>World Wide Web</h4>
+				<h1>Developers</h1>
+			</div>
+		</header>
+
+		<div class="col-md-12 progressbar">
+			<div class="progress">
+  				<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+  				</div>
+			</div>
+		</div>
+
 		<div class="container-fluid">
-			<div class="row">
-				<div class="col-sm-3 col-md-1 sidebar">
-			  		<div class="col-md-12 sidebar-head">
-						<img src="img/node.svg" alt="logo">
-					</div>
-					<ul class="nav nav-sidebar">
-				  		<li class="active"><a id="anewcheck" href="#"><span class="glyphicon glyphicon-cloud-upload"></span></a></li>
-						<li><a id="aviews" href="#"><span class="glyphicon glyphicon-eye-open"></span></a></li>
-						<li><a id="areport" href="#"><span class="glyphicon glyphicon-list"></span></a></li>
-						<li><a id="asources" href="#"><span class="glyphicon glyphicon-file"></span></a></li>
-						<li><a id="aexport" href="#"><span class="glyphicon glyphicon-cloud-download"></span></a></li>
-					</ul>
-				</div>
-				<div class="col-md-12 nav-head">
-			  		<div class="col-md-2 logo">
-						<img src="img/node.svg" alt="logo">
-			  		</div>
-			  		<div class="col-md-8">
-			  			<h1>M O B I L E . C H E C K E R</h1>
-			  			<p>The Mobile Checker is a tool for Web developers who want to make their Web page or Web app work better on mobile devices.</p>
-			  		</div>
-			  		<div class="col-md-1 login-options">
-						<button id="signin-btn" type="submit" class="btn">Sign in</button>
-			  			<button id="signup-btn" type="submit" class="btn">Sign up</button>
-			  		</div>
-				</div>
-				<div class="col-md-12 stripes">
-				</div>
-			</div>
-		</div>
+      		<div class="row">
+        		<div class="col-sm-3 col-md-2 sidebar">
+          			<ul class="nav nav-sidebar">
+            			<li><a href="#">Overview</a></li>
+            			<li><a href="#">Reports</a></li>
+            			<li><a href="#">Analytics</a></li>
+            			<li><a href="#">Sources</a></li>
+            			<li><a href="#">Export</a></li>
+          			</ul>
+        		</div>
+        	</div>
 
-		<div class="col-md-10 col-md-offset-1 main">
+        	<div class="col-sm-9 col-sm-offset-3 col-md-8 col-md-offset-2 main">
+        		<div id="tool-title" class="col-md-12">
+        			<h1 class="page-header"> Mobile Checker Tool</h1>
+        		</div>
+        		
+        		<div id="main-action" class="col-md-12">
+        			<div id="tool-description" class="col-md-12">
+        				<p>The Mobile Checker is a perfect tool for Web developers who want to make their Web page or Web app work better on mobile devices.</p>
+        			</div>
+        			<form>
+        				<div class="col-md-10">
+  							<input id="url" type="text" class="form-control" placeholder="www.example.com">
+						</div>
+						<div class="col-md-2">
+							<button type="submit" class="btn">Check</button>
+						</div>
+                            <div id="smartphone-selector" class="col-md-12">
+                                <div class="dropdown col-md-5">
+                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                                        <span class="glyphicon glyphicon-phone"></span>
+                                        select smartphone profil
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu col-md-12" role="menu" aria-labelledby="dropdownMenu1">
+                                        <li role="presentation"><a>Iphone5</a></li>
+                                        <li role="presentation"><a>GalaxyS4</a></li>
+                                        <li role="presentation"><a>Lumia920</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+        			</form>	
+        		</div>
 
-		  	<form class="check-form">
-				<div class="input-group col-md-10 col-md-offset-1">
-			  		<input id="url" type="text" class="form-control" placeholder="enter an url like http://example.com">
-			  		<span class="input-group-addon"><a id="show-options" href="#"><span class="glyphicon glyphicon-cog"></span></a></span>
-				</div>
-				<div class="input-options col-md-12">
-			  		<label>width</label><p id ="widthView" >600</p>
-			  		<input id="width-range" type="range" value="600" max="2048" min="200" step="1">
-			  		<label>height</label><p id="heightView" >900</p>
-			  		<input id="height-range" type="range" value="900" max="2048" min="200" step="1">
-			  		<p>more options coming soon...</p>
-		  		</div>
-		  		<div class="col-md-10 col-md-offset-1 send-btn">
-					<button type="submit" class="btn">Check</button>  
-		  		</div>
-		  	</form>
+        		<div id="console" class="col-md-12">
+        			<div id="console-head" class="col-md-12">
+        			</div>
+        			<div id="console-body" class="col-md-12">
+        				<p> >_</p>
+        			</div>
+        		</div>
+        		<div class="col-md-4 intro intro1">
+        			<h1>about the mobile checker</h1>
+        			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        		</div>
+        		<div class="col-md-4 intro intro2">
+        			<h1>world wide web developers</h1>
+        			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        		</div>
+        		<div class="col-md-4 intro intro3">
+        			<h1>send us a comment</h1>
+        			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        		</div>
 
-		  	<div class="showprogress col-md-10 col-md-offset-1"><div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">0%</div></div></div>
+        		<div id="overview" class="col-md-12">
+        			<div id="smartphone" class="col-md-12">
+        				<div id="smartphone-top" class=""></div>
+        					<div id="smartphone-img"></div>
+        				<div id="smartphone-bottom" class=""></div>
+        			</div>
+        		</div>
+        		
+        		<div id="reports" class="col-md-12">
+        		</div>
 
-		  	<div class="col-md-12 page-title">
-				<h1>views</h1>
-		  	</div>
-		  	<div class="smartphone-view">
-		  	</div>
+        		<div id="analytics" class="col-md-12">
+        		</div>
 
-		   	<div class="col-md-12 page-title">
-				<h1>report</h1>
-		  	</div>
-		  	<div class="col-md-12 report">
-				<div id="speedtime" class="col-md-4">
-					<div class="head col-md-12">
-						<div id="" class="col-md-5 icon"><span class="glyphicon glyphicon-dashboard"></span></div>
-						<div id="" class="col-md-5 title"><h1>Speed</h1></div>
-					</div>
-					<div id="time" class="col-md-12">
-						120 ms
-					</div>
-				</div>
-				<div id="speedtime" class="col-md-4">
-					<div class="head col-md-12">
-						<div id="" class="col-md-5 icon"><span class="glyphicon glyphicon-resize-small"></span></div>
-						<div id="" class="col-md-5 title"><h1>Responsive</h1></div>
-					</div>
-					<div id="time" class="col-md-12">
-					</div>
-				</div>
-				<div id="speedtime" class="col-md-4">
-					<div class="head col-md-12">
-						<div id="" class="col-md-5 icon"><span class="glyphicon glyphicon-stats"></span></div>
-						<div id="" class="col-md-5 title"><h1>More</h1></div>
-					</div>
-					<div id="time" class="col-md-12">
-					</div>
-				</div>
-			</div>
-		  	<div class="col-md-12 page-title">
-				<h1>sources</h1>
-		  	</div>
-		  	<div class="sourcefile col-md-10 col-md-offset-1">
-				<h3>html</h3>
-				<pre id="htmlFile">
-					
-				</pre>
-				<pre id="cssFile">
+        		<div id="sources" class="col-md-12">
 
-				</pre>
+        			<div class="sourcefile col-md-12">
+        				<div class="filehead col-md-12">
+        					<h5>namefile.ext</h5>
+        				</div>
+        				<div class="filecontent col-md-12">
+        					<pre id="htmlFile">
+for i = 0 { }
+	if ( bool = true )
+		{} else
+	should return false
+    ae
+    re
+
+    re
+
+            ze
+            r
+            ez
+    ezr
+
+    ezr
+
+            rze
+            r
+            zer
+
+							</pre>
+        				</div>
+        			</div>
+        			<div id="file-selector" class="col-md-12">
+                        <div class="dropdown col-md-2 col-md-offset-5">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                                select file
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu col-md-12" role="menu" aria-labelledby="dropdownMenu1">
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">filename.css</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">filename.html</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">filename.js</a></li>
+                            </ul>
+                        </div>
+                    </div>
+        		</div>
 				
-		  	</div>
-		   	<div class="col-md-12 page-title">
-				<h1>export</h1>
-		  	</div>
-		  	<div class="export">
-				<a href="#"><span class="glyphicon glyphicon-cloud-download"></span></a>
-		  	</div>
-		</div>
+        	</div>
+      	</div>
 
 		<script src='js/jquery.min.js'></script>
   		<script src='js/bootstrap.min.js'></script>
@@ -131,4 +167,3 @@
 	</body>
 
 </html>
-

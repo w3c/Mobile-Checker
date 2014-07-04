@@ -1,329 +1,245 @@
-/*
- * Base structure
- */
-
-/* Move down content because we have a fixed navbar that is 50px tall */
 body {
-  --background-image: url('../img/bg-pattern.png');
-  background-color: #FCFCFB;
-  --background-image: url('../img/bg-pattern.png');
-  background-color: #e8e5de;
-
-  
 }
 
 
 /*
- * Global add-ons
- */
-
-.sub-header {
-  padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
+* Header
+*/
+header {
+  height: 70px;
+  background-color: #eee;
 }
-
-
-/*
- * Sidebar
- */
-
-/* Hide for mobile, show later */
-.sidebar {
-  display: none;
-}
-@media (min-width: 768px) {
-  .sidebar {
-    position: fixed;
-    top: 0px;
-    bottom: 0;
-    left: 0;
-    padding: 0;
-    z-index: 1000;
-    display: block;
-    overflow-x: hidden;
-    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-    background-color: #3C3C3C;
-  }
-}
-
-/*shortcut profil*/
-.sidebar-head{
-  height: 150px;
-  background-color: #333;
-  --box-shadow: -2px 2px 8px 0px rgba(0, 0, 0, 0.33) inset;
-  text-align: center;
-  margin-top: 0px;
-}
-.sidebar-head img{
-  margin-top: 30px;
-}
-
-.sidebar-head span{
-  color: white;
-  font-size: 16px;
-}
-
-/* Sidebar navigation */
-.nav-sidebar {
-  margin-right: -21px; /* 20px padding + 1px border */
-  margin-bottom: 20px;
-  margin-left: -20px;
-  margin-top: 150px;
-  text-align: center;
-}
-.nav-sidebar > li > a > span {
-  font-size: 18;
-}
-.nav-sidebar > li > h1 {
-  margin-left: 0px;
-  color : #666;
-  font-family: "Helvetica";
-  text-align: center;
-}
-.nav-sidebar > li > a {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  font-size: 25px;
-  color : white;
-  font-family: "Ubuntu Light";
-}
-
-.nav-sidebar > li > .active {
-  color: #333;
-  background-color: #FCFCFB;
-  border-right: 5px solid #333;
-  --background-image: url('../img/bg-pattern.png');
-}
-.nav-sidebar > li > a:hover {
-  color: #333;
-  --box-shadow: -4px 0px 8px rgba(0, 0, 0, 0.33) inset;
-}
-
-.nav-sidebar > li > a:focus {
-  background-color: white;
-  color: #333;
-}
-.nav-sidebar > .off > a {
-  color: #999;
-}
-.nav-sidebar > .off > a:hover {
-  background-color: transparent;
-  color: #999;
-}
-.nav-sidebar > .off > a:focus {
-  background-color: transparent;
-  color: #999;
-}
-
-/*Head main content (navtop) */
-
-.nav-head{
-  height: 140px;
-  background-color: #FCFCFB;
-  color: #666;
-}
-.nav-head > .logo{
-  text-align: center;
-}
-.nav-head > .logo > img{
-  margin-top: 30px;
-}
-.nav-head > div > h1{
-  margin-top: 30px;
-  font-family: "Lato", "Helvetica", "sans-serif";
-}
-.nav-head > .login-options{
-  margin-top: 20px;
-}
-.nav-head > .login-options > #signin-btn {
-  width: 100%;
-  background-color: #30B4C5;
-  height: 40px;
-  color: white;
-
-}
-.nav-head > .login-options > #signup-btn {
-  width: 100%;
-  background-color: #F99D1C;
-  margin-top: 20px;
-  color: white;
-  height: 40px;
-}
-.stripes{
-  height: 10px;
-  background-image: url('../img/stripes.svg');
-  box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.33);
-}
-/*
- * Main content
- */
-
-.main {
-  --background-image: url('../img/bg-pattern.png');
-}
-@media (min-width: 768px) {
-  .main {
-    padding: 0;
-  }
-}
-.main .page-header {
-  margin-top: 0;
-
-}
-.main > .page-title{
-  margin-top: 20px;
-  background-color: #EFEADD;
-  border-bottom: 1px solid #eee;
-}
-.main > .page-title > h1 {
-  margin-top: 0px;
-  margin-bottom: 50px;
-  color : #666;
-  font-family: "Helvetica";
-  margin-bottom: 0px;
-}
-.main > .top-menu {
-  text-align: center;
-  color: #999;
-  background-color: #3C3C3C;
-  padding: 15px;
-  font-size: 15px;
-}
-.main > .top-menu > a > span{
-  margin-right: 5%;
-  margin-left: 5%;
-  color: #999;
-}
-.main > .check-form {
-  margin-top: 300px;
-  font-family: "Ubuntu Light";
-}
-.main > .check-form > .input-group input{
-  height: 40px;
-}
-.main > .check-form > .input-options {
-  margin-top: 50px;
-  font-family: "Ubuntu Light";
-  background-color: #FCFCFB;
-  height: 500px;
-  box-shadow: +2px +2px 3px rgba(0, 0, 0, 0.33) inset;
-  border-bottom: 1px solid #999;
-  color: #333;
-
-}
-.main > .check-form > .input-options > label {
-  margin-top: 20px;
-  font-family: "Ubuntu Light";
-}
-.main > form > .send-btn{
-  text-align: center;
-  margin-top: 40px;
-}
-.main > form > .send-btn > button{
-  background-color: #694D9F;
-  color: white;
-  font-size: 20px;
-  font-family: "Helvetica";
-}
-.main > .showprogress {
-  margin-top: 300px;
-}
-                                 
-.main > .smartphone-view {
-}
-.main > .export{
-  text-align: center;
-  font-size: 200px;
-  margin-top: 200px;
-}
-.main > .report{
-}
-.main > .report > img{
-  margin-top: 50px;
-}
-.main > .report > #speedtime {
-  background-color: white;
-  border: 1px solid #eee;
-  box-shadow: +2px +2px 3px rgba(0, 0, 0, 0.33);
-  margin-top: 50px;
-  color: #3C3C3C;
-  padding: 0;
-  
-}
-
-.main > .report > #speedtime > .head {
-  
-  margin: 0px;
-  color: #FCFCFB;
-  background-color: #3C3C3C;
-  font-family: "lato";
-}
-.main > .report > #speedtime > .head > .icon {
-  text-align: center;
-  font-size: 50px;
-  padding-top: 10px;
-}
-.main > .report > #speedtime > .head > .title {
-  font-size: 50px;
-  text-align: center;
-}
-
-
-.main > .report > #speedtime > #speed-icon {
-  margin-top: 20px;
-  font-size: 100px;
-  color: #333;
-  text-align: center;
-}
-
-.main > .report > #speedtime > #time {
-  padding: 20px;
-  font-family: "Lato";
-  font-size: 60px;
-  color: #30B4C5;
-  text-align: center;
-}
-
-.main > .smartphone-view > img{
-  margin-top: 50px;
-  border: 20px solid #333;
-  border-radius: 10px;
-  width: 100%;
-}
-@media (min-width: 768px) {
-  .main > .smartphone-view > img{
-    width: 40%;
-    margin-left: 40px;
-  }
-}
-
-.main > .sourcefile > h3 {
-  background-color: #333;
-  border-radius: 5px 5px 0px 0px;
-  margin-bottom: 0px;
-  color: white;
-}
-
-.main > .sourcefile > #htmlFile {
-  border-radius: 0px 0px 5px 5px;
-}
-
-
-/*
- * Placeholder dashboard ideas
- */
-
-.placeholders {
-  margin-bottom: 30px;
-  text-align: center;
-}
-.placeholders h4 {
+.navbar {
+  border : 1px solid #EEE;
   margin-bottom: 0;
 }
-.placeholder {
-  margin-bottom: 20px;
+header > .navbar-brand {
+  padding: 0px;
 }
-.placeholder img {
-  display: inline-block;
-  border-radius: 50%;
+header > #header-logo {
+  text-align: center;
+  margin-top: 10px;
 }
+header > #header-title {
+  margin: 0px;
+  padding: 0px;
+}
+header > #header-title > h4 {
+  margin-bottom: 0px;
+  margin-top: 14px;
+  margin-left: 5px;
+  color: #999;
+  font-size: 12px;
+}
+header > #header-title > h1 {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Lato";
+  font-size: 30px;
+  color: #666;
+}
+
+.progressbar {
+  height: 2px;
+  padding: 0;
+}
+.progressbar > .progress {
+  height: 2px;
+  border-radius: none;
+  background-color: #E54E27;
+}
+.progressbar > .progress > .progress-bar {
+  background-color: #E54E27;
+  background-image: none;
+}
+
+
+/*
+* Container/main
+*/
+.main > #tool-title > h1 {
+  color: #666;
+  font-size: 30px;
+  margin-bottom: 0px;
+  margin-top: 30px;
+}
+.main > #main-action {
+  margin-top: 20px;
+  padding: 0;
+}
+.main > #main-action > #tool-description > p {
+  color: #666;
+  font-size: 18px;
+  margin-bottom: 50px;
+}
+.main > #main-action > form > div > input {
+  border: 1px solid #eee;
+  font-size: 20px;
+  height: 60px;
+  box-shadow: none;
+  border-radius: 0;
+  background-color: white;
+}
+.main > #main-action > form > div > button{
+  border-radius: 3px;
+  height: 60px;
+  width: 100%;
+  color: #FCFCFB;
+  font-size: 20px;
+  background-color: #E54E27;
+}
+.main > #main-action > form > div > #options {
+  margin-top: 20px;
+  font-size: 20px;
+}
+.main > #main-action > form > div > #options > a {
+  color: #E54E27;
+}
+.main > #main-action > form > div > #options > a:hover {
+  color: #444;
+}
+.main > #main-action > form > #smartphone-selector > .dropdown {
+  padding: 0;
+  margin-top: 10px;
+}
+.main > #main-action > form > #smartphone-selector > .dropdown > .btn {
+  width: 100%;
+  border-radius: 3px;
+  margin: 0;
+  background-color: #EEE;
+  color: #444;
+  height: 40px;
+  font-size: 16px;
+  text-align: left;
+}
+.main > #main-action > form > #smartphone-selector > .dropdown > .btn > .caret {
+  margin-left: 170px;
+}
+.main > #main-action > form > #smartphone-selector > .dropdown > .btn:hover {
+  background-color: #FCFCFB;
+  color: #333;
+}
+.main #main-action > form > #smartphone-selector > .dropdown > .dropdown-menu {
+  background-color: #FCFCFB;
+  border-radius: 0;
+  border: 0px;
+}
+.main > #console > #console-head {
+  height: 30px;
+  margin-top: 25px;
+  background-color: #eee;
+  border-radius: 5px 5px 0px 0px;
+}
+.main > #console > #console-body {
+  height: 500px;
+  overflow: auto;
+  background-color: #333;
+  border: 1px solid #eee;
+  color: #FCFCFB;
+  font-family: "Source Code Pro"
+}
+.main > #console > #console-body > p{
+  margin-top: 20px;
+}
+
+.main > .intro {
+  margin-top: 25px;
+}
+.main > .intro > h1 {
+  font-size: 25px;
+  color: #666;
+  font-family: "Lato";
+}
+
+.main > #overview {
+  margin-top: 50px;
+}
+.main > #overview > #smartphone  {
+  --background: url('../img/smartphone.png') no-repeat scroll 0% 0% transparent;
+  height: 500px;
+}
+.main > #overview > #smartphone > #smartphone-top {
+  height: 35px;
+  width: 225px;
+  padding: 0;
+  border-left: 1px solid #666;
+  border-top: 1px solid #666;
+  border-right: 1px solid #666;
+  background-color: #333;
+  border-radius: 15px 15px 0px 0px;
+}
+.main > #overview > #smartphone > #smartphone-bottom {
+  height: 50px;
+  width: 225px;
+  padding: 0;
+  border-left: 1px solid #666;
+  border-top: 1px solid #666;
+  border-right: 1px solid #666;
+  background-color: #333;
+  border-radius: 0px 0px 15px 15px;
+}
+.main > #overview > #smartphone > #smartphone-img > img {
+  border-left: 2px solid #666;
+  border-right: 2px solid #666;
+}
+.main > #sources > .sourcefile > .filehead {
+  height: 30px;
+  background-color: #444;
+  border-radius: 5px 5px 0px 0px;
+}
+.main > #sources > .sourcefile > .filehead > h5 {
+  color: #FCFCFB;
+  font-family: "Lato";
+  margin-top: 0px;
+  padding-top: 5px;
+}
+.main > #sources > .sourcefile > .filecontent {
+  background-color: #333;
+  border-radius: 0px 0px 5px 5px;
+}
+.main > #sources > .sourcefile > .filecontent > pre {
+  background-color: #333;
+  border: none;
+  color: #FCFCFB;
+  font-family: "Source Code Pro";
+  margin: 0;
+}
+.main > #sources > #file-selector > .dropdown {
+  padding: 0;
+  margin-top: 10px;
+}
+.main > #sources > #file-selector > .dropdown > .btn {
+  width: 100%;
+  border-radius: 3px;
+  margin: 0;
+  background-color: #E54E27;
+  color: #FCFCFB;
+  height: 50px;
+  font-size: 18px;
+}
+.main > #sources > #file-selector > .dropdown > .btn:hover {
+  background-color: #444;
+}
+.main > #sources > #file-selector > .dropdown > .btn > .caret {
+  margin-left: 20px;
+}
+.main > #sources > #file-selector > .dropdown > .btn:hover {
+  background-color: #E54E27;
+  color: #FCFCFB;
+}
+.main > #sources > #file-selector > .dropdown > .dropdown-menu {
+  background-color: #FCFCFB;
+  border-radius: 0;
+  border: 0px;
+}
+
+
+/*
+* Footer
+*/
+
+footer {
+  height: 50px;
+  background-color: #3C3C3C;
+}
+

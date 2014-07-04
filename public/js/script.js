@@ -1,149 +1,100 @@
 var socket = io();
 
-var parameters = {
+var settings = {
 	widthView : 600,
-	heightView : 900,
+	heightView : 900, 
+	profil : 'undefined',
 	url : 'undefined'
 };
+var progressBar = {
+	total : 0,
+	done : 0,
+	status : 0
+};
 
-var totalstep = 0;
-var progress = 0;
-var checkOptions = 0;
-var sources;
-var hideViews = 0;
+var result = {};
 
-$('.input-options').hide();
-$('.page-title').hide();
-$('.smartphone-view').hide();
-$('.report').hide();
-$('.sourcefile').hide();
-$('.export').hide();
-$('.sidebar').hide();
-$('.showprogress').hide();
+/*
+*	functions
+*/
+function progress () {
+	progressBar.status = (progressBar.done/progressBar.total)*100;
+	$('.progress-bar').attr("aria-valuenow", progressBar.status);
+	$('.progress-bar').attr("style", "width:" + progressBar.status + "%");
+}
 
-$('#show-options').click('on', function(){
-	if(checkOptions == 0){
-		$('.input-options').show(); 
-		checkOptions = 1;
-	}
-	else{
-		$('.input-options').hide();
-		checkOptions = 0; 
-	}
-});
+function stringifySourceCode () {
+	result.source = result.source.replace('<', '&lt;');
+	result.source = result.source.replace('>', '&gt;');
+}
 
-$('#anewcheck').click('on', function(){
-	$('.check-form').show();
-	$('a').removeClass('active');
-	$('#anewcheck').addClass( "active" );
-	$('.smartphone-view').hide();
-	$('.report').hide();
-	$('.sourcefile').hide();
-	$('.export').hide();
-});
+function loadHomePage () {
+	$('.sidebar').hide();
+	$('#overview').hide();
+	$('#reports').hide();
+	$('#analytics').hide();
+	$('#sources').hide();
+	$('#export').hide();
+	$('#main-action').show();
+	$('.intro').show();
+}
 
-$('#aviews').click('on', function(){
-	$('.smartphone-view').show();
-	$('a').removeClass('active');
-	$('#aviews').addClass( "active" );
-	$('.check-form').hide();
-	$('.report').hide();
-	$('.sourcefile').hide();
-	$('.export').hide();
-	$('.showprogress').hide();
+function loadProgressPage () {
+	$('#main-action').hide();
+	$('.intro').hide();
+	$('.sidebar').hide();
+	$('#overview').hide();
+	$('#reports').hide();
+	$('#analytics').hide();
+	$('#sources').hide();
+	$('#export').hide();
+}
 
-});
-
-$('#areport').click('on', function(){
-	$('.report').show();
-	$('a').removeClass('active');
-	$('#areport').addClass( "active" );
-	$('.check-form').hide();
-	$('.smartphone-view').hide();
-	$('.sourcefile').hide();
-	$('.export').hide();
-	$('.showprogress').hide();
-});
-
-$('#asources').click('on', function(){
-	$('.sourcefile').show();
-	$('a').removeClass('active');
-	$('#asources').addClass( "active" );
-	$('.check-form').hide();
-	$('.smartphone-view').hide();
-	$('.report').hide();
-	$('.export').hide();
-	$('.showprogress').hide();
-});
-
-$('#aexport').click('on', function(){
-	$('.export').show();
-	$('a').removeClass('active');
-	$('#aexport').addClass( "active" );
-	$('.check-form').hide();
-	$('.smartphone-view').hide();
-	$('.report').hide();
-	$('.sourcefile').hide();
-	$('.showprogress').hide();
-});
-
-/* form and options manager */
-$('form').submit(function(){
-	parameters.url = $('#url').val();
-	socket.emit('url sent', parameters);
-    $('#url').val('');
-    $('#report .report-navigation').remove();
-    $('#report .report-content').remove();
-    return false;
-});
-
-$( "input" ).change(function() {
-	parameters.widthView = $('#width-range').val();
-	parameters.heightView = $('#height-range').val();
-	$("#widthView").text(parameters.widthView);
-	$("#heightView").text(parameters.heightView);
-});
-
-/* progress bar */
-socket.on('startprogress', function(total){
-	totalstep = total;
-	$('.check-form').hide();
-	$('.showprogress').show();
-});
-
-socket.on('inprogress', function(step){
-	progress = (step/totalstep)*100;
-	$('.progress-bar').attr("aria-valuenow", progress);
-	$('.progress-bar').attr("style", "width:" + progress + "%");
-	$('.progress-bar').text(progress + "%");
-});
-
-socket.on('endprogress', function(){
-});
-
-/* get report */
-socket.on('report', function(report){
-	sources = report.htmlContent;
-	sources = sources.replace('<', '&lt;');
-	sources = sources.replace('>', '&gt;');
-
+function loadResultPage () {
+	$('#main-action').hide();
+	$('.intro').hide();
 	$('.sidebar').show();
-	$('#anewcheck').addClass( "active" );
-	$(".nav-head").attr("class", "col-md-11 col-md-offset-1 nav-head");
-	$(".stripes").attr("class", "col-md-11 col-md-offset-1 stripes");
-	$('.smartphone-view').append($('<img src="screenshots/screenshot.png" alt="frame">'));
-	$('#htmlFile').text(sources);
-	$('.main').removeClass('col-md-10');
-	$('.main').addClass('col-md-11');
-	$('#time').text(report.speed + 'ms');
-	//$("#aviews").attr("href", "/views");
-	//$("#areport").attr("href", "/report");
-	//$("#asources").attr("href", "/sources");
-	//$("#aexport").attr("href", "/export");
-    //$("li").removeClass("off");
-	
-	//$('#report').append($('<div class="col-md-2 report-navigation"></div>'));
-	//$('#report').append($('<div class="col-md-10 report-content"><div class="page-header"></div></div>'));
-	//$('.report-content .page-header').append($('<h1>').text(report.title));
-	//$('.report-content .page-header').append($('<small>').text(report.title));
- });
+	$('#overview').show();
+	$('#reports').show();
+	$('#analytics').show();
+	$('#sources').show();
+	$('#export').show();
+}
+
+/*
+*	protocol
+*/
+
+loadHomePage();
+
+socket.on('start', function (data){
+	progressBar.total = data;
+	loadProgressPage();
+});
+
+socket.on('request', function (request){
+	$("#console-body").append('<p>' + request + '</p>');
+});
+
+socket.on('done', function (data){
+	progressBar.done++;
+	progress();
+});
+
+socket.on('end', function (data){
+	result.source = data.htmlContent;
+	$('#smartphone-img').append($('<img src="screenshots/screenshot.png" width="225px" height="374px" alt="screenshot">'));
+	$('#htmlFile').text(result.source);
+	stringifySourceCode();
+	loadResultPage();
+});
+
+$('form').submit(function (){
+	settings.url = $('input').val();
+    $('input').val('');
+	socket.emit('check', settings);
+	return false;
+});
+
+
+

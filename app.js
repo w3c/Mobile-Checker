@@ -1,10 +1,10 @@
 var express = require("express"),
-	  app = express(),
-	  http = require('http').Server(app),
-	  io = require('socket.io')(http),
-	  version = require("./package.json").version,
+	app = express(),
+	http = require('http').Server(app),
+	io = require('socket.io')(http),
+	version = require("./package.json").version,
     util = require("util"),
-    checkline = require("./lib/checkline"),
+    Checker = require("./lib/checker").Checker,
     events = require("events"),
     Q = require('q'),
     logger  = require('morgan');
@@ -19,30 +19,36 @@ function Sink () {}
 util.inherits(Sink, events.EventEmitter);
 
 
-
-
 app.get('/', function(req, res){
-  res.sendfile('index.html');
+    res.sendfile('index.html');
 });
 
 io.on('connection', function(socket){
-  console.log('user connect');
-  socket.on('url sent', function(options){
-    var sink = new Sink;
-    socket.emit('startprogress', 2);
-    checkline.run(options, sink);
-    step = 0;
-    sink.on("stepdone", function(){
-      step = step + 1;
-      console.log('step' + step + 'done');
-      socket.emit("inprogress", step);
-      return step;
-    });
-    sink.on("getReport end", function(report){
-      socket.emit("report", report);
-      return report;
-    });
-  }); 
+    console.log('user connect');
+    socket.on('check', function(options){
+        var sink = new Sink;
+        checkout = new Checker();
+        socket.emit('start', 7);
+        checkout.check({
+            url : options.url
+        ,   events : sink
+        ,   sockets : socket
+        ,   widthView : options.widthView
+        ,   heightView : options.heightView
+        });
+        step = 0;
+        sink.on("stepdone", function(){
+            step = step + 1;
+            console.log('step' + step + 'done');
+            socket.emit('done', step);
+            return step;
+        });
+        sink.on("getReport end", function(report){
+            console.log("on envoie le rapport");
+            socket.emit("end", report);
+        return report;
+        });
+    }); 
 });
 
 http.listen(3000, function(){
