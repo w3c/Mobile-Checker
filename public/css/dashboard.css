@@ -40,7 +40,8 @@ body {
   padding-right: 20px;
   padding-left: 20px;
   color: #666;
-  font-family: "Lato";
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
 }
 .nav-sidebar > li > a:hover {
   background-color: transparent;

@@ -89,7 +89,7 @@ socket.on('done', function (data){
 
 socket.on('end', function (data){
 	result.source = data.sources.html.content[0];
-	$('#smartphone-img').append($('<img src="screenshots/' + data.overviews.screenshot + '"' + 'width="225px" height="374px" alt="screenshot">'));
+	$('#smartphone-img').append($('<img src="screenshots/' + data.overviews.screenshot + '"' + 'width="225px" height="354px" alt="screenshot">'));
 	$('#htmlFile').text(result.source);
 	stringifySourceCode();
 	loadResultPage();
