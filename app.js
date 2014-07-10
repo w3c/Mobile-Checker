@@ -28,7 +28,7 @@ io.on('connection', function(socket){
     console.log("New connection from " + address.address + ":" + address.port);
     socket.on('check', function(options){
         var sink = new Sink;
-        
+
         sink.on("stepdone", function(){
             step = step + 1;
             console.log('step' + step + 'done');
@@ -41,7 +41,7 @@ io.on('connection', function(socket){
         return report;
         });
         checkout = new Checker();
-        socket.emit('start', 7);
+        socket.emit('start', 2);
         checkout.check({
             url : options.url
         ,   events : sink

@@ -77,16 +77,23 @@ socket.on('start', function (data){
 	progressBar.total = data;
 	loadProgressPage();
 });
-
-socket.on('request', function (request){
-	$("#console-body").append('<p>' + request + '</p>');
+socket.on('console', function (msg){
+	$("#console-body").append('<p>' + msg + '</p>');
 });
-
 socket.on('done', function (data){
 	progressBar.done++;
 	progress();
 });
+socket.on('ok', function (data){
+	$('#analytics').append($('<div class="col-md-12 ok"><h1>' + data + '</h1></div>'));
+});
+socket.on('warning', function (data){
+	$('#analytics').append($('<div class="col-md-12 warning"><h1>' + data + '</h1></div>'));
 
+});
+socket.on('err', function (data){
+	$('#analytics').append($('<div class="col-md-12 error"><h1>' + data + '</h1></div>'));
+});
 socket.on('end', function (data){
 	result.source = data.sources.html.content[0];
 	$('#smartphone-img').append($('<img src="screenshots/' + data.overviews.screenshot + '"' + 'width="225px" height="354px" alt="screenshot">'));
