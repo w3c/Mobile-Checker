@@ -32,6 +32,7 @@ var sink = new Sink();
         ,   events : sink
         ,   widthView : 600
         ,   heightView : 900
+        ,   ip : "test"
         });
         sink.on('stepdone', function () {
         	console.log('step done !');

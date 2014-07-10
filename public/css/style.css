@@ -124,17 +124,38 @@ header > #header-title > h1 {
   border-radius: 0;
   border: 0px;
 }
+.main > #console {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46);
+  margin-top: 25px;
+  padding: 0;
+  border-radius: 5px 5px 0px 0px;
+}
 .main > #console > #console-head {
   height: 30px;
-  margin-top: 25px;
   background-color: #eee;
   border-radius: 5px 5px 0px 0px;
+}
+#console-head > .circle{
+    height: 10px;
+    width: 10px;
+    float: left;
+    margin-top: 10px;
+    margin-left: 7px;
+    border-radius: 10px;
+}
+#console-head > #circle-red{
+    background-color: #D02E27;
+}
+#console-head > #circle-yellow{
+    background-color: #FFC621;
+}
+#console-head > #circle-green{
+    background-color: #27ae60;
 }
 .main > #console > #console-body {
   height: 500px;
   overflow: auto;
   background-color: #333;
-  border: 1px solid #eee;
   color: #FCFCFB;
   font-family: "Source Code Pro"
 }
@@ -153,34 +174,62 @@ header > #header-title > h1 {
 
 .main > #overview {
   margin-top: 50px;
+  padding: 0;
+}
+.main > #overview > #responsive-analytics {
+  padding: 0px;
+}
+.main > #overview > #responsive-analytics > .responsive-ok {
+  height: 80px;
+  background-color: #eee;
+  padding: 0;
+  margin-top: 20px;
+}
+.main > #overview > #responsive-analytics > .responsive-warning {
+  height: 80px;
+  background-color: #eee;
+  padding: 0;
+  margin-top: 20px;
+}
+.main > #overview > #responsive-analytics > .responsive-error {
+  height: 80px;
+  background-color: #eee;
+  padding: 0;
+  margin-top: 20px;
 }
 .main > #overview > #smartphone  {
-  --background: url('../img/smartphone.png') no-repeat scroll 0% 0% transparent;
   height: 500px;
+  padding: 0px;
 }
 .main > #overview > #smartphone > #smartphone-top {
-  height: 35px;
+  height: 40px;
   width: 225px;
   padding: 0;
   border-left: 1px solid #666;
   border-top: 1px solid #666;
   border-right: 1px solid #666;
   background-color: #333;
-  border-radius: 15px 15px 0px 0px;
+  border-radius: 20px 20px 0px 0px;
 }
 .main > #overview > #smartphone > #smartphone-bottom {
-  height: 50px;
+  height: 60px;
   width: 225px;
   padding: 0;
   border-left: 1px solid #666;
-  border-top: 1px solid #666;
+  border-top: 1px solid #333;
   border-right: 1px solid #666;
   background-color: #333;
-  border-radius: 0px 0px 15px 15px;
+  border-radius: 0px 0px 20px 20px;
 }
 .main > #overview > #smartphone > #smartphone-img > img {
-  border-left: 2px solid #666;
-  border-right: 2px solid #666;
+  border-left: 8px solid #333;
+  border-right: 8px solid #333;
+}
+.main > #sources{
+  padding: 0;
+}
+.main > #sources > .sourcefile {
+  padding: 0;
 }
 .main > #sources > .sourcefile > .filehead {
   height: 30px;

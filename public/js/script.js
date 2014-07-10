@@ -35,8 +35,11 @@ function loadHomePage () {
 	$('#analytics').hide();
 	$('#sources').hide();
 	$('#export').hide();
+	$('#console').hide();
+	$('.progressbar').hide();
 	$('#main-action').show();
 	$('.intro').show();
+
 }
 
 function loadProgressPage () {
@@ -48,13 +51,16 @@ function loadProgressPage () {
 	$('#analytics').hide();
 	$('#sources').hide();
 	$('#export').hide();
+	$('#tool-title').hide();
+	$('#console').show();
+	$('.progressbar').show();
 }
 
 function loadResultPage () {
 	$('#main-action').hide();
 	$('.intro').hide();
-	$('.sidebar').show();
-	$('#overview').show();
+	$('.sidebar').show(1000);
+	$('#overview').show(1000);
 	$('#reports').show();
 	$('#analytics').show();
 	$('#sources').show();
@@ -82,8 +88,8 @@ socket.on('done', function (data){
 });
 
 socket.on('end', function (data){
-	result.source = data.htmlContent;
-	$('#smartphone-img').append($('<img src="screenshots/screenshot.png" width="225px" height="374px" alt="screenshot">'));
+	result.source = data.sources.html.content[0];
+	$('#smartphone-img').append($('<img src="screenshots/' + data.overviews.screenshot + '"' + 'width="225px" height="374px" alt="screenshot">'));
 	$('#htmlFile').text(result.source);
 	stringifySourceCode();
 	loadResultPage();

@@ -24,19 +24,11 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', function(socket){
-    console.log('user connect');
+    var address = socket.handshake.address;
+    console.log("New connection from " + address.address + ":" + address.port);
     socket.on('check', function(options){
         var sink = new Sink;
-        checkout = new Checker();
-        socket.emit('start', 7);
-        checkout.check({
-            url : options.url
-        ,   events : sink
-        ,   sockets : socket
-        ,   widthView : options.widthView
-        ,   heightView : options.heightView
-        });
-        step = 0;
+        
         sink.on("stepdone", function(){
             step = step + 1;
             console.log('step' + step + 'done');
@@ -48,6 +40,17 @@ io.on('connection', function(socket){
             socket.emit("end", report);
         return report;
         });
+        checkout = new Checker();
+        socket.emit('start', 7);
+        checkout.check({
+            url : options.url
+        ,   events : sink
+        ,   sockets : socket
+        ,   widthView : options.widthView
+        ,   heightView : options.heightView
+        ,   ip : address.address
+        });
+        step = 0;
     }); 
 });
 
