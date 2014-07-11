@@ -13,7 +13,7 @@ var progressBar = {
 };
 
 var result = {};
-
+var smartphoneSelectorHidden = 1;
 /*
 *	functions
 */
@@ -37,6 +37,7 @@ function loadHomePage () {
 	$('#export').hide();
 	$('#console').hide();
 	$('.progressbar').hide();
+	$('.table').hide();
 	$('#main-action').show();
 	$('.intro').show();
 
@@ -70,6 +71,16 @@ function loadResultPage () {
 /*
 *	protocol
 */
+
+$('#smartphone-selector').click(function (){
+	if (smartphoneSelectorHidden == 1) {
+		$('.table').show();
+		smartphoneSelectorHidden = 0;
+	}else {
+		$('.table').hide();
+		smartphoneSelectorHidden = 1;
+	}
+});
 
 loadHomePage();
 
