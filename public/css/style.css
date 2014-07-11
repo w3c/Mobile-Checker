@@ -260,6 +260,9 @@ header > #header-title > h1 {
   border-right: 12px solid #222;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46);
 }
+.main > #analytics {
+  padding: 0;
+}
 .main > #analytics > div{
   margin-top: 20px;
 }
