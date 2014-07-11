@@ -5,7 +5,7 @@
 		<meta charset='utf-8'>
 		<title>Mobile Checker</title>
 		<link rel="shortcut icon" type="image/x-icon" href="img/earth.svg">
-        <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -46,7 +46,7 @@
 
         	<div class="col-sm-9 col-sm-offset-3 col-md-8 col-md-offset-2 main">
         		<div id="tool-title" class="col-md-12">
-        			<h1 class="page-header"> Mobile Checker Tool</h1>
+        			<h1> Mobile Checker Tool</h1>
         		</div>
         		
         		<div id="main-action" class="col-md-12">
@@ -62,7 +62,7 @@
 						</div>
                             <div id="smartphone-selector" class="col-md-12">
                                 <div class="col-md-12">
-                                    <button id="smartphone-selector" class="btn col-md-12" type="button">
+                                    <button id="smartphone-selector-btn" class="btn col-md-12" type="button">
                                         select smartphone
                                     </button>
                                         <table class="table table-striped">
@@ -102,15 +102,21 @@
                                 </div>
                             </div>
                             <div id="smartphone-selector" class="col-md-12">
-                                <div class="dropdown col-md-12">
-                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                                <div class="col-md-12">
+                                    <button id="check-selector-button" class="btn col-md-12" type="button">
                                         select checks
                                     </button>
-                                    <ul class="dropdown-menu col-md-12" role="menu" aria-labelledby="dropdownMenu1">
-                                        <li role="presentation"><a>check1</a></li>
-                                        <li role="presentation"><a>check2</a></li>
-                                        <li role="presentation"><a>check3</a></li>
-                                    </ul>
+
+                                    <select multiple class="form-control select">
+                                        <option>responsive</option>
+                                        <option>speed</option>
+                                        <option>checkname</option>
+                                        <option>checkname</option>
+                                        <option>checkname</option>
+                                        <option>checkname</option>
+                                        <option>checkname</option>
+                                    </select>
+
                                 </div>
                             </div>
         			</form>	
@@ -119,15 +125,15 @@
         		
         		<div class="col-md-4 intro intro1">
         			<h1>about the mobile checker</h1>
-        			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
         		</div>
         		<div class="col-md-4 intro intro2">
         			<h1>world wide web developers</h1>
-        			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo </p>
         		</div>
         		<div class="col-md-4 intro intro3">
         			<h1>send us a comment</h1>
-        			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
         		</div>
 
         		<div id="overview" class="col-md-12">
@@ -190,7 +196,6 @@
 				
         	</div>
       	</div>
-
 		<script src='js/jquery.min.js'></script>
   		<script src='js/bootstrap.min.js'></script>
   		<script src='js/socket.io.js'></script>

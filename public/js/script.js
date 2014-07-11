@@ -14,6 +14,7 @@ var progressBar = {
 
 var result = {};
 var smartphoneSelectorHidden = 1;
+var checkSelectorHidden = 1;
 /*
 *	functions
 */
@@ -38,6 +39,7 @@ function loadHomePage () {
 	$('#console').hide();
 	$('.progressbar').hide();
 	$('.table').hide();
+	$('.select').hide();
 	$('#main-action').show();
 	$('.intro').show();
 
@@ -66,19 +68,30 @@ function loadResultPage () {
 	$('#analytics').show();
 	$('#sources').show();
 	$('#export').show();
+	$('#tool-title').show();
 }
 
 /*
 *	protocol
 */
 
-$('#smartphone-selector').click(function (){
+$('#smartphone-selector-btn').click(function (){
 	if (smartphoneSelectorHidden == 1) {
 		$('.table').show();
 		smartphoneSelectorHidden = 0;
 	}else {
 		$('.table').hide();
 		smartphoneSelectorHidden = 1;
+	}
+});
+
+$('#check-selector-button').click(function (){
+	if (checkSelectorHidden == 1) {
+		$('.select').show();
+		checkSelectorHidden = 0;
+	}else {
+		$('.select').hide();
+		checkSelectorHidden = 1;
 	}
 });
 

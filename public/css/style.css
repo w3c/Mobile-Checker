@@ -1,6 +1,12 @@
-body {
-}
 
+html, body{
+   margin: 0px;
+   padding: 0px;
+   outline: 0px;
+   height: 100%;
+   font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
 
 /*
 * Header
@@ -62,6 +68,10 @@ header > #header-title > h1 {
   font-size: 30px;
   margin-bottom: 0px;
   margin-top: 30px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 35px;
+  font-weight: 300;
+  text-align: center;
 }
 .main > #main-action {
   margin-top: 20px;
@@ -71,6 +81,8 @@ header > #header-title > h1 {
   color: #666;
   font-size: 18px;
   margin-bottom: 50px;
+  font-weight: 400;
+  text-align: center;
 }
 .main > #main-action > form > div > input {
   border: 1px solid #eee;
@@ -86,6 +98,8 @@ header > #header-title > h1 {
   width: 100%;
   color: #FCFCFB;
   font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   background-color: #E54E27;
 }
 .main > #main-action > form > div > #options {
@@ -164,11 +178,17 @@ header > #header-title > h1 {
 }
 .main > .intro {
   margin-top: 25px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: #444;
 }
 .main > .intro > h1 {
   font-size: 25px;
-  color: #666;
-  font-family: "Lato";
+  color: #333;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  
 }
 
 .main > #overview {
@@ -322,7 +342,8 @@ header > #header-title > h1 {
 */
 
 footer {
-  height: 50px;
+  height: 40px;
   background-color: #3C3C3C;
+  bottom: 0px;
 }
 
