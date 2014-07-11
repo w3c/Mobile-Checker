@@ -61,15 +61,44 @@
 							<button type="submit" class="btn">Check</button>
 						</div>
                             <div id="smartphone-selector" class="col-md-12">
-                                <div class="dropdown col-md-12">
-                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                                <div class="col-md-12">
+                                    <button class="btn col-md-12" type="button">
                                         select smartphone
                                     </button>
-                                    <ul class="dropdown-menu col-md-12" role="menu" aria-labelledby="dropdownMenu1">
-                                        <li role="presentation"><a>Iphone5</a></li>
-                                        <li role="presentation"><a>GalaxyS4</a></li>
-                                        <li role="presentation"><a>Lumia920</a></li>
-                                    </ul>
+                                        <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                            <th>select</th>
+                                            <th>model</th>
+                                            <th>operating system</th>
+                                            <th>device-width</th>
+                                            <th>aspect ratio</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                            <td><input name="smartphone" type="radio" value="iPhone4-4s"></td>
+                                            <td>iPhone4/4s</td>
+                                            <td>iOS</td>
+                                            <td>320</td>
+                                            <td>2:3</td>
+                                            </tr>
+                                            <tr>
+                                            <td><input name="smartphone" type="radio" value="iPhone5-5s"></td>
+                                            <td>iPhone5/5s</td>
+                                            <td>iOS</td>
+                                            <td>320</td>
+                                            <td>40:71</td>
+                                            </tr>
+                                            <tr>
+                                            <td><input name="smartphone" type="radio" value="GalaxyNote"></td>
+                                            <td>GalaxyNote</td>
+                                            <td>Android</td>
+                                            <td>400</td>
+                                            <td>5:8</td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
                                 </div>
                             </div>
                             <div id="smartphone-selector" class="col-md-12">

@@ -3,7 +3,7 @@ var socket = io();
 var settings = {
 	widthView : 600,
 	heightView : 900, 
-	profil : 'undefined',
+	profile : 'undefined',
 	url : 'undefined'
 };
 var progressBar = {
@@ -103,8 +103,9 @@ socket.on('end', function (data){
 });
 
 $('form').submit(function (){
-	settings.url = $('input').val();
-    $('input').val('');
+	settings.url = $('#url').val();
+	settings.profile = $('input[name="smartphone"]:radio:checked').val();
+    $('#url').val('');
 	socket.emit('check', settings);
 	return false;
 });

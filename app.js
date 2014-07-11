@@ -49,6 +49,7 @@ io.on('connection', function(socket){
         ,   widthView : options.widthView
         ,   heightView : options.heightView
         ,   ip : address.address
+        ,   profile : options.profile
         });
         step = 0;
     }); 
