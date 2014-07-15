@@ -33,7 +33,7 @@ function loadHomePage () {
 	$('.sidebar').hide();
 	$('#overview').hide();
 	$('#reports').hide();
-	$('#analytics').hide();
+	//$('#analytics').hide();
 	$('#sources').hide();
 	$('#export').hide();
 	$('#console').hide();
@@ -42,6 +42,7 @@ function loadHomePage () {
 	$('.select').hide();
 	$('#main-action').show();
 	$('.intro').show();
+	$('#analytics').show();
 
 }
 
@@ -51,7 +52,7 @@ function loadProgressPage () {
 	$('.sidebar').hide();
 	$('#overview').hide();
 	$('#reports').hide();
-	$('#analytics').hide();
+	//$('#analytics').hide();
 	$('#sources').hide();
 	$('#export').hide();
 	$('#tool-title').hide();
@@ -65,8 +66,8 @@ function loadResultPage () {
 	$('.sidebar').show(1000);
 	$('#overview').show(1000);
 	$('#reports').show();
-	$('#analytics').show();
-	$('#sources').show();
+	//$('#analytics').show();
+	//$('#sources').show();
 	$('#export').show();
 	$('#tool-title').show();
 }
@@ -109,14 +110,12 @@ socket.on('done', function (data){
 	progress();
 });
 socket.on('ok', function (data){
-	$('#analytics').append($('<div class="col-md-12 ok"><h1>' + data + '</h1></div>'));
 });
 socket.on('warning', function (data){
-	$('#analytics').append($('<div class="col-md-12 warning"><h1>' + data + '</h1></div>'));
-
+	$('#analytics').append($('<div class="col-md-12 error"><div class="col-md-11"><p><img src="img/issue-warning.svg" width="35px" style="margin-right:10px;">' + data + '</p></div></div>'));
 });
 socket.on('err', function (data){
-	$('#analytics').append($('<div class="col-md-12 error"><h1>' + data + '</h1></div>'));
+	$('#analytics').append($('<div class="col-md-12 error"><div class="col-md-11"><p><img src="img/issue-error.svg" width="35px" style="margin-right:10px;">' + data + '</p></div></div>'));
 });
 socket.on('end', function (data){
 	result.source = data.sources.html.content[0];

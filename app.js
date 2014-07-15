@@ -28,17 +28,12 @@ io.on('connection', function(socket){
     console.log("New connection from " + address.address + ":" + address.port);
     socket.on('check', function(options){
         var sink = new Sink;
-
         sink.on("stepdone", function(){
             step = step + 1;
-            console.log('step' + step + 'done');
             socket.emit('done', step);
-            return step;
         });
         sink.on("getReport end", function(report){
-            console.log("on envoie le rapport");
             socket.emit("end", report);
-        return report;
         });
         checkout = new Checker();
         socket.emit('start', 2);
@@ -50,6 +45,7 @@ io.on('connection', function(socket){
         ,   heightView : options.heightView
         ,   ip : address.address
         ,   profile : options.profile
+        ,   lang : "en"
         });
         step = 0;
     }); 

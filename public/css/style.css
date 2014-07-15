@@ -24,7 +24,7 @@ header > .navbar-brand {
 }
 header > #header-logo {
   text-align: center;
-  margin-top: 10px;
+  margin-top: 3px;
 }
 header > #header-title {
   margin: 0px;
@@ -41,7 +41,7 @@ header > #header-title > h1 {
   margin: 0px;
   padding: 0px;
   font-family: "Lato";
-  font-size: 30px;
+  font-size: 25px;
   color: #666;
 }
 
@@ -272,7 +272,9 @@ header > #header-title > h1 {
   font-size: 20px; 
 }
 .main > #analytics > .error {
-  background-color: #D02E27;
+}
+.main > #analytics {
+  font-size: 16px;
 }
 .main > #analytics > .warning {
   background-color: #FFC621;
