@@ -2,11 +2,9 @@ var express = require("express"),
 	app = express(),
 	http = require('http').Server(app),
 	io = require('socket.io')(http),
-	version = require("./package.json").version,
     util = require("util"),
     Checker = require("./lib/checker").Checker,
     events = require("events"),
-    Q = require('q'),
     logger  = require('morgan');
 
 var fs = require("fs");
@@ -25,26 +23,35 @@ app.get('/', function(req, res){
 
 io.on('connection', function(socket){
     var address = socket.handshake.address;
-    console.log("New connection from " + address.address + ":" + address.port);
-    socket.on('check', function(options){
-        var sink = new Sink;
-        sink.on("stepdone", function(){
-            step = step + 1;
+    socket.on('check', function(data){
+        var sink = new Sink
+        ,   checker = new Checker
+        ;
+        sink.on('ok', function(msg){
+            socket.emit('ok', msg);
+        });
+        sink.on('warning', function(msg){
+            socket.emit('warning', msg);
+        });
+        sink.on('err', function(msg){
+            socket.emit('err', msg);
+        });
+        sink.on('done', function(){
+            step++;
             socket.emit('done', step);
         });
-        sink.on("getReport end", function(report){
-            socket.emit("end", report);
+        sink.on('end', function(report){
+            socket.emit('end', report);
         });
-        checkout = new Checker();
         socket.emit('start', 2);
-        checkout.check({
-            url : options.url
+        checker.check({
+            url : data.url
         ,   events : sink
         ,   sockets : socket
-        ,   widthView : options.widthView
-        ,   heightView : options.heightView
+        ,   widthView : data.widthView
+        ,   heightView : data.heightView
         ,   ip : address.address
-        ,   profile : options.profile
+        ,   profile : data.profile
         ,   lang : "en"
         });
         step = 0;
