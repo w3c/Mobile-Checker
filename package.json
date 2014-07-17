@@ -7,9 +7,7 @@
         "requirejs": "2.1.14",
         "socket.io": "1.0.4",
         "mocha": "1.20.1",
-        "phantom": "0.6.3",
         "morgan": "1.1.1",
-        "phantomjs": "1.9.7",
         "q": "0.9.7"    
     }
 }
