@@ -24,4 +24,10 @@ Connect on the localhost:3000 port.
 
 ## Testing
 
-coming soon...
+Testing is done using mocha. Simply run:
+
+    mocha --timeout 30000
+
+from the root and you will be running the test suite. Mocha can be installed with:
+
+    npm install -g mocha

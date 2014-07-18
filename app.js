@@ -9,6 +9,11 @@ var express = require("express"),
 
 var fs = require("fs");
 var step;
+var checklist = [
+    require('./lib/checks/performance/load-speed')
+,   require('./lib/checks/responsive/doc-width')
+,   require('./lib/checks/responsive/meta-viewport')
+];
 
 app.use(logger());
 app.use(express.static("public"));
@@ -43,7 +48,7 @@ io.on('connection', function(socket){
         sink.on('end', function(report){
             socket.emit('end', report);
         });
-        socket.emit('start', 2);
+        socket.emit('start', 3);
         checker.check({
             url : data.url
         ,   events : sink
@@ -52,6 +57,7 @@ io.on('connection', function(socket){
         ,   heightView : data.heightView
         ,   ip : address.address
         ,   profile : data.profile
+        ,   checklist : checklist
         ,   lang : "en"
         });
         step = 0;

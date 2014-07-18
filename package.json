@@ -4,10 +4,9 @@
     "license": "MIT",
     "dependencies": {
         "express": "4.4.1",
-        "requirejs": "2.1.14",
         "socket.io": "1.0.4",
         "mocha": "1.20.1",
         "morgan": "1.1.1",
-        "q": "0.9.7"    
+        "expect.js": "0.3.1"    
     }
 }
