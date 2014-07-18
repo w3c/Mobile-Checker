@@ -14,6 +14,15 @@ var tests = {
         ,   {doc: "width_fail.html", errors: ["responsive.doc-width"]} //fail
         ,   {doc: "width_success.html"} //pass
         ]
+    ,   "meta-viewport": [
+        ,   {doc: "viewport_incorrect-initial-scale.html", errors: ["incorrect-initial-scale"]} //fail
+        ,   {doc: "viewport_incorrect-width.html", errors: ["incorrect-width"]}
+        ,   {doc: "viewport_many-viewport.html", errors: ["many-viewport"]}
+        ,   {doc: "viewport_no-initial-scale.html", errors: ["no-initial-scale"]}
+        ,   {doc: "viewport_no-meta-viewport.html", errors: ["no-meta-viewport"]}
+        ,   {doc: "viewport_no-width.html", errors: ["no-width"]}
+        ,   {doc: "viewport_ok.html"}
+    ]
     }
 }
 
