@@ -41,25 +41,20 @@ Object.keys(tests).forEach(function (category) {
             describe("Check " + check, function () {
                 tests[category][check].forEach(function (test) {
                     var passTest = test.errors ? false : true;
-                    it("should " + (passTest ? "pass" : "fail") + "for " + test.doc, function (done) {
+                    it("should " + (passTest ? "pass" : "fail") + " for " + test.doc, function (done) {
                         var c = require("../lib/checks/" + category + "/" + check)
                         ,   sink = new Sink
                         ;
-                        console.log(test.doc);
                         sink.on('ok', function () {
-                            console.log("ok");
                             sink.ok++;
                         });
                         sink.on('warning', function (type) {
-                            console.log("warning");
                             sink.errors.push(type);
                         });
                         sink.on('err', function (type) {
-                            console.log("error");
                             sink.errors.push(type);
                         });
                         sink.on('done', function () {
-                            console.log('done');
                             sink.done++;
                         });
                         sink.on('end', function () {
@@ -74,7 +69,6 @@ Object.keys(tests).forEach(function (category) {
                                 }*/
 
                             }
-                            console.log(sink);
                             done();
                         });
                         checker.check({
