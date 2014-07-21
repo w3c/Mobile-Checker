@@ -6,21 +6,27 @@ var Checker = require("../lib/checker").Checker
 ,   util = require("util")
 ;
 
+var l10n = function(errid) {
+    console.log(checker);
+    var components = errid.split(".");
+    return checker.l10n.message("en", components[0], components[1], components[2]);
+}
+
 var tests = {
     //Categories
     responsive : {
         //Checks
         "doc-width": [
-        ,   {doc: "width_fail.html", errors: ["responsive.doc-width"]} //fail
+        ,   {doc: "width_fail.html", errors: ["responsive.doc-width.err"]} //fail
         ,   {doc: "width_success.html"} //pass
         ]
     ,   "meta-viewport": [
-        ,   {doc: "viewport_incorrect-initial-scale.html", errors: ["incorrect-initial-scale"]} //fail
-        ,   {doc: "viewport_incorrect-width.html", errors: ["incorrect-width"]}
-        ,   {doc: "viewport_many-viewport.html", errors: ["many-viewport"]}
-        ,   {doc: "viewport_no-initial-scale.html", errors: ["no-initial-scale"]}
-        ,   {doc: "viewport_no-meta-viewport.html", errors: ["no-meta-viewport"]}
-        ,   {doc: "viewport_no-width.html", errors: ["no-width"]}
+        ,   {doc: "viewport_incorrect-initial-scale.html", errors: ["responsive.meta-viewport.6"]} //fail
+        ,   {doc: "viewport_incorrect-width.html", errors: ["responsive.meta-viewport.5"]}
+        ,   {doc: "viewport_many-viewport.html", errors: ["responsive.meta-viewport.2"]}
+        ,   {doc: "viewport_no-initial-scale.html", errors: ["responsive.meta-viewport.4"]}
+        ,   {doc: "viewport_no-meta-viewport.html", errors: ["responsive.meta-viewport.0"]}
+        ,   {doc: "viewport_no-width.html", errors: ["responsive.meta-viewport.3"]}
         ,   {doc: "viewport_ok.html"}
     ]
     }
@@ -41,25 +47,20 @@ Object.keys(tests).forEach(function (category) {
             describe("Check " + check, function () {
                 tests[category][check].forEach(function (test) {
                     var passTest = test.errors ? false : true;
-                    it("should " + (passTest ? "pass" : "fail") + "for " + test.doc, function (done) {
+                    it("should " + (passTest ? "pass" : "fail") + " for " + test.doc, function (done) {
                         var c = require("../lib/checks/" + category + "/" + check)
                         ,   sink = new Sink
                         ;
-                        console.log(test.doc);
                         sink.on('ok', function () {
-                            console.log("ok");
                             sink.ok++;
                         });
                         sink.on('warning', function (type) {
-                            console.log("warning");
                             sink.errors.push(type);
                         });
                         sink.on('err', function (type) {
-                            console.log("error");
                             sink.errors.push(type);
                         });
                         sink.on('done', function () {
-                            console.log('done');
                             sink.done++;
                         });
                         sink.on('end', function () {
@@ -68,13 +69,12 @@ Object.keys(tests).forEach(function (category) {
                                 expect(sink.ok).to.eql(sink.done);
                             }
                             else{
-                                expect(sink.errors.length).to.eql(test.errors.length);
+                                expect(sink.errors).to.eql(test.errors.map(l10n));
                                 /*for (var i = 0, n = test.errors.length; i < n; i++) {
                                     expect(sink.errors).to.contain(test.errors[i]);
                                 }*/
 
                             }
-                            console.log(sink);
                             done();
                         });
                         checker.check({
