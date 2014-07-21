@@ -55,7 +55,6 @@ io.on('connection', function(socket){
         ,   sockets : socket
         ,   widthView : data.widthView
         ,   heightView : data.heightView
-        ,   ip : address.address
         ,   profile : data.profile
         ,   checklist : checklist
         ,   lang : "en"
