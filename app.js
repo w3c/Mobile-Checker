@@ -57,6 +57,7 @@ io.on('connection', function(socket){
         ,   heightView : data.heightView
         ,   profile : data.profile
         ,   checklist : checklist
+        ,   ip : address
         ,   lang : "en"
         });
         step = 0;
