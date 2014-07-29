@@ -112,10 +112,10 @@ socket.on('done', function (data){
 socket.on('ok', function (data){
 });
 socket.on('warning', function (data){
-	$('#analytics').append($('<div class="col-md-12 error"><div class="col-md-11"><p><img src="img/issue-warning.svg" width="35px" style="margin-right:10px;">' + data + '</p></div></div>'));
+	$('#analytics').append($('<div class="col-md-12 error"><div class="col-md-11"><p><img src="img/issue-warning.svg" width="35px" style="margin-right:10px;">' + data.title + '</p></div></div>'));
 });
 socket.on('err', function (data){
-	$('#analytics').append($('<div class="col-md-12 error"><div class="col-md-11"><p><img src="img/issue-error.svg" width="35px" style="margin-right:10px;">' + data + '</p></div></div>'));
+	$('#analytics').append($('<div class="col-md-12 error"><div class="col-md-11"><p><img src="img/issue-error.svg" width="35px" style="margin-right:10px;">' + data.title + '</p></div></div>'));
 });
 socket.on('end', function (data){
 	result.source = data.sources.html.content[0];
