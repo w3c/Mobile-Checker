@@ -13,6 +13,7 @@ var checklist = [
     require('./lib/checks/performance/load-speed')
 ,   require('./lib/checks/responsive/doc-width')
 ,   require('./lib/checks/responsive/meta-viewport')
+,   require('./lib/checks/compatibility/flash-detection')
 ];
 
 app.use(logger());
@@ -33,20 +34,17 @@ io.on('connection', function(socket){
         ,   checker = new Checker
         ;
         sink.on('ok', function(msg){
-            //console.log(msg);
             socket.emit('ok', msg);
         });
         sink.on('warning', function(msg){
-            //console.log(msg);
             socket.emit('warning', msg);
         });
         sink.on('err', function(msg){
-            console.log(msg);
             socket.emit('err', msg);
         });
         sink.on('done', function(){
             step++;
-            console.log('step done');
+            console.log('done');
             socket.emit('done', step);
         });
         sink.on('end', function(report){
