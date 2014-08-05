@@ -33,16 +33,20 @@ io.on('connection', function(socket){
         ,   checker = new Checker
         ;
         sink.on('ok', function(msg){
+            //console.log(msg);
             socket.emit('ok', msg);
         });
         sink.on('warning', function(msg){
+            //console.log(msg);
             socket.emit('warning', msg);
         });
         sink.on('err', function(msg){
+            console.log(msg);
             socket.emit('err', msg);
         });
         sink.on('done', function(){
             step++;
+            console.log('step done');
             socket.emit('done', step);
         });
         sink.on('end', function(report){

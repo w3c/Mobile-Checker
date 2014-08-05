@@ -1,207 +1,102 @@
 <!DOCTYPE html>
-
-<html lang="en">
-	<head>
-		<meta charset='utf-8'>
-		<title>Mobile Checker</title>
-		<link rel="shortcut icon" type="image/x-icon" href="img/earth.svg">
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>mobile checker</title>
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<link rel="stylesheet" type="text/css" href="css/dashboard.css">
+        <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <section id="home">
+            <nav class="navbar navbar-fixed-top">
+                <div class="col-md-1"><a href="http://w3.org"><img src="img/w3c.svg" height="62px"></a></div>
+                <div id="section-title" class="col-md-10"><h3>MOBILE | CHECKER</h3></div>
+            </nav>
+            <header class="col-md-12">
+                <form class="col-md-12">
+                    <div class="col-md-6 col-md-offset-2"><input id="url" placeholder="http://example.com"></div>
+                    <div class="col-md-1"><button><span class="glyphicon glyphicon-ok"></span></button></div>
+                </form>
+                <div id="options" class="col-md-8 col-md-offset-2">
+                    <div class="dropdown col-md-2">
+                        <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+                         <p id="device-selected">Device</p> <span class="caret"></span>
+                        </a>
 
-	</head>
 
-	<body>
-
-		<header class="navbar">
-			<div id="header-logo" class="col-md-1 col-md-offset-2 navbar-brand">
-				<img src="img/w3c.svg" height="60px">
-			</div>
-			<div id="header-title" class="col-md-3 navbar-brand">
-				<h4>World Wide Web</h4>
-				<h1>Developers</h1>
-			</div>
-		</header>
-
-		<div class="col-md-12 progressbar">
-			<div class="progress">
-  				<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
-  				</div>
-			</div>
-		</div>
-
-		<div class="container-fluid">
-      		<div class="row">
-        		<div class="col-sm-3 col-md-2 sidebar">
-          			<ul class="nav nav-sidebar">
-            			<li><a href="#">Overview</a></li>
-            			<li><a href="#">Reports</a></li>
-            			<li><a href="#">Analytics</a></li>
-            			<li><a href="#">Sources</a></li>
-            			<li><a href="#">Export</a></li>
-          			</ul>
-        		</div>
-        	</div>
-
-        	<div class="col-sm-9 col-sm-offset-3 col-md-8 col-md-offset-2 main">
-        		<div id="tool-title" class="col-md-12">
-        			<h1> Mobile Checker Tool</h1>
-        		</div>
-        		
-        		<div id="main-action" class="col-md-12">
-        			<div id="tool-description" class="col-md-12">
-        				<p>The Mobile Checker is a perfect tool for Web developers who want to make their Web page or Web app work better on mobile devices.</p>
-        			</div>
-        			<form>
-        				<div class="col-md-10">
-  							<input id="url" type="text" class="form-control" placeholder="www.example.com">
-						</div>
-						<div class="col-md-2">
-							<button type="submit" class="btn">Check</button>
-						</div>
-                            <div id="smartphone-selector" class="col-md-12">
-                                <div class="col-md-12">
-                                    <button id="smartphone-selector-btn" class="btn col-md-12" type="button">
-                                        select smartphone
-                                    </button>
-                                        <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                            <th>select</th>
-                                            <th>model</th>
-                                            <th>operating system</th>
-                                            <th>device-width</th>
-                                            <th>aspect ratio</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                            <td><input name="smartphone" type="radio" value="iPhone4-4s"></td>
-                                            <td>iPhone4/4s</td>
-                                            <td>iOS</td>
-                                            <td>320</td>
-                                            <td>2:3</td>
-                                            </tr>
-                                            <tr>
-                                            <td><input name="smartphone" type="radio" value="iPhone5-5s"></td>
-                                            <td>iPhone5/5s</td>
-                                            <td>iOS</td>
-                                            <td>320</td>
-                                            <td>40:71</td>
-                                            </tr>
-                                            <tr>
-                                            <td><input name="smartphone" type="radio" value="GalaxyNote"></td>
-                                            <td>GalaxyNote</td>
-                                            <td>Android</td>
-                                            <td>400</td>
-                                            <td>5:8</td>
-                                            </tr>
-                                        </tbody>
-                                        </table>
-                                </div>
-                            </div>
-                            <div id="smartphone-selector" class="col-md-12">
-                                <div class="col-md-12">
-                                    <button id="check-selector-button" class="btn col-md-12" type="button">
-                                        select checks
-                                    </button>
-
-                                    <select multiple class="form-control select">
-                                        <option>responsive</option>
-                                        <option>speed</option>
-                                        <option>checkname</option>
-                                        <option>checkname</option>
-                                        <option>checkname</option>
-                                        <option>checkname</option>
-                                        <option>checkname</option>
-                                    </select>
-
-                                </div>
-                            </div>
-        			</form>	
-        		</div>
-
-        		
-        		<div class="col-md-4 intro intro1">
-        			<h1>about the mobile checker</h1>
-        			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-        		</div>
-        		<div class="col-md-4 intro intro2">
-        			<h1>world wide web developers</h1>
-        			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo </p>
-        		</div>
-        		<div class="col-md-4 intro intro3">
-        			<h1>send us a comment</h1>
-        			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
-        		</div>
-
-        		<div id="overview" class="col-md-12">
-        			<div id="smartphone" class="col-md-4">
-        				<div id="smartphone-top" class=""></div>
-        					<div id="smartphone-img"></div>
-        				<div id="smartphone-bottom" class="col-md-12">
-                            <div id="circle-smartphone" class="circle"></div>
-                        </div>
-        			</div>
-                    <div id="responsive-analytics" class="col-md-8">
-                        <div class="responsive-ok"></div>
-                        <div class="responsive-warning"></div>
-                        <div class="responsive-error"></div>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                            <li><a id="default" class="device-selector" data-target="#">default</a></li>
+                            <li><a id="iPhone4-4s" class="device-selector" data-target="#">iPhone4-4s</a></li>
+                            <li><a id="iPhone5-5s" class="device-selector" data-target="#">iPhone5-5s</a></li>
+                            <li><a id="GalaxyNote" class="device-selector" data-target="#">GalaxyNote</a></li>
+                         </ul>
                     </div>
-        		</div>
-        		
-        		<div id="reports" class="col-md-12">
-                    
-        		</div>
+                    <!--<div class="dropdown col-md-2">
+                        <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+                         Browser <span class="caret"></span>
+                        </a>
 
-        		<div id="analytics" class="col-md-12">
-        		</div>
 
-        		<div id="sources" class="col-md-12">
-
-        			<div class="sourcefile col-md-12">
-        				<div class="filehead col-md-12">
-        					<h5>namefile.ext</h5>
-        				</div>
-        				<div class="filecontent col-md-12">
-        					<pre id="htmlFile">
-							</pre>
-        				</div>
-        			</div>
-        			<div id="file-selector" class="col-md-12">
-                        <div class="dropdown col-md-2 col-md-offset-5">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-                                select file
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu col-md-12" role="menu" aria-labelledby="dropdownMenu1">
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">filename.css</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">filename.html</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">filename.js</a></li>
-                            </ul>
-                        </div>
-                    </div>
-        		</div>
-                <div id="console" class="col-md-12">
-                    <div id="console-head" class="col-md-12">
-                        <div id="circle-red" class="circle"></div>
-                        <div id="circle-yellow" class="circle"></div>
-                        <div id="circle-green" class="circle"></div>
-                    </div>
-                    <div id="console-body" class="col-md-12">
-                        <p> >_</p>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                            <li><a href="">saphari</a></li>
+                            <li><a href="">chrome</a></li>
+                         </ul>
+                    </div>-->
+                </div>
+            </header>
+        </section>
+        <section id="report" class="col-md-12">
+            <nav class="navbar navbar-fixed-top">
+                <div class="col-md-1"><a href=""><span class="glyphicon glyphicon-chevron-left"></span></a></div>
+                <div id="section-title" class="col-md-1"><h3>REPORT</h3></div>
+            </nav>
+            <h3 id="score-title">Score</h3>
+            <div id="score" class="col-md-8">
+                <div id="total-score"><h1>345</h1></div>
+            </div>
+            <h3 id="issues-title" class="col-md-8">Issues</h3>
+            <div id="issues-feed" class="col-md-8">
+               <!--<div class="col-md-12 issue">
+                    <div class="col-md-1 num-issue">#1</div>
+                    <div class="col-md-11 content-issue">
+                        <h2 class="title-issue">problem with width device in viewport</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper.</p>
+                        <pre><code class="col-md-11">l.19 var fileName = url.parse(data.resources[index].url).pathname.split('/').pop();</code></pre>
+                        <h3>why ?</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper.</p>
+                        <h3>how fix it ?</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper.</p>
                     </div>
                 </div>
-				
-        	</div>
-      	</div>
-		<script src='js/jquery.min.js'></script>
-  		<script src='js/bootstrap.min.js'></script>
-  		<script src='js/socket.io.js'></script>
-  		<script src='js/script.js'></script>
-  		
-	</body>
-
+                <div class="col-md-12 issue">
+                    <div class="col-md-1 num-issue">#2</div>
+                    <div class="col-md-11 content-issue">
+                        <h2 class="title-issue">problem with width device in viewport</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper.</p>
+                        <pre><code class="col-md-11">l.19 var fileName = url.parse(data.resources[index].url).pathname.split('/').pop();</code></pre>
+                        <h3>why ?</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper.</p>
+                        <h3>how fix it ?</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper.</p>
+                    </div>
+                </div>-->
+            </div>
+            <div id="overview" class="col-md-4 col-md-offset-8">
+                <div id="smartphone"></div>
+            </div>
+            <div id="sidebar" class="col-md-3">
+            </div>
+        </section>
+        <footer>
+        </footer>
+    <script src='js/jquery.min.js'></script>
+    <script src="js/jquery.stellar.js"></script>
+    <script src='js/bootstrap.min.js'></script>
+    <script src='js/socket.io.js'></script>
+    <script src='js/script.js'></script>
+    </body>
 </html>
