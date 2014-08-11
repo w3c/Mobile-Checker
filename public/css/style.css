@@ -2,7 +2,6 @@
     font-family : "gotham-rounded-medium";
     src : url('../fonts/gotham-rounded-medium.otf');
 }
-
 html, body{
   margin: 0px;
   padding: 0px;
@@ -10,9 +9,7 @@ html, body{
   height: 100%;
   background-color: #eee;
   font-family: 'gotham-rounded-medium';
-
 }
-
 @media screen and (max-width: 990px) {
   #overview {
     visibility: hidden;
@@ -119,7 +116,6 @@ button:hover {
 #report {
   background-color: #ecf0f1;
 }
-
 #report > .navbar-fixed-top {
   z-index: 1;
   padding-left: 20px;
