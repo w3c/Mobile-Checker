@@ -12,7 +12,7 @@ you can simply clone this repository and run:
 In order to get all the dependencies installed. Naturally, this requires that you have a reasonably
 recent version of Node installed.
 
-This application require [phantomjs](http://phantomjs.org).
+This application require [chromedriver](https://code.google.com/p/selenium/wiki/ChromeDriver) in the current repository.
 
 ## Running
 
