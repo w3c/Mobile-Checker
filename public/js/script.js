@@ -78,7 +78,7 @@ socket.on('err', function (data){
 });
 socket.on('end', function (data){
 	//result.source = data.sources.html.content[0];
-	$('#smartphone').append($('<img src="../screenshot.png"' + 'width="266px" alt="screenshot" style="margin-left:27px; margin-top:98px;">'));
+	$('#smartphone').append($('<img src="screenshot.png"' + 'width="266px" alt="cant load screenshot" style="margin-left:27px; margin-top:98px;">'));
 	//$('#htmlFile').text(result.source);
 	//stringifySourceCode();
 	loadResultPage();
