@@ -7,6 +7,10 @@ var express = require("express"),
     events = require("events"),
     logger  = require('morgan');
 
+global.rootRequire = function(name) {
+    return require(__dirname + '/' + name);
+}
+
 var fs = require("fs");
 var step;
 var checklist = [
