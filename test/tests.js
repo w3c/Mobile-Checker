@@ -1,10 +1,15 @@
-var Checker = require("../lib/checker").Checker
+var Checker = require("../lib/checkline").Checker
 ,   checker = new Checker()
 ,   path = require("path")
 ,   expect = require("expect.js")
 ,   events = require("events")
 ,   util = require("util")
 ;
+
+global.rootRequire = function(name) {
+    return require(__dirname + '/../' + name);
+}
+
 
 var l10n = function(errid) {
     console.log(checker);
