@@ -11,8 +11,13 @@ global.rootRequire = function(name) {
 }
 
 
-var l10n = function(errid) {
-    console.log(checker);
+var l10n = function(err) {
+    var data = undefined;
+    var errid = err;
+    if (err.name !== undefined) {
+        errid = err.name;
+        data = err.data;
+    }
     var components = errid.split(".");
     return checker.l10n.message("en", components[0], components[1], components[2]);
 }
@@ -26,12 +31,12 @@ var tests = {
         ,   {doc: "width_success.html"} //pass
         ]
     ,   "meta-viewport": [
-        ,   {doc: "viewport_incorrect-initial-scale.html", errors: ["responsive.meta-viewport.6"]} //fail
-        ,   {doc: "viewport_incorrect-width.html", errors: ["responsive.meta-viewport.5"]}
+        ,   {doc: "viewport_incorrect-initial-scale.html", errors: [{name:"responsive.meta-viewport.5", data:{}}]} //fail
+        ,   {doc: "viewport_incorrect-width.html", errors: [{name:"responsive.meta-viewport.5", data:{}}]}
         ,   {doc: "viewport_many-viewport.html", errors: ["responsive.meta-viewport.2"]}
-        ,   {doc: "viewport_no-initial-scale.html", errors: ["responsive.meta-viewport.4"]}
+        ,   {doc: "viewport_no-initial-scale.html"}
         ,   {doc: "viewport_no-meta-viewport.html", errors: ["responsive.meta-viewport.0"]}
-        ,   {doc: "viewport_no-width.html", errors: ["responsive.meta-viewport.3"]}
+        ,   {doc: "viewport_no-width.html"}
         ,   {doc: "viewport_ok.html"}
     ]
     }
@@ -73,7 +78,7 @@ Object.keys(tests).forEach(function (category) {
                                 expect(sink.errors).to.be.empty();
                                 expect(sink.ok).to.eql(sink.done);
                             }
-                            else{
+                            else {
                                 expect(sink.errors).to.eql(test.errors.map(l10n));
                                 /*for (var i = 0, n = test.errors.length; i < n; i++) {
                                     expect(sink.errors).to.contain(test.errors[i]);
