@@ -83,7 +83,7 @@ Object.keys(tests).forEach(function (category) {
                             done();
                         });
                         checker.check({
-                            url : path.join(__dirname, "test_server/public/docs", test.doc)
+                            url : "file://" + path.join(__dirname, "test_server/public/docs", test.doc)
                         ,   events : sink
                         ,   ip : "test"
                         ,   profile : "default"
