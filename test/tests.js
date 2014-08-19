@@ -41,6 +41,9 @@ var tests = {
     ],
     },
     "performance": {
+        "number-requests": [
+            {doc: "number-requests.html", errors: [{name: "performance.number-requests.warning", data: {number:4}}]}
+        ],
         "redirects": [
             {doc: "redirects.html", errors: [{name: "performance.redirects.warning", data: {number:1}}]}
         ]
