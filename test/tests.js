@@ -12,14 +12,14 @@ global.rootRequire = function(name) {
 
 
 var l10n = function(err) {
-    var data = undefined;
+    var data;
     var errid = err;
     if (err.name !== undefined) {
         errid = err.name;
         data = err.data;
     }
     var components = errid.split(".");
-    return checker.l10n.message("en", components[0], components[1], components[2]);
+    return checker.l10n.message("en", components[0], components[1], components[2], data);
 }
 
 var tests = {
@@ -31,8 +31,8 @@ var tests = {
         ,   {doc: "width_success.html"} //pass
         ]
     ,   "meta-viewport": [
-        ,   {doc: "viewport_incorrect-initial-scale.html", errors: [{name:"responsive.meta-viewport.5", data:{}}]} //fail
-        ,   {doc: "viewport_incorrect-width.html", errors: [{name:"responsive.meta-viewport.5", data:{}}]}
+        ,   {doc: "viewport_incorrect-initial-scale.html", errors: [{name:"responsive.meta-viewport.5", data:{property: "initial-scale", value: "foo", validValues: "a positive number"}}]} //fail
+        ,   {doc: "viewport_incorrect-width.html", errors: [{name:"responsive.meta-viewport.5", data:{property: "width", value: "likeanelephant", validValues: "device-width, device-height, a positive number"}}]}
         ,   {doc: "viewport_many-viewport.html", errors: ["responsive.meta-viewport.2"]}
         ,   {doc: "viewport_no-initial-scale.html"}
         ,   {doc: "viewport_no-meta-viewport.html", errors: ["responsive.meta-viewport.0"]}
