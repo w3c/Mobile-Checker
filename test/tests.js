@@ -47,6 +47,10 @@ var tests = {
         "redirects": [
             {doc: "redirects.html", errors: [{name: "performance.redirects.warning", data: {number:1}}]}
         ],
+        "http-errors": [
+            {doc: "http-errors.html", errors: [{name: "performance.http-errors.warning", data: {number:1, errors: "http://localhost:3001/foo with error 404 \"Not Found\""}}]}
+        ],
+
         "compression": [
             {doc: "compressed.html"},
             {doc: "uncompressed.html", errors: [{name: "performance.compression.warning", data: {number:1, compressable: "http://localhost:3001/docs/uncompressed.html"}}]}
