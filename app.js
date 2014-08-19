@@ -16,6 +16,7 @@ var step;
 var checklist = [
     require('./lib/checks/performance/load-speed')
 ,   require('./lib/checks/performance/number-requests')
+,   require('./lib/checks/performance/redirects')
 ,   require('./lib/checks/responsive/doc-width')
 ,   require('./lib/checks/responsive/meta-viewport')
 ,   require('./lib/checks/responsive/fonts-size')
