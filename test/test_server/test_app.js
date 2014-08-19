@@ -16,6 +16,14 @@ app.get('/width_fail', function (req, res){
     res.sendfile('./public/docs/width_fail.html');
 });
 
-http.listen(3000, function(){
-  console.log('listening on *:3000');
-});
+
+exports.start = function (port) {
+    port = port || 3001;
+    http.listen(port, function(){
+        console.log('listening on *:' + port);
+    });
+};
+
+exports.close = function () {
+    http.close();
+};
