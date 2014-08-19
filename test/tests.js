@@ -38,7 +38,12 @@ var tests = {
         ,   {doc: "viewport_no-meta-viewport.html", errors: ["responsive.meta-viewport.0"]}
         ,   {doc: "viewport_no-width.html"}
         ,   {doc: "viewport_ok.html"}
-    ]
+    ],
+    },
+    "performance": {
+        "redirects": [
+            {doc: "redirects.html", errors: [{name: "performance.redirects.warning", data: {number:1}}]}
+        ]
     }
 }
 

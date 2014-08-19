@@ -9,13 +9,9 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', function (req, res){
     res.sendfile('index.html');
 });
-app.get('/width_success', function (req, res){
-    res.sendfile('./public/docs/width_success.html');
+app.get('/redirect.css', function (req, res) {
+    res.redirect('/css/style.css');
 });
-app.get('/width_fail', function (req, res){
-    res.sendfile('./public/docs/width_fail.html');
-});
-
 
 exports.start = function (port) {
     port = port || 3001;
