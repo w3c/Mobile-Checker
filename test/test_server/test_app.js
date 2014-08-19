@@ -1,8 +1,13 @@
 var express = require('express')
 ,   app = express()
 ,   http = require('http').Server(app)
+, compress = require('compression')
 ,   fs = require('fs')
 ;
+
+app.use(compress({
+  threshold: 512
+}));
 
 app.use(express.static(__dirname + '/public'));
 

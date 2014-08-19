@@ -46,6 +46,10 @@ var tests = {
         ],
         "redirects": [
             {doc: "redirects.html", errors: [{name: "performance.redirects.warning", data: {number:1}}]}
+        ],
+        "compression": [
+            {doc: "compressed.html"},
+            {doc: "uncompressed.html", errors: [{name: "performance.compression.warning", data: {number:1, compressable: "http://localhost:3001/docs/uncompressed.html"}}]}
         ]
     }
 }
