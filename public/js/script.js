@@ -75,6 +75,7 @@ socket.on('warning', function (data){
 });
 socket.on('err', function (data){
 	$('#issues-feed').append($('<div class="col-md-12 issue"><div class="col-md-1 num-issue">#'+progressBar.done+'</div><div class="col-md-11 content-issue"><h2 class="title-issue">'+data.title+'</h2><p>'+data.what+'</p><pre><code class="col-md-11"></code></pre><h3>why ?</h3><p>'+data.why+'</p><h3>how fix it ?</h3><p>'+data.how+'</p></div></div>'));
+	$('#issues-feed').append($(data));
 });
 socket.on('end', function (data){
 	//result.source = data.sources.html.content[0];
