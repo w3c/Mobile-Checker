@@ -49,7 +49,7 @@ describe("Getting data from browser", function () {
 
     });
 
-    it('should return the title of the page "OK", even with an alert', function (done) {
+    it('should return the title of the page "Alert", even with an alert', function (done) {
         browser.open("file://" + __dirname + "/browser-tests/alert.html");
         browser.do( function (driver) {
             return driver.findElement(webdriver.By.tagName('title')).then(function (title) {
@@ -98,8 +98,8 @@ describe("Getting data from browser and network", function () {
             done();
         });
         browser.open("http://localhost:3001/ok.html");
-        browser.do(function () {
-            return driver.findElement(webdriver.By.tagName('title')).then(function (title) {
+        browser.do(function (d) {
+            return d.findElement(webdriver.By.tagName('title')).then(function (title) {
                 title.getInnerHtml().then(function (titleText) {
                     expect(titleText).to.be('OK');
                 });
