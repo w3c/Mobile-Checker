@@ -21,7 +21,7 @@ var checklist = [
 ,   require('./lib/checks/performance/compression')
 ,   require('./lib/checks/responsive/doc-width')
 ,   require('./lib/checks/responsive/meta-viewport')
-//,   require('./lib/checks/responsive/fonts-size')
+,   require('./lib/checks/responsive/fonts-size')
 ,   require('./lib/checks/compatibility/flash-detection')
 ];
 
