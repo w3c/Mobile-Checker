@@ -3,7 +3,7 @@ var express = require("express"),
 	http = require('http').Server(app),
 	io = require('socket.io')(http),
     util = require("util"),
-    Checker = require("./lib/checkline").Checker,
+    Checker = require("./lib/checker").Checker,
     events = require("events"),
     logger  = require('morgan');
 
