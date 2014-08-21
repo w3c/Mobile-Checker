@@ -38,7 +38,24 @@ var tests = {
         ,   {doc: "viewport_no-meta-viewport.html", errors: ["responsive.meta-viewport.0"]}
         ,   {doc: "viewport_no-width.html"}
         ,   {doc: "viewport_ok.html"}
-    ]
+    ],
+    },
+    "performance": {
+        "number-requests": [
+            {doc: "number-requests.html", errors: [{name: "performance.number-requests.warning", data: {number:4}}]}
+        ],
+        "redirects": [
+            {doc: "redirects.html", errors: [{name: "performance.redirects.warning", data: {number:1}}]}
+        ],
+        "http-errors": [
+            {doc: "http-errors.html", errors: [{name: "performance.http-errors.warning", data: {number:1, errors: "http://localhost:3001/foo with error 404 \"Not Found\""}}]},
+         {doc: "http-errors-favicon.html", errors: [{name: "performance.http-errors.favicon", data: {url: "http://localhost:3001/favicon.ico"}}]}
+        ],
+
+        "compression": [
+            {doc: "compressed.html"},
+            {doc: "uncompressed.html", errors: [{name: "performance.compression.warning", data: {number:1, compressable: "http://localhost:3001/docs/uncompressed.html"}}]}
+        ]
     }
 }
 
@@ -51,49 +68,57 @@ function Sink () {
 
 util.inherits(Sink, events.EventEmitter);
 
-Object.keys(tests).forEach(function (category) {
-    describe("Category " + category, function () {
-        Object.keys(tests[category]).forEach(function (check) {
-            describe("Check " + check, function () {
-                tests[category][check].forEach(function (test) {
-                    var passTest = test.errors ? false : true;
-                    it("should " + (passTest ? "pass" : "fail") + " for " + test.doc, function (done) {
-                        var c = require("../lib/checks/" + category + "/" + check)
-                        ,   sink = new Sink
-                        ;
-                        sink.on('ok', function () {
-                            sink.ok++;
-                        });
-                        sink.on('warning', function (type) {
-                            sink.errors.push(type);
-                        });
-                        sink.on('err', function (type) {
-                            sink.errors.push(type);
-                        });
-                        sink.on('done', function () {
-                            sink.done++;
-                        });
-                        sink.on('end', function () {
-                            if(passTest) {
-                                expect(sink.errors).to.be.empty();
-                                expect(sink.ok).to.eql(sink.done);
-                            }
-                            else {
-                                expect(sink.errors).to.eql(test.errors.map(l10n));
-                                /*for (var i = 0, n = test.errors.length; i < n; i++) {
-                                    expect(sink.errors).to.contain(test.errors[i]);
-                                }*/
+describe('Starting test suite', function () {
+    var server = require("./test_server/test_app");
+    var port = 3001;
+    before(function () {
+        server.start(port);
+    });
 
-                            }
-                            done();
-                        });
-                        checker.check({
-                            url : "file://" + path.join(__dirname, "test_server/public/docs", test.doc)
-                        ,   events : sink
-                        ,   ip : "test"
-                        ,   profile : "default"
-                        ,   lang : "en"
-                        ,   checklist: [c]
+    after(function () {
+        server.close();
+    });
+
+    Object.keys(tests).forEach(function (category) {
+        describe("Category " + category, function () {
+            Object.keys(tests[category]).forEach(function (check) {
+                describe("Check " + check, function () {
+                    tests[category][check].forEach(function (test) {
+                        var passTest = test.errors ? false : true;
+                        it("should " + (passTest ? "pass" : "fail") + " for " + test.doc, function (done) {
+                            var c = require("../lib/checks/" + category + "/" + check)
+                            ,   sink = new Sink
+                            ;
+                            sink.on('ok', function () {
+                                sink.ok++;
+                            });
+                            sink.on('warning', function (type) {
+                                sink.errors.push(type);
+                            });
+                            sink.on('err', function (type) {
+                                sink.errors.push(type);
+                            });
+                            sink.on('done', function () {
+                                sink.done++;
+                            });
+                            sink.on('end', function () {
+                                if(passTest) {
+                                    expect(sink.errors).to.be.empty();
+                                    expect(sink.ok).to.eql(sink.done);
+                                }
+                                else {
+                                    expect(sink.errors).to.eql(test.errors.map(l10n));
+                                }
+                                done();
+                            });
+                            checker.check({
+                                url : "http://localhost:" + port + "/docs/" + test.doc
+                                ,   events : sink
+                                ,   ip : "test"
+                                ,   profile : "default"
+                                ,   lang : "en"
+                                ,   checklist: [c]
+                            });
                         });
                     });
                 });
@@ -101,7 +126,6 @@ Object.keys(tests).forEach(function (category) {
         });
     });
 });
-
 
 
 

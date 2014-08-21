@@ -12,7 +12,10 @@ you can simply clone this repository and run:
 In order to get all the dependencies installed. Naturally, this requires that you have a reasonably
 recent version of Node installed.
 
-This application require [chromedriver](https://code.google.com/p/selenium/wiki/ChromeDriver) in the current repository.
+In addition to the npm dependencies, the checker needs:
+
+* google-chrome installed
+* [browsermob-proxy](https://github.com/lightbody/browsermob-proxy/) running on port 8080
 
 ## Running
 
