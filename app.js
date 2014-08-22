@@ -23,6 +23,7 @@ var checklist = [
 ,   require('./lib/checks/responsive/meta-viewport')
 ,   require('./lib/checks/responsive/fonts-size')
 ,   require('./lib/checks/compatibility/flash-detection')
+,   require('./lib/checks/interactions/alert')
 ];
 
 app.use(logger());
