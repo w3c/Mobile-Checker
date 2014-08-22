@@ -45,7 +45,12 @@ var tests = {
             {doc: "number-requests.html", errors: [{name: "performance.number-requests.warning", data: {number:4}}]}
         ],
         "redirects": [
-            {doc: "redirects.html", errors: [{name: "performance.redirects.warning", data: {number:2}}]}
+            {doc: "redirects.html", errors: [{name: "performance.redirects.warning", data: {number:2, redirects: [
+                {from: "http://localhost:3001/redirect.css",
+                 to: "http://localhost:3001/css/style.css"},
+                {from: "http://localhost:3001/scheme-relative-redirect",
+                 to: "http://localhost:3001/js/script.css"}
+            ]}}]}
         ],
         "http-errors": [
             {doc: "http-errors.html", errors: [{name: "performance.http-errors.warning", data: {number:1, errors: "http://localhost:3001/foo with error 404 \"Not Found\""}}]},
