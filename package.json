@@ -14,6 +14,7 @@
         "ejs": "1.0.0",
         "node-uuid": "1.4.1",
         "metaviewport-parser": "0.0.1",
+        "easyimage": "1.0.2",
         "intl": "0.1.4"
     },
     "devDependencies": {

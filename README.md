@@ -16,6 +16,7 @@ In addition to the npm dependencies, the checker needs:
 
 * google-chrome installed
 * [browsermob-proxy](https://github.com/lightbody/browsermob-proxy/) running on port 8080
+* ImageMagick
 
 ## Running
 
