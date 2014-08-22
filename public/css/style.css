@@ -376,7 +376,7 @@ button:hover {
 }
 #smartphone {
   height: 700px;
-  background-image: url(../img/smartphone.png);
+  background-image: url(../img/smartphone.svg);
   background-repeat:no-repeat;
   margin: auto;
 }

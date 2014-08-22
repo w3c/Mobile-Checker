@@ -74,7 +74,7 @@ socket.on('err', function (data){
 	$('#issues-feed').append($(data));
 });
 socket.on('screenshot', function (path){
-	$('#smartphone').append($('<img src="' +path+ '"' + 'width="266px" alt="cant load screenshot" style="margin-left:27px; margin-top:98px;">'));
+	$('#smartphone').append($('<img src="' +path+ '"' + 'width="266px" alt="cant load screenshot" style="margin-left:29px; margin-top:76px;">'));
 });
 socket.on('end', function (data){
 	//result.source = data.sources.html.content[0];
