@@ -38,14 +38,12 @@ function loadProgressPage () {
 	$('#home').hide();
 	$('#report').show();
 	$('#sidebar').hide();
-	$('#score').hide();
 }
 
 function loadResultPage () {
 	$('#home').hide();
 	$('#report').show();
 	$('#sidebar').hide();
-	$('#score').hide();
 }
 
 /*

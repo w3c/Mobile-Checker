@@ -314,23 +314,11 @@ button:hover {
   border-radius: 20px;
   background-color: #27ae60;
 }
-#issues-feed {
-  background-color: #FFF;
-  border-radius: 5px;
-  border-bottom: 1px solid #95a5a6;
-  color: black;
-  margin-top: 0px;
-  padding: 0;
-  margin-bottom: 50px;
-  padding-left: 15px;
-  padding-right: 15px;
-
-}
 #issues-title {
   color: #8D9AA5;
   font-size: 18px;
   padding-left: 20px;
-  margin-top: 30px;
+  margin-top: 100px;
   font-family: 'Montserrat';
   font-weight: 700;
 }
@@ -355,8 +343,15 @@ button:hover {
   background-color: #34495e;
 }
 .issue {
-  border-bottom: 1px solid #eee;
+  background-color: #FFF;
+  border-radius: 5px;
+  border-bottom: 1px solid #95a5a6;
+  color: black;
+  margin-top: 0px;
   padding: 0;
+  margin-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .issue > div {
