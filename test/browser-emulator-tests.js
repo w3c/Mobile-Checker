@@ -20,6 +20,7 @@ describe("Starting and quiting browser", function () {
             done();
             return webdriver.promise.fulfilled();
         });
+        browser.close();
     });
 
     it('should emit an error with incorrect proxy', function (done) {
@@ -29,6 +30,7 @@ describe("Starting and quiting browser", function () {
             done();
         });
         browser.open("file://" + __dirname + "/browser-tests/ok.html");
+        browser.close();
     });
 
 });
@@ -46,6 +48,7 @@ describe("Getting data from browser", function () {
                 });
             });
         });
+        browser.close();
 
     });
 
@@ -59,8 +62,25 @@ describe("Getting data from browser", function () {
                 });
             });
         });
+        browser.close();
+    });
+
+    it('should return the title of the page "Alert2", even with a delayed alert', function (done) {
+        browser.open("file://" + __dirname + "/browser-tests/alert2.html");
+        setTimeout(function () {
+            browser.do( function (driver) {
+                return driver.findElement(webdriver.By.tagName('title')).then(function (title) {
+                    title.getInnerHtml().then(function (titleText) {
+                        expect(titleText).to.be('Alert2');
+                        done();
+                    });
+                });
+            });
+            browser.close();
+        }, 2500);
 
     });
+
 
 });
 
@@ -78,6 +98,7 @@ describe("Getting data from network", function () {
             done();
         });
         browser.open("http://localhost:3001/ok.html");
+        browser.close();
     });
 
     after(function () {
@@ -105,6 +126,7 @@ describe("Getting data from browser and network", function () {
                 });
             });
         });
+        browser.close();
     });
 
     after(function () {
