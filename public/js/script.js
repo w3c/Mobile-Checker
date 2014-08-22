@@ -72,7 +72,7 @@ socket.on('err', function (data){
 	$('#issues-feed').append($(data));
 });
 socket.on('screenshot', function (path){
-	$('#smartphone').append($('<img src="' +path+ '"' + 'width="266px" alt="cant load screenshot" style="margin-left:29px; margin-top:76px;">'));
+	$('#smartphone').append($('<img src="' +path+ '"' + 'width="266px" alt="cant load screenshot" style="margin-left:28px; margin-top:82px;">'));
 });
 socket.on('end', function (){
 	loadResultPage();
