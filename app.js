@@ -54,6 +54,10 @@ io.on('connection', function(socket){
         sink.on('err', function(msg){
             socket.emit('err', msg);
         });
+        sink.on('screenshot', function(path){
+            console.log(path);
+            socket.emit('screenshot', path);
+        });
         sink.on('done', function(){
             step++;
             console.log('done');
