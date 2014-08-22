@@ -12,7 +12,8 @@
         "browsermob-proxy":"1.0.6",
         "media-type": "0.1.0",
         "ejs": "1.0.0",
-        "node-uuid": "1.4.1"
+        "node-uuid": "1.4.1",
+        "intl": "0.1.4"
     },
     "devDependencies": {
         "mocha": "1.20.1",
