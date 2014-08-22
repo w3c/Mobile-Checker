@@ -14,8 +14,7 @@ global.rootRequire = function(name) {
 var fs = require("fs");
 var step;
 var checklist = [
-    require('./lib/checks/performance/load-speed')
-,   require('./lib/checks/performance/number-requests')
+    require('./lib/checks/performance/number-requests')
 ,   require('./lib/checks/performance/redirects')
 ,   require('./lib/checks/performance/http-errors')
 ,   require('./lib/checks/performance/compression')
