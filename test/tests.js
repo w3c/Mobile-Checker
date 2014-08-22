@@ -45,7 +45,7 @@ var tests = {
             {doc: "number-requests.html", errors: [{name: "performance.number-requests.warning", data: {number:4}}]}
         ],
         "redirects": [
-            {doc: "redirects.html", errors: [{name: "performance.redirects.warning", data: {number:1}}]}
+            {doc: "redirects.html", errors: [{name: "performance.redirects.warning", data: {number:2}}]}
         ],
         "http-errors": [
             {doc: "http-errors.html", errors: [{name: "performance.http-errors.warning", data: {number:1, errors: "http://localhost:3001/foo with error 404 \"Not Found\""}}]},
