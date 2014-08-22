@@ -13,6 +13,7 @@
         "media-type": "0.1.0",
         "ejs": "1.0.0",
         "node-uuid": "1.4.1",
+        "metaviewport-parser": "0.0.1",
         "intl": "0.1.4"
     },
     "devDependencies": {
