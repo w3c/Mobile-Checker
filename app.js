@@ -44,7 +44,7 @@ io.on('connection', function(socket){
         var sink = new Sink
         ,   checker = new Checker
         ;
-        console.log(uuid.v4());
+        var uid = uuid.v4();
         sink.on('ok', function(msg){
             socket.emit('ok', msg);
         });
@@ -72,6 +72,7 @@ io.on('connection', function(socket){
         ,   profile : data.profile
         ,   checklist : checklist
         ,   ip : address
+        ,   id : uid
         ,   lang : "en"
         });
         step = 0;
