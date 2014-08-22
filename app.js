@@ -10,7 +10,8 @@ var express = require("express"),
     Checker = require("./lib/checker").Checker,
     events = require("events"),
     logger  = require('morgan'),
-    uuid = require('node-uuid');
+    uuid = require('node-uuid'),
+    proc = require('child_process');
 
 
 var fs = require("fs");
@@ -45,6 +46,7 @@ io.on('connection', function(socket){
         ,   checker = new Checker
         ;
         var uid = uuid.v4();
+        var screenshot = false;
         sink.on('ok', function(msg){
             socket.emit('ok', msg);
         });
@@ -56,6 +58,7 @@ io.on('connection', function(socket){
         });
         sink.on('screenshot', function(path){
             console.log(path);
+            screenshot = true;
             socket.emit('screenshot', path);
         });
         sink.on('done', function(){
@@ -65,6 +68,16 @@ io.on('connection', function(socket){
         });
         sink.on('end', function(report){
             socket.emit('end', report);
+        });
+        socket.on('disconnect', function () {
+            io.sockets.emit('user disconnected');
+            if(screenshot){
+            fs.unlink('public/'+uid+'.png', function (err) {
+            if (err) throw err;
+                console.log('delete with success');
+            });   
+            }
+            
         });
         socket.emit('start', 3);
         checker.check({
