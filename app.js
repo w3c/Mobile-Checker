@@ -9,7 +9,8 @@ var express = require("express"),
     util = require("util"),
     Checker = require("./lib/checker").Checker,
     events = require("events"),
-    logger  = require('morgan');
+    logger  = require('morgan'),
+    uuid = require('node-uuid');
 
 
 var fs = require("fs");
@@ -21,7 +22,7 @@ var checklist = [
 ,   require('./lib/checks/performance/compression')
 ,   require('./lib/checks/responsive/doc-width')
 ,   require('./lib/checks/responsive/meta-viewport')
-,   require('./lib/checks/responsive/fonts-size')
+//,   require('./lib/checks/responsive/fonts-size')
 ,   require('./lib/checks/compatibility/flash-detection')
 ,   require('./lib/checks/interactions/alert')
 ];
@@ -43,6 +44,7 @@ io.on('connection', function(socket){
         var sink = new Sink
         ,   checker = new Checker
         ;
+        console.log(uuid.v4());
         sink.on('ok', function(msg){
             socket.emit('ok', msg);
         });
