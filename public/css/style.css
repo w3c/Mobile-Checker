@@ -374,6 +374,7 @@ button:hover {
   background-image: url(../img/smartphone.svg);
   background-repeat:no-repeat;
   margin: auto;
+  margin-top: -25px;
 }
 .title-issue {
   font-family: 'Roboto';

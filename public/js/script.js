@@ -80,11 +80,10 @@ socket.on('end', function (){
 
 $('form').submit(function (){
 	settings.url = $('#url').val();
-	//settings.profile = $('input[name="smartphone"]:radio:checked').val();
+	settings.profile = $('input[name="device"]:radio:checked').val();
     $('#url').val('');
 	socket.emit('check', settings);
 	return false;
 });
 
-
-
+$('span.info').popover();
