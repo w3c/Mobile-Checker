@@ -30,20 +30,41 @@ function stringifySourceCode () {
 }
 
 function loadHomePage () {
-	$('#report').hide();
-	$('#home').show();
+    $('#sidebar').hide();
+	$('#report').removeClass('report');
+	$('#home').removeClass('report');
+    $('#sm').show();
+    $('#sm').removeClass('screenshot');
 }
 
 function loadProgressPage () {
-	$('#home').hide();
-	$('#report').show();
-	$('#sidebar').hide();
+    var scales = {'sm':8.31, 'sm2':8.31, 'tab':2.5};
+    var selectedDevice = $('input[name=device]:checked').parent().find('img').eq(0);
+    var id = selectedDevice.attr('id');
+    var scale = scales[id];;
+    console.log(scale);
+    var offset2 = selectedDevice.offset();
+    var offset1 = $('#smartphone').offset();
+    console.log(offset1, offset2);
+    var transform = 'transform: translate3d(' +
+      (offset1.left - offset2.left) + 'px, ' +  (offset1.top - offset2.top)
+      + 'px,0) scale(' + scale + ',' + scale + ') rotate(360deg)';
+    console.log(transform);
+    var style = $('<style>#' + id + '.screenshot {  ' +  transform
+                  + ' }</style>').appendTo('head');
+    selectedDevice.addClass('screenshot');
+    $('#home').addClass('report');
+    $('#report').addClass('report');
+    setTimeout(function () {
+        $('#smartphone').addClass(id);
+        console.log(selectedDevice.offset());
+        selectedDevice.hide();
+        selectedDevice.removeClass('screenshot');
+        style.remove();
+    }, 1000)
 }
 
 function loadResultPage () {
-	$('#home').hide();
-	$('#report').show();
-	$('#sidebar').hide();
 }
 
 /*
@@ -72,7 +93,7 @@ socket.on('err', function (data){
 	$('#issues-feed').append($(data));
 });
 socket.on('screenshot', function (path){
-	$('#smartphone').append($('<img src="' +path+ '"' + 'width="266px" alt="cant load screenshot" style="margin-left:28px; margin-top:82px;">'));
+        $('<img>').attr('src', path).attr('alt', 'Screenshot').attr('id','screenshot').attr('width',266).appendTo('#smartphone');
 });
 socket.on('end', function (){
 	loadResultPage();

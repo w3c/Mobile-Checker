@@ -371,11 +371,35 @@ button:hover {
 }
 #smartphone {
   height: 700px;
-  background-image: url(../img/smartphone.svg);
   background-repeat:no-repeat;
   margin: auto;
   margin-top: -25px;
 }
+#smartphone.sm {
+background-image: url(../img/smartphone.svg);
+}
+#smartphone.sm2 {
+background-image: url(../img/smartphone2.svg);
+}
+#smartphone.tab {
+background-image: url(../img/tablet.svg);
+background-size:295px auto;
+}
+
+.sm #screenshot, .sm2 #screenshot {
+  margin-left: 28px;
+  margin-top:82px;
+}
+
+.sm2 #screenshot {
+  margin-top:72px;
+}
+
+.tab #screenshot {
+  margin-left: 15px;
+  margin-top:16px;
+}
+
 .title-issue {
   font-family: 'Roboto';
   color: #666;
@@ -408,4 +432,26 @@ button:hover {
   font-weight: 700;
   font-size: 16px;
 
+}
+
+#sm, #sm2, #tab, #home, #report {
+  transition: transform 1s;
+}
+
+.screenshot {
+  transform-origin: 0 0 0;
+}
+
+#report {
+  position: absolute;
+  top: 0;
+  transform: translate3d(100%,0,0);
+}
+
+#report.report {
+  transform: translate3d(0,0,0);
+}
+
+#home.report {
+  transform: translate3d(-100%, 0,0);
 }
