@@ -42,14 +42,11 @@ function loadProgressPage () {
     var selectedDevice = $('input[name=device]:checked').parent().find('img').eq(0);
     var id = selectedDevice.attr('id');
     var scale = scales[id];;
-    console.log(scale);
     var offset2 = selectedDevice.offset();
     var offset1 = $('#smartphone').offset();
-    console.log(offset1, offset2);
     var transform = 'transform: translate3d(' +
       (offset1.left - offset2.left) + 'px, ' +  (offset1.top - offset2.top)
       + 'px,0) scale(' + scale + ',' + scale + ') rotate(360deg)';
-    console.log(transform);
     var style = $('<style>#' + id + '.screenshot {  ' +  transform
                   + ' }</style>').appendTo('head');
     selectedDevice.addClass('screenshot');
@@ -57,7 +54,6 @@ function loadProgressPage () {
     $('#report').addClass('report');
     setTimeout(function () {
         $('#smartphone').addClass(id);
-        console.log(selectedDevice.offset());
         selectedDevice.hide();
         selectedDevice.removeClass('screenshot');
         style.remove();

@@ -25,6 +25,7 @@ var checklist = [
 ,   require('./lib/checks/responsive/meta-viewport')
 //,   require('./lib/checks/responsive/fonts-size')
 ,   require('./lib/checks/compatibility/flash-detection')
+,   require('./lib/checks/compatibility/css-prefixes')
 ,   require('./lib/checks/interactions/alert')
 ];
 
