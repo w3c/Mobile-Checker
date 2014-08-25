@@ -85,6 +85,24 @@ button:hover {
   background-color: #16a085;
 }
 
+.device-selector{
+  background-image: none;
+  background-color: #ecf0f1;
+  border : 0px;
+  border-bottom: 4px solid #95a5a6;
+}
+
+.device-selector:hover{
+  background-image: none;
+  background-color: #eee;
+}
+
+.device-selector.active{
+  background-image: none;
+  background-color: #FCFCFB;
+  border : 0px;
+}
+
 .dropdown {
   font-size: 16px;
   font-weight: 700;
