@@ -89,7 +89,6 @@ button:hover {
   background-image: none;
   background-color: #ecf0f1;
   border : 0px;
-  border-bottom: 4px solid #95a5a6;
 }
 
 .device-selector:hover{
