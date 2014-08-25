@@ -16,7 +16,8 @@
         "metaviewport-parser": "0.0.1",
         "easyimage": "1.0.2",
         "intl": "0.1.4",
-	"css": "2.1.0"
+        "effective-domain-name-parser": "0.0.1",
+	    "css": "2.1.0"
     },
     "devDependencies": {
         "mocha": "1.20.1",
