@@ -382,8 +382,7 @@ button:hover {
 }
 .issue {
   background-color: #FFF;
-  border-radius: 5px;
-  border-bottom: 1px solid #95a5a6;
+  border-bottom: 3px solid #bdc3c7;
   color: black;
   margin-top: 0px;
   padding: 0;
