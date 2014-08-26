@@ -121,7 +121,11 @@ describe('Starting test suite', function () {
                                 ,   checklist: [c]
                                 , id: uuid.v4()
                                 ,   formatReport: function(key, name, category, data) {
-                                    return {name: category + "." + name + "." + key, data: data};
+                                    var name = category + "." + name + "." + key;
+                                    if (!data) {
+                                        return name;
+                                    }
+                                    return  {name:name, data: data};
                                 }
                             });
                         });
