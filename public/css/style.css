@@ -391,6 +391,10 @@ button:hover {
   background-repeat:no-repeat;
   margin: auto;
   margin-top: -25px;
+
+}
+#overview{
+  padding: 0px;
 }
 #smartphone.sm {
 background-image: url(../img/smartphone.svg);
