@@ -8,7 +8,7 @@ var Checker = require("../lib/checker").Checker
 ,   expect = require("expect.js")
 ,   events = require("events")
 ,   util = require("util")
-;
+,   uuid = require('node-uuid');
 
 
 var tests = {
@@ -119,6 +119,7 @@ describe('Starting test suite', function () {
                                 ,   events : sink
                                 ,   profile : "default"
                                 ,   checklist: [c]
+                                , id: uuid.v4()
                                 ,   formatReport: function(key, name, category, data) {
                                     return {name: category + "." + name + "." + key, data: data};
                                 }
