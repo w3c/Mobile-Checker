@@ -46,51 +46,49 @@ io.on('connection', function(socket){
     socket.on('check', function(data){
         var sink = new Sink
         ,   checker = new Checker
+        ,   uid = uuid.v4()
+        ,   screenshot = false
         ;
-        var uid = uuid.v4();
-        var screenshot = false;
-        sink.on('ok', function(msg){
-            socket.emit('ok', msg);
+        sink.on('ok', function(data){
+            socket.emit('ok', data);
         });
-        sink.on('warning', function(msg){
-            socket.emit('warning', msg);
+        sink.on('warning', function(data){
+            socket.emit('warning', data);
         });
-        sink.on('err', function(msg){
-            socket.emit('err', msg);
+        sink.on('err', function(data){
+            socket.emit('err', data);
         });
-        sink.on('screenshot', function(path){
-            console.log(path);
+        sink.on('screenshot', function(data){
             screenshot = true;
-            socket.emit('screenshot', path);
+            socket.emit('screenshot', data);
         });
         sink.on('done', function(){
             step++;
             console.log('done');
             socket.emit('done', step);
         });
-        sink.on('end', function(report){
-            socket.emit('end', report);
+        sink.on('end', function(data){
+            socket.emit('end', data);
+        });
+        sink.on('exception', function(data){
+            socket.emit('exception', data);
         });
         socket.on('disconnect', function () {
             io.sockets.emit('user disconnected');
             if(screenshot){
-            fs.unlink('public/'+uid+'.png', function (err) {
-            if (err) throw err;
-                console.log('delete with success');
-            });   
+                fs.unlink('public/'+uid+'.png', function (err) {
+                if (err) throw err;
+                    console.log('delete with success');
+                });   
             }
-            
         });
         socket.emit('start', 3);
         checker.check({
             url : data.url
         ,   events : sink
         ,   sockets : socket
-        ,   widthView : data.widthView
-        ,   heightView : data.heightView
         ,   profile : data.profile
         ,   checklist : checklist
-        ,   ip : address
         ,   id : uid
         ,   lang : "en"
         });
