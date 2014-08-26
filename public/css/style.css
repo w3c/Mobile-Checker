@@ -15,6 +15,11 @@ html, body{
     visibility: hidden;
   }
 }
+@media screen and (max-width: 990px) {
+  #section-title {
+    visibility: hidden;
+  }
+}
 /*
 *
 * HEADER
@@ -330,6 +335,22 @@ button:hover {
   height: 20px;
   border-radius: 20px;
   background-color: #27ae60;
+}
+#console-title {
+   color: #8D9AA5;
+  font-size: 18px;
+  padding-left: 20px;
+  margin-top: 100px;
+  font-family: 'Montserrat';
+  font-weight: 700;
+}
+#console {
+  background-color: #3C3C3C;
+  height: 400px;
+  margin-left: 20px;
+  overflow:auto;
+  padding: 10px;
+  color: #FCFCFB;
 }
 #issues-title {
   color: #8D9AA5;

@@ -35,6 +35,8 @@ function loadHomePage () {
 	$('#home').removeClass('report');
     $('#sm').show();
     $('#sm').removeClass('screenshot');
+    $('#console-title').hide();
+	$('#console').hide();
 }
 
 function loadProgressPage () {
@@ -93,6 +95,11 @@ socket.on('screenshot', function (path){
 });
 socket.on('end', function (){
 	loadResultPage();
+});
+socket.on('exception', function (msg){
+	$('#console-title').show();
+	$('#console').show();
+	$('#console').text(msg);
 });
 
 $('form').submit(function (){
