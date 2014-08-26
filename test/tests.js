@@ -16,8 +16,8 @@ var tests = {
     responsive : {
         //Checks
         "doc-width": [
-/*        ,   {doc: "width_fail.html", errors: ["responsive.doc-width.doc-width-too-large"]} //fail
-        ,   {doc: "width_success.html"} //pass */
+        ,   {doc: "width_fail.html", errors: ["responsive.doc-width.doc-width-too-large"]} //fail
+        ,   {doc: "width_success.html"} //pass 
         ]
     ,   "meta-viewport": [
         ,   {doc: "viewport_incorrect-initial-scale.html", errors: [{name:"responsive.meta-viewport.invalid-viewport-value", data:{property: "initial-scale", value: "foo", validValues: "a positive number"}}]}
