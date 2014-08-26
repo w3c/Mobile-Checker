@@ -27,6 +27,7 @@ var checklist = [
 ,   require('./lib/checks/compatibility/flash-detection')
 ,   require('./lib/checks/compatibility/css-prefixes')
 ,   require('./lib/checks/interactions/alert')
+,   require('./lib/checks/interactions/touchscreen-target')
 ];
 
 app.use(logger());
