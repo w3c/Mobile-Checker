@@ -1,6 +1,6 @@
 global.rootRequire = function(name) {
     return require(__dirname + '/../' + name);
-}
+};
 
 var Browser = require("../lib/mobile-browser-emulator").Browser,
     expect = require("expect.js"),

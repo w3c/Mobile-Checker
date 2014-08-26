@@ -1,6 +1,6 @@
 global.rootRequire = function(name) {
     return require(__dirname + '/../' + name);
-}
+};
 
 var Checker = require("../lib/checker").Checker,
     checker = new Checker(),
@@ -18,10 +18,10 @@ var tests = {
         "doc-width": [, {
                 doc: "width_fail.html",
                 errors: ["responsive.doc-width.doc-width-too-large"]
-            } //fail
-            , {
+            },
+                      {
                 doc: "width_success.html"
-            } //pass 
+            }
         ],
         "meta-viewport": [, {
             doc: "viewport_incorrect-initial-scale.html",
@@ -132,7 +132,7 @@ var tests = {
             }]
         }]
     }
-}
+};
 
 function Sink() {
     this.ok = 0;
@@ -170,7 +170,7 @@ describe('Starting test suite', function() {
                                         "../lib/checks/" +
                                         category + "/" +
                                         check),
-                                    sink = new Sink;
+                                    sink = new Sink();
                                 sink.setMaxListeners(0);
                                 sink.on('ok', function() {
                                     sink.ok++;
@@ -224,18 +224,17 @@ describe('Starting test suite', function() {
                                         key, name,
                                         category,
                                         data) {
-                                        var name =
+                                        var fullname =
                                             category +
                                             "." +
                                             name +
                                             "." +
                                             key;
                                         if (!data) {
-                                            return
-                                                name;
+                                            return fullname;
                                         }
                                         return {
-                                            name: name,
+                                            name: fullname,
                                             data: data
                                         };
                                     }
@@ -258,8 +257,8 @@ function cleanNulls(obj1, obj2) {
     } else if (typeof obj1 === "object") {
         obj = {};
         var keys = Object.keys(obj1);
-        for (var i = 0; i < keys.length; i++) {
-            var key = keys[i];
+        for (var j = 0; j < keys.length; j++) {
+            var key = keys[j];
             if (obj2[key] === null) {
                 obj[key] = null;
             } else if (typeof obj1[key] === "object") {
@@ -270,7 +269,7 @@ function cleanNulls(obj1, obj2) {
         }
     } else {
         if (obj2 === null) {
-            obj = null
+            obj = null;
         } else {
             obj = obj1;
         }
