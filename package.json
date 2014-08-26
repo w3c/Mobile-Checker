@@ -27,6 +27,6 @@
     },
     "scripts": {
        "start": "node app.js",
-       "test": "mocha"
+       "test": "mocha --timeout 20000 --globals Intl,IntlPolyfill"
     }
 }
