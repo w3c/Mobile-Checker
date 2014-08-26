@@ -1,43 +1,42 @@
-var express = require('express')
-,   app = express()
-,   http = require('http').Server(app)
-, compress = require('compression')
-,   fs = require('fs')
-;
+var express = require('express'),
+    app = express(),
+    http = require('http').Server(app),
+    compress = require('compression'),
+    fs = require('fs');
 
 
 var serverport;
 
 app.use(compress({
-  threshold: 2048
+    threshold: 2048
 }));
 
 
-app.get('/', function (req, res){
+app.get('/', function(req, res) {
     res.sendfile('index.html');
 });
-app.get('/redirect.css', function (req, res) {
+app.get('/redirect.css', function(req, res) {
     res.redirect('/css/style.css');
 });
 
-app.get('/scheme-relative-redirect', function (req, res) {
+app.get('/scheme-relative-redirect', function(req, res) {
     res.statusCode = 302;
     res.setHeader("Location", "//localhost:" + serverport + "/js/script.js");
     res.end();
 });
 
-exports.start = function (port, path) {
+exports.start = function(port, path) {
     path = path || '/public';
-    path =  __dirname + path;
+    path = __dirname + path;
     console.log(path);
     app.use(express.static(path));
 
     serverport = port || 3001;
-    http.listen(port, function(){
+    http.listen(port, function() {
         console.log('listening on *:' + serverport);
     });
 };
 
-exports.close = function () {
+exports.close = function() {
     http.close();
 };
