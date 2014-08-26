@@ -22,7 +22,7 @@ app.get('/redirect.css', function (req, res) {
 
 app.get('/scheme-relative-redirect', function (req, res) {
     res.statusCode = 302;
-    res.setHeader("Location: //localhost:" + serverport + "/js/script.js");
+    res.setHeader("Location", "//localhost:" + serverport + "/js/script.js");
     res.end();
 });
 
