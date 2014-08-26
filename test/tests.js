@@ -11,20 +11,6 @@ var Checker = require("../lib/checker").Checker
 ;
 
 
-
-var l10n = function(checker) {
-    return function(err) {
-        var data;
-        var errid = err;
-        if (err.name !== undefined) {
-            errid = err.name;
-            data = err.data;
-        }
-        var components = errid.split(".");
-        return checker.issueReport(components[2], components[1], components[0], data);
-    };
-}
-
 var tests = {
     //Categories
     responsive : {
@@ -51,15 +37,15 @@ var tests = {
             {doc: "redirects.html", errors: [{name: "performance.redirects.redirects-encountered", data: {number:2, redirects: [
                 {from: "http://localhost:3001/redirect.css",
                  to: "http://localhost:3001/css/style.css",
-                 wastedBW: 0,
-                 latency:  0},
+                 wastedBW: 665,
+                 latency:  null},
                 {from: "http://localhost:3001/scheme-relative-redirect",
-                 to: "http://localhost:3001/js/script.css",
-                 wastedBW: 0,
-                 latency:  0}
+                 to: "http://localhost:3001/js/script.js",
+                 wastedBW: 580,
+                 latency:  null}
             ],
-                totalWastedBW: 0,
-                totalLatency: 0
+                totalWastedBW: 1245,
+                totalLatency: null
                 }}]}
         ],
         "http-errors": [
@@ -123,7 +109,8 @@ describe('Starting test suite', function () {
                                     //expect(sink.ok).to.eql(sink.done);
                                 }
                                 else {
-                                    expect(sink.errors).to.eql(test.errors.map(l10n(checker)));
+                                    sink.errors = cleanNulls(sink.errors, test.errors);
+                                    expect(sink.errors).to.eql(test.errors);
                                 }
                                 done();
                             });
@@ -132,6 +119,9 @@ describe('Starting test suite', function () {
                                 ,   events : sink
                                 ,   profile : "default"
                                 ,   checklist: [c]
+                                ,   formatReport: function(key, name, category, data) {
+                                    return {name: category + "." + name + "." + key, data: data};
+                                }
                             });
                         });
                     });
@@ -141,5 +131,32 @@ describe('Starting test suite', function () {
     });
 });
 
-
-
+function cleanNulls(obj1, obj2) {
+    var obj;
+    if (Array.isArray(obj1)) {
+        obj = [];
+        for (var i = 0; i < obj1.length; i++) {
+            obj[i] = cleanNulls(obj1[i], obj2[i]);
+        }
+    } else if (typeof obj1 === "object") {
+        obj = {};
+        var keys = Object.keys(obj1);
+        for (var i = 0; i < keys.length; i++) {
+            var key = keys[i];
+            if (obj2[key] === null) {
+                obj[key] = null;
+            } else if (typeof obj1[key] === "object") {
+                obj[key] = cleanNulls(obj1[key], obj2[key]);
+            } else {
+                obj[key] = obj1[key];
+            }
+        }
+    } else {
+        if (obj2 === null) {
+            obj = null
+        } else {
+            obj = obj1;
+        }
+    }
+    return obj;
+}
