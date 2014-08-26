@@ -51,15 +51,15 @@ var tests = {
             {doc: "redirects.html", errors: [{name: "performance.redirects.redirects-encountered", data: {number:2, redirects: [
                 {from: "http://localhost:3001/redirect.css",
                  to: "http://localhost:3001/css/style.css",
-                 wastedBW: 0,
-                 latency:  0},
+                 wastedBW: 665,
+                 latency:  null},
                 {from: "http://localhost:3001/scheme-relative-redirect",
                  to: "http://localhost:3001/js/script.css",
-                 wastedBW: 0,
-                 latency:  0}
+                 wastedBW: 580,
+                 latency:  null}
             ],
-                totalWastedBW: 0,
-                totalLatency: 0
+                totalWastedBW: 1245,
+                totalLatency: null
                 }}]}
         ],
         "http-errors": [
