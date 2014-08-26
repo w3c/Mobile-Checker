@@ -9,7 +9,7 @@ var express = require('express')
 var serverport;
 
 app.use(compress({
-  threshold: 512
+  threshold: 2048
 }));
 
 
