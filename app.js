@@ -1,6 +1,6 @@
 global.rootRequire = function(name) {
     return require(__dirname + '/' + name);
-}
+};
 
 var express = require("express"),
     app = express(),
@@ -44,8 +44,8 @@ app.get('/', function(req, res) {
 io.on('connection', function(socket) {
     var address = socket.handshake.address;
     socket.on('check', function(data) {
-        var sink = new Sink,
-            checker = new Checker,
+        var sink = new Sink(),
+            checker = new Checker(),
             uid = uuid.v4(),
             screenshot = false;
         sink.on('ok', function(data) {
