@@ -124,10 +124,10 @@ var tests = {
                     number: 1,
                     compressable: [{
                         url: "http://localhost:3001/docs/uncompressed.html",
-                        origSize: 7,
-                        diff: 0
+                        origSize: 1363,
+                        diff: 1055
                     }],
-                    saving: 0
+                    saving: 1055
                 }
             }]
         }]
