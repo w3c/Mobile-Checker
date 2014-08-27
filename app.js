@@ -16,6 +16,7 @@ var express = require("express"),
 
 var fs = require("fs");
 var step;
+
 var checklist = [
     require('./lib/checks/performance/number-requests'), require(
         './lib/checks/performance/redirects'), require(
@@ -78,7 +79,6 @@ io.on('connection', function(socket) {
             if (screenshot) {
                 fs.unlink('public/' + uid + '.png', function(err) {
                     if (err) throw err;
-                    console.log('delete with success');
                 });
             }
         });
