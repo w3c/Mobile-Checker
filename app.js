@@ -11,6 +11,7 @@ var express = require("express"),
     events = require("events"),
     logger = require('morgan'),
     uuid = require('node-uuid'),
+    url = require('url'),
     proc = require('child_process');
 
 
@@ -32,16 +33,11 @@ var checklist = [
         './lib/checks/interactions/touchscreen-target')
 ];
 
-app.use(logger());
-app.use(express.static("public"));
+app.use(express.static('public'));
 
 function Sink() {}
 util.inherits(Sink, events.EventEmitter);
 
-
-app.get('/', function(req, res) {
-    res.sendfile('index.html');
-});
 
 io.on('connection', function(socket) {
     var address = socket.handshake.address;

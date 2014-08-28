@@ -18,6 +18,18 @@ var checkSelectorHidden = 1;
 /*
  *	functions
  */
+var checkUrl = function(url) {
+    var query = {};
+    var buffer;
+    buffer = url.substring(url.indexOf('?') + 1, url.lenght).split('&');
+    console.log(buffer);
+    for (index in buffer) {
+        query[buffer[index].split('=')[0]] = buffer[index].split('=')[1];
+    }
+    return query["url"];
+}
+document.getElementById('url').value = checkUrl(window.location.toString());
+
 function progress() {
     progressBar.status = (progressBar.done / progressBar.total) * 100;
     //$('.progress-bar').attr("aria-valuenow", progressBar.status);
@@ -38,6 +50,7 @@ function loadHomePage() {
     $('#console-title').hide();
     $('#console').hide();
 }
+$
 
 function loadProgressPage() {
     var scales = {
