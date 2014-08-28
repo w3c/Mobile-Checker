@@ -26,9 +26,13 @@ var checkUrl = function(url) {
     for (index in buffer) {
         query[buffer[index].split('=')[0]] = buffer[index].split('=')[1];
     }
-    return query["url"];
+    if(query["url"]){
+        document.getElementById('url').value = query["url"];
+    }else{
+        return;
+    }
 }
-document.getElementById('url').value = checkUrl(window.location.toString());
+
 
 function progress() {
     progressBar.status = (progressBar.done / progressBar.total) * 100;
@@ -49,10 +53,12 @@ function loadHomePage() {
     $('#sm').removeClass('screenshot');
     $('#console-title').hide();
     $('#console').hide();
+    checkUrl(window.location.toString());
 }
 $
 
 function loadProgressPage() {
+    document.getElementById('shareLink').value = settings.url;
     var scales = {
         'sm': 8.31,
         'sm2': 8.31,
@@ -78,6 +84,8 @@ function loadProgressPage() {
         selectedDevice.removeClass('screenshot');
         style.remove();
     }, 1000)
+
+
 }
 
 function loadResultPage() {}

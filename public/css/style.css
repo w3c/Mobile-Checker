@@ -67,7 +67,7 @@ nav {
 form {
   margin-top: 50px;
 }
-input {
+#url {
   border: 1px solid #eee;
   border-bottom: 3px solid #eee;
   border-radius: 5px;
@@ -76,6 +76,19 @@ input {
   height: 50px;
   width: 100%;
   padding: 5px;
+}
+#shareLink{
+  margin-top: 80px;
+   border: 1px solid #eee;
+  border-bottom: 3px solid #eee;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #666;
+  height: 50px;
+  width: 100%;
+  padding: 5px;
+  font-family: 'Roboto';
+  padding-left: 10px;
 }
 button {
   border-radius: 5px;
@@ -356,7 +369,7 @@ button:hover {
   color: #8D9AA5;
   font-size: 18px;
   padding-left: 20px;
-  margin-top: 100px;
+  margin-top: 40px;
   font-family: 'Montserrat';
   font-weight: 700;
 }
