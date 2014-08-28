@@ -59,10 +59,10 @@ $
 
 function loadProgressPage() {
     document.getElementById('shareLink').value = settings.url;
-    if(window.location.toString().indexOf(settings.url) == -1){
+    if (window.location.toString().indexOf(settings.url) == -1) {
         window.history.pushState({}, "mobile checker - " + url, window.location.toString() + "?url=" + settings.url);
     }
-    
+
     var scales = {
         'sm': 8.31,
         'sm2': 8.31,
