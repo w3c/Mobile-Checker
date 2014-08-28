@@ -21,9 +21,9 @@ var checkSelectorHidden = 1;
 var checkUrl = function(url) {
     var query = {};
     var buffer;
-    buffer = url.substring(url.indexOf('?') + 1, url.lenght).split('&');
+    buffer = url.substring(url.search('?') + 1).split('&');
     console.log(buffer);
-    for (index in buffer) {
+    for (var index in buffer) {
         query[buffer[index].split('=')[0]] = buffer[index].split('=')[1];
     }
     if(query["url"]){
