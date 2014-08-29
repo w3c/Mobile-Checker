@@ -41,10 +41,17 @@ html, body{
   margin-bottom: 20px;
   font-family: 'Montserrat';
   font-size: 20px;
-  text-align: center;
+  text-align: left;
   font-weight: 700;
   color: #FFF;
   padding: 0;
+}
+#home > .navbar-fixed-top img{
+  margin-top: 0px;
+  float:left;
+}
+#home > .navbar-fixed-top h3{
+  padding-top: 10px;
 }
 #home{
   height: 100%;
@@ -188,6 +195,7 @@ button > span{
 ******************************************************************************************************/
 #report {
   background-color: #ecf0f1;
+  padding: 0px;
 }
 #report > .navbar-fixed-top {
   z-index: 1;
@@ -245,7 +253,13 @@ button > span{
    overflow-x: hidden;
     overflow-y: auto; 
 }
-
+#network-request #title-request{
+  font-weight: 700;
+  font-size: 20px;
+  font-family: 'Montserrat';
+  color: #eee;
+  margin-top: 15px;
+}
 /*
 * OVERVIEW
 */
@@ -403,6 +417,46 @@ button > span{
   padding: 10px;
   color: #FCFCFB;
 }
+#data-title {
+   color: #8D9AA5;
+  font-size: 18px;
+  padding-left: 20px;
+  margin-top: 10px;
+  font-family: 'Montserrat';
+  font-weight: 700;
+}
+#data-content {
+}
+#btn-network-requests{
+  background-color: #384047;
+  height: 40px;
+  border-radius: 0px;
+  border : 0px;
+  color: #FCFCFB;
+  font-weight: 400;
+  font-family: 'Montserrat';
+  text-align: left;
+  font-size: 20px;
+  width: 100%;
+}
+#btn-network-requests:hover{
+  background-color: #16a085;
+}
+#btn-network-requests > span{
+  padding-top: 10px;
+  font-size: 17px;
+}
+#network-requests {
+  background-color: #FCFCFB;
+  padding: 10px;
+  color: #3C3C3C;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: 'Roboto';
+}
+#network-requests ul li{
+  list-style-type: none;
+}
 #options-title {
    color: #8D9AA5;
   font-size: 18px;
@@ -415,7 +469,7 @@ button > span{
   color: #8D9AA5;
   font-size: 18px;
   padding-left: 20px;
-  margin-top: 40px;
+  margin-top: 80px;
   font-family: 'Montserrat';
   font-weight: 700;
 }
