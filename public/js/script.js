@@ -60,9 +60,12 @@ $
 
 function loadProgressPage() {
     $('#report').show();
-    if (window.location.toString().indexOf(settings.url) == -1) {
+    $('#cog1').addClass("active");
+    $('#cog2').addClass("active");
+    if (window.location.search.indexOf(settings.url) == -1) {
         window.history.pushState({}, "mobile checker - " + url, window.location.toString() + "?url=" + settings.url);
     }
+
 
     var scales = {
         'sm': 8.31,
@@ -93,7 +96,11 @@ function loadProgressPage() {
 
 }
 
-function loadResultPage() {}
+function loadResultPage() {
+    $('#cog1').removeClass("active");
+    $('#cog2').removeClass("active");
+    $("#inprogress").hide("1s");
+}
 
 /*
  *	protocol

@@ -609,3 +609,32 @@ background-size:295px auto;
 #home.report {
   transform: translate3d(-100%, 0,0);
 }
+
+#inprogress {
+  opacity:0.5;
+}
+
+#cogs {
+    text-align: center;
+}
+
+#cog2 { margin-top: -12px;}
+#cog1 { margin-top: 12px;}
+
+#cog1.active, #cog2.active {
+  animation: 2s rotate linear infinite;
+  transform-origin: 50% 50%;
+}
+
+#cog2.active {
+  animation-direction: reverse;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+
+}
