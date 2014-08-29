@@ -48,6 +48,7 @@ function stringifySourceCode() {
 function loadHomePage() {
     $('#sidebar').hide();
     $('#report').removeClass('report');
+    $('#report').hide();
     $('#home').removeClass('report');
     $('#sm').show();
     $('#sm').removeClass('screenshot');
@@ -58,7 +59,7 @@ function loadHomePage() {
 $
 
 function loadProgressPage() {
-    
+    $('#report').show();
     if (window.location.toString().indexOf(settings.url) == -1) {
         window.history.pushState({}, "mobile checker - " + url, window.location.toString() + "?url=" + settings.url);
     }

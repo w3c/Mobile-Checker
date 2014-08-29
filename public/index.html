@@ -39,17 +39,18 @@
             <header class="col-md-12">
                <form class="col-md-12">
                     <div class="col-md-6 col-md-offset-2"><input id="url" placeholder="http://example.com"></div>
-                    <div class="col-md-1"><button><span class="glyphicon glyphicon-ok"></span></button></div>
+                    <div class="col-md-2"><button><span class="glyphicon glyphicon-ok"></span>RUN CHECK</button></div>
                 </form>
                 <div id="options" class="col-md-8 col-md-offset-2">
-                  <div class="btn-group col-md-8" data-toggle="buttons">
-                    <label class="device-selector btn btn-default active">
+                <h3 id="options-title" class="col-md-12">Device Options</h3>
+                  <div class="btn-group col-md-12" data-toggle="buttons">
+                    <label class="device-selector btn btn-default active col-md-3">
                       <input type="radio" name="device" value="default" checked><img data-height="550" src="img/smartphone.svg" id="sm" height="80" alt=""><br>640x1100 XHDPI<span class="info btn btn-xs btn-default glyphicon glyphicon-question-sign" data-container="body" data-toggle="popover" data-placement="bottom" data-content="The rendering and analysis will be made on the basis of a device 640px wide, 960px high, with a factor of 2x for pixel density"></span>
                     </label>
-                    <label class="device-selector btn btn-default">
+                    <label class="device-selector btn btn-default col-md-3">
                       <input type="radio" name="device" value="smartphone2"><img data-height="480"  src="img/smartphone2.svg" id="sm2" height="80" alt=""><br> 640x960 XHDPI<span class="info btn btn-xs btn-default glyphicon glyphicon-question-sign" data-container="body" data-toggle="popover" data-placement="bottom" data-content="The rendering and analysis will be made on the basis of a device 640px wide, 960px high, with a factor of 2x for pixel density"></span>
                     </label>
-                    <label class="device-selector btn btn-default">
+                    <label class="device-selector btn btn-default col-md-3">
                       <input type="radio" name="device" value="tablet"><img data-height="400" src="img/tablet.svg" height="80" id="tab" alt=""><br>800x1280 HDPI<span class="info btn btn-xs btn-default glyphicon glyphicon-question-sign" data-container="body" data-toggle="popover" data-placement="bottom" data-content="The rendering and analysis will be made on the basis of a device 1280px wide, 800px high, with a factor of 1.5x for pixel density"></span>
                     </label>
                 </div>
