@@ -18,11 +18,10 @@ var checkSelectorHidden = 1;
 /*
  *	functions
  */
-var checkUrl = function(url) {
+var checkUrl = function(querystring) {
     var query = {};
-    var buffer;
-    buffer = url.substring(url.indexOf('?') + 1).split('&');
-    console.log(buffer);
+    var buffer = querystring.slice(1).split('&');
+    console.log(querystring);
     for (var index in buffer) {
         query[buffer[index].split('=')[0]] = buffer[index].split('=')[1];
     }
@@ -54,7 +53,7 @@ function loadHomePage() {
     $('#sm').removeClass('screenshot');
     $('#console-title').hide();
     $('#console').hide();
-    checkUrl(window.location.toString());
+    checkUrl(window.location.search);
 }
 $
 
@@ -62,11 +61,6 @@ function loadProgressPage() {
     $('#report').show();
     $('#cog1').addClass("active");
     $('#cog2').addClass("active");
-    if (window.location.search.indexOf(settings.url) == -1) {
-        window.history.pushState({}, "mobile checker - " + url, window.location.toString() + "?url=" + settings.url);
-    }
-
-
     var scales = {
         'sm': 8.31,
         'sm2': 8.31,
@@ -142,7 +136,9 @@ socket.on('exception', function(msg) {
 $('form').submit(function() {
     settings.url = $('#url').val();
     settings.profile = $('input[name="device"]:radio:checked').val();
-    $('#url').val('');
+    var url = window.location.origin + window.location.pathname;
+    url += "url=" + encodeURIComponent(settings.url);
+    window.history.pushState({}, "mobile checker - " + settings.url, url);
     socket.emit('check', settings);
     return false;
 });
