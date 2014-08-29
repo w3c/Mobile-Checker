@@ -26,7 +26,7 @@ var checkUrl = function(querystring) {
         query[buffer[index].split('=')[0]] = buffer[index].split('=')[1];
     }
     if (query["url"]) {
-        document.getElementById('url').value = query["url"];
+        document.getElementById('url').value = decodeURIComponent(query["url"]);
     } else {
         return;
     }
@@ -94,6 +94,7 @@ function loadResultPage() {
     $('#cog1').removeClass("active");
     $('#cog2').removeClass("active");
     $("#inprogress").hide("1s");
+    $("#tipbody").addClass("collapse");
 }
 
 /*
@@ -112,6 +113,8 @@ socket.on('start', function(data) {
     //progressBar.total = data;
     loadProgressPage();
 });
+
+
 socket.on('done', function(data) {
     progressBar.done++;
     //progress();
@@ -120,6 +123,12 @@ socket.on('ok', function(data) {});
 socket.on('err', function(data) {
     $('#issues-feed').append($(data));
 });
+
+socket.on('tip', function(data) {
+    $('#issues-feed').append($(data));
+});
+
+
 socket.on('screenshot', function(path) {
     $('<img>').attr('src', path).attr('alt', 'Screenshot').attr('id',
         'screenshot').attr('width', 266).appendTo('#smartphone');
@@ -137,7 +146,7 @@ $('form').submit(function() {
     settings.url = $('#url').val();
     settings.profile = $('input[name="device"]:radio:checked').val();
     var url = window.location.origin + window.location.pathname;
-    url += "url=" + encodeURIComponent(settings.url);
+    url += "?url=" + encodeURIComponent(settings.url);
     window.history.pushState({}, "mobile checker - " + settings.url, url);
     socket.emit('check', settings);
     return false;

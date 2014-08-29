@@ -79,6 +79,18 @@ io.on('connection', function(socket) {
             }
         });
         socket.emit('start', 3);
+        setTimeout(function () {
+            fs.readdir("lib/tips", function(err, files) {
+                var tip = "lib/tips/" + files[Math.floor(files.length*Math.random())];
+                fs.readFile(tip, {encoding: "utf-8"}, function(err, data) {
+                    if (err) {
+                        return;
+                    }
+                    socket.emit("tip", data);
+                    validProfiles = files;
+                });
+            });
+        }, 1500);
         checker.check({
             url: data.url,
             events: sink,
