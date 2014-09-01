@@ -103,7 +103,22 @@ socket.on('start', function(data) {
 });
 //server event : add report header and some infos 
 socket.on('tip', function(data) {
-    $('#issues-feed').append($(data));
+    var tip = $("<div></div>");
+    tip.html(data);
+    var wrapper = $('<div class="col-md-12 content-issue tip"></div>');
+    var wrapperOut = $('<div class="col-md-12 issue"></div>').append(wrapper);
+    var collapsableLink = $('<a></a>').html(tip.find('h2').html());
+    collapsableLink.attr("data-toggle", "collapse");
+    collapsableLink.attr("href","#tipbody");
+    var h2= $('<h2></h2>').appendTo(wrapper);
+    h2.addClass('title-issue page-header')
+    h2.append(collapsableLink);
+    h2.append(' ');
+    h2.append($('<small>tip</small>'));
+    var div = $('<div></div>').appendTo(wrapper);
+    div.attr("id", "tipbody");
+    div.append(tip.find('h2').nextAll());
+    $('#issues-feed').append(wrapperOut);
 });
 //server event : display console if some problems detected on server side.
 //TODO : display all server side errors. For the moment only display errors detected and interpreted via throw function.
