@@ -21,6 +21,12 @@ function checkURI(querystring) {
     }
     if (query["url"]) {
         document.getElementById('url').value = decodeURIComponent(query["url"]);
+        if (query["profile"]) {
+            $("input[value=" + decodeURIComponent(query["profile"]) + "]").click();
+            settings.profile = decodeURIComponent(query["profile"]);
+        } else {
+            return;
+        }
     } else {
         return;
     }
@@ -93,6 +99,7 @@ $('form').submit(function() {
     settings.profile = $('input[name="device"]:radio:checked').val();
     var url = window.location.origin + window.location.pathname;
     url += "?url=" + encodeURIComponent(settings.url);
+    url += "&profile=" + encodeURIComponent(settings.profile);
     window.history.pushState({}, "mobile checker - " + settings.url, url);
     socket.emit('check', settings);
     return false;
@@ -109,8 +116,8 @@ socket.on('tip', function(data) {
     var wrapperOut = $('<div class="col-md-12 issue"></div>').append(wrapper);
     var collapsableLink = $('<a></a>').html(tip.find('h2').html());
     collapsableLink.attr("data-toggle", "collapse");
-    collapsableLink.attr("href","#tipbody");
-    var h2= $('<h2></h2>').appendTo(wrapper);
+    collapsableLink.attr("href", "#tipbody");
+    var h2 = $('<h2></h2>').appendTo(wrapper);
     h2.addClass('title-issue page-header')
     h2.append(collapsableLink);
     h2.append(' ');
