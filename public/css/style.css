@@ -1,198 +1,143 @@
-@font-face{
-    font-family : "gotham-rounded-medium";
-    src : url('../fonts/gotham-rounded-medium.otf');
-}
+/* TODO : use full path of elements */
+
 html, body{
   margin: 0px;
   padding: 0px;
   outline: 0px;
   height: 100%;
   background-color: #eee;
-  font-family: 'gotham-rounded-medium';
 }
+
+/* MOBILE device view */
 @media screen and (max-width: 990px) {
   #overview {
     visibility: hidden;
   }
-}
-@media screen and (max-width: 990px) {
   #section-title {
     visibility: hidden;
   }
 }
-/*
-*
-* HEADER
-*
-*/
+
+/* DEFAULT view */
+#home{
+  height: 100%;
+}
 #home > .navbar-fixed-top {
-  z-index: 1;
   padding-left: 20px;
   padding-right: 20px;
   background-color: #384047;
   height: 62px;
   box-shadow: 0px -4px 0px 4px #384047, 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
 }
-#home > .navbar-fixed-top > #section-title{
-  padding-top: 20px;
-}
-#home > .navbar-fixed-top h3{
+#home > .navbar-fixed-top > div > a > h3 {
   margin-top: 0px;
   margin-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
   font-family: 'Montserrat';
   font-size: 20px;
   text-align: left;
   font-weight: 700;
   color: #FFF;
-  padding: 0;
 }
-#home > .navbar-fixed-top img{
+#home > .navbar-fixed-top > div > a > img{
   margin-top: 0px;
   float:left;
 }
-#home > .navbar-fixed-top h3{
-  padding-top: 10px;
-}
-#home{
+#home > header {
   height: 100%;
-}
-header {
-  height: 100%;
-  text-align: center;
-  color: #FCFCFB;
-  font-size: 20px;
-  font-weight: 400;
-  font-family: 'Roboto';
   padding-top: 15px;
   margin-top: 62px;
   background-color: #FCFCFB;
-  --box-shadow: 0px -4px 0px 4px #2980b9, 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+  font-family: 'Roboto';
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+  color: #FCFCFB;
 }
-
-nav {
-  height: 60px;
-  background-color: #34495e;
-}
-
-form {
+#home > header > form {
   margin-top: 50px;
 }
-#url {
-  border: 1px solid #eee;
+#home > header > form > div > #url {
+  height: 50px;
+  width: 100%;
+  padding: 5px;
+  margin-top: 20px;
+  border-left: 1px solid #eee;
+  border-right: 1px solid #eee;
+  border-top: 1px solid #eee;
   border-bottom: 3px solid #eee;
   border-radius: 5px;
   background-color: #fff;
   color: #666;
+}
+#home > header > form > div > button {
   height: 50px;
   width: 100%;
-  padding: 5px;
-}
-#shareLink{
-  margin-top: 80px;
-   border: 1px solid #eee;
-  border-bottom: 3px solid #eee;
-  border-radius: 5px;
-  background-color: #fff;
-  color: #666;
-  height: 50px;
-  width: 100%;
-  padding: 5px;
-  font-family: 'Roboto';
-  padding-left: 10px;
-}
-form > div > input {
   margin-top: 20px;
-}
-form > div > button {
-  margin-top: 20px;
-  border-radius: 5px;
-  background-color: #1abc9c;
-  border : 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 0px;
   border-bottom: 3px solid #16a085;
-  color: #FFF;
-  height: 50px;
-  width: 100%;
-  font-weight: 700;
+  border-radius: 5px;
   font-family: 'Montserrat';
+  color: #FFF;
+  font-weight: 700;
+  background-color: #1abc9c;
 }
-button:hover {
+#home > header > form > div > button:hover {
   background-color: #16a085;
 }
-button > span{
+#home > header > form > div > button > span {
   margin-right: 10px;
 }
-
-.device-selector{
-  background-image: none;
-  background-color: #FFF;
-  border : 0px;
-  border-radius: 0px;
-  height: 150px;
-  border-bottom: 3px solid #eee;
-  padding-top: 20px;
-}
-
-.device-selector > img{
-  margin-bottom: 10px;
-}
-
-.device-selector > span{
-  margin-left: 10px;
-  margin-top: -5px;
-  background-image: none;
-  background-color: #FCFCFB;
-  border-radius: 0px;
-}
-
-.device-selector:hover{
-  background-image: none;
-  background-color: #eee;
-  border-bottom: 3px solid #eee;
-}
-
-.device-selector:focus{
-  background-image: none;
-  background-color: #FCFCFB;
-  border : 0px;
-  box-shadow: none;
-}
-
-.device-selector.active{
-  background-image: none;
-  background-color: #eee;
-  border : 0px;
-  box-shadow: none;
-}
-
-.dropdown {
-  font-size: 16px;
-  font-weight: 700;
-  font-family: 'Roboto';
-  background-color: white;
-  border: 1px solid #eee;
-  border-bottom: 3px solid #eee;
-  border-radius: 5px;
-  background-color: #fff;
-  padding-top: 5px;
-  margin-right: 20px;
-}
-.dropdown > a{
-  color: #666;
-}
-.dropdown > a > p{
-  margin: 0px;
-}
-#options {
+#home > header > #options {
   padding-left: 15px;
   padding-right: 15px;
   margin-top: 50px;
 }
+#home > header > #options > div > .device-selector {
+  height: 150px;
+  padding-top: 20px;
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 0px;
+  border-bottom: 3px solid #eee;
+  border-radius: 0px;
+  background-image: none;
+  background-color: #FFF;
+}
+#home > header > #options > div > .device-selector > img {
+  margin-bottom: 10px;
+}
+#home > header > #options > div > .device-selector > span {
+  margin-left: 10px;
+  margin-top: -5px;
+  border-radius: 0px;
+  background-image: none;
+  background-color: #FCFCFB;
+}
+#home > header > #options > div > .device-selector:hover {
+  background-image: none;
+  background-color: #eee;
+  border-bottom: 3px solid #eee;
+}
 
-/*****************************************************************************************************
-*
-* REPORT
-*
-******************************************************************************************************/
+ #home > header > #options > div > .device-selector:focus {
+  background-image: none;
+  background-color: #FCFCFB;
+  border : 0px;
+  box-shadow: none;
+}
+
+#home > header > #options > div > .device-selector.active { 
+  background-image: none;
+  background-color: #eee;
+  border : 0px;
+  box-shadow: none;
+}
 #report {
   background-color: #ecf0f1;
   padding: 0px;
@@ -222,9 +167,6 @@ button > span{
   font-size: 20px;
   color: #FCFCFB;
 }
-/*
-* NAVBAR REPORT
-*/
 #navbar-report {
   background-image: none;
   border-radius: 0px;
@@ -235,10 +177,6 @@ button > span{
   height: 50px;
   z-index: 4;
 }
-
-/*
-* SIDEBAR
-*/
 #sidebar {
   height: 100%;
   position: fixed;
@@ -260,9 +198,6 @@ button > span{
   color: #eee;
   margin-top: 15px;
 }
-/*
-* OVERVIEW
-*/
 #overview {
   margin-top: 50px;
   padding: 0;
@@ -278,10 +213,6 @@ button > span{
   height: 1012px;
   --background-image: url(../img/Nexus_5.jpg);
 }
-
-/*
-* ANALYTICS & ISSUES
-*/
 #analytics {
   margin-top: 50px;
 }
