@@ -1,24 +1,18 @@
+// webSockets client side declaration
 var socket = io();
 
+//settings sent to server
+// profile : device profile, selected by user.
+// url : url of the website which need to be check.
 var settings = {
-    widthView: 600,
-    heightView: 900,
     profile: null,
     url: null
 };
-var progressBar = {
-    total: 0,
-    done: 0,
-    status: 0
-};
 
-var result = {};
-var smartphoneSelectorHidden = 1;
-var checkSelectorHidden = 1;
-/*
- *	functions
- */
-var checkUrl = function(querystring) {
+//get querystring and return asked url if exist
+//this function provide an unique URI to share a report configuration.
+// TODO : insert device selector in URI
+function checkURI(querystring) {
     var query = {};
     var buffer = querystring.slice(1).split('&');
     console.log(querystring);
@@ -32,20 +26,9 @@ var checkUrl = function(querystring) {
     }
 }
 
-
-function progress() {
-    progressBar.status = (progressBar.done / progressBar.total) * 100;
-    //$('.progress-bar').attr("aria-valuenow", progressBar.status);
-    //$('.progress-bar').attr("style", "width:" + progressBar.status + "%");
-}
-
-function stringifySourceCode() {
-    result.source = result.source.replace('<', '&lt;');
-    result.source = result.source.replace('>', '&gt;');
-}
-
+//display all home page's elements and hide report page.
+//call checkURI function to insert an URI in input element if a query url exist.
 function loadHomePage() {
-    $('#sidebar').hide();
     $('#report').removeClass('report');
     $('#report').hide();
     $('#home').removeClass('report');
@@ -53,10 +36,10 @@ function loadHomePage() {
     $('#sm').removeClass('screenshot');
     $('#console-title').hide();
     $('#console').hide();
-    checkUrl(window.location.search);
+    checkURI(window.location.search);
 }
-$
 
+//display all progress elements, report page and animate smartphone
 function loadProgressPage() {
     $('#report').show();
     $('#cog1').addClass("active");
@@ -85,11 +68,10 @@ function loadProgressPage() {
         selectedDevice.hide();
         selectedDevice.removeClass('screenshot');
         style.remove();
-    }, 1000)
-
-
+    }, 1000);
 }
 
+//hide progress animation
 function loadResultPage() {
     $('#cog1').removeClass("active");
     $('#cog2').removeClass("active");
@@ -97,51 +79,15 @@ function loadResultPage() {
     $("#tipbody").addClass("collapse");
 }
 
-/*
- *	protocol
- */
-
+//PROTOCOL of client Side
+loadHomePage();
+//detect device choice and add a profile device in settings
 $('.device-selector').click(function() {
     var id = this.id;
     settings.profile = id;
     $('#device-selected').text(id);
 });
-
-loadHomePage();
-
-socket.on('start', function(data) {
-    //progressBar.total = data;
-    loadProgressPage();
-});
-
-
-socket.on('done', function(data) {
-    progressBar.done++;
-    //progress();
-});
-socket.on('ok', function(data) {});
-socket.on('err', function(data) {
-    $('#issues-feed').append($(data));
-});
-
-socket.on('tip', function(data) {
-    $('#issues-feed').append($(data));
-});
-
-
-socket.on('screenshot', function(path) {
-    $('<img>').attr('src', path).attr('alt', 'Screenshot').attr('id',
-        'screenshot').attr('width', 266).appendTo('#smartphone');
-});
-socket.on('end', function() {
-    loadResultPage();
-});
-socket.on('exception', function(msg) {
-    $('#console-title').show();
-    $('#console').show();
-    $('#console').text(msg);
-});
-
+//detect form submit, update URI of mobile checker, add URI asked to settings and send data to server side
 $('form').submit(function() {
     settings.url = $('#url').val();
     settings.profile = $('input[name="device"]:radio:checked').val();
@@ -151,5 +97,33 @@ $('form').submit(function() {
     socket.emit('check', settings);
     return false;
 });
-
-$('span.info').popover();
+//server event : inform the check begin
+socket.on('start', function(data) {
+    loadProgressPage();
+});
+//server event : add report header and some infos 
+socket.on('tip', function(data) {
+    $('#issues-feed').append($(data));
+});
+//server event : display console if some problems detected on server side.
+//TODO : display all server side errors. For the moment only display errors detected and interpreted via throw function.
+socket.on('exception', function(msg) {
+    $('#console-title').show();
+    $('#console').show();
+    $('#console').text(msg);
+});
+//server event : detect when check is done.
+socket.on('done', function(data) {});
+socket.on('ok', function(data) {});
+socket.on('err', function(data) {
+    $('#issues-feed').append($(data));
+});
+//server event : get screenshot path when it is ready and display it in smartphone frame.
+socket.on('screenshot', function(path) {
+    $('<img>').attr('src', path).attr('alt', 'Screenshot').attr('id',
+        'screenshot').attr('width', 266).appendTo('#smartphone');
+});
+//server event : detect end of all checks and call loadResultPage function.
+socket.on('end', function() {
+    loadResultPage();
+});
