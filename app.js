@@ -12,7 +12,8 @@ var express = require("express"),
     logger = require('morgan'),
     uuid = require('node-uuid'),
     url = require('url'),
-    proc = require('child_process');
+    proc = require('child_process')
+checkremote = require('./lib/checkremote');
 
 
 var fs = require("fs");
@@ -78,29 +79,39 @@ io.on('connection', function(socket) {
                 });
             }
         });
-        socket.emit('start', 3);
-        setTimeout(function () {
-            fs.readdir("lib/tips", function(err, files) {
-                var tip = "lib/tips/" + files[Math.floor(files.length*Math.random())];
-                fs.readFile(tip, {encoding: "utf-8"}, function(err, data) {
-                    if (err) {
-                        return;
-                    }
-                    socket.emit("tip", data);
-                    validProfiles = files;
+        checkremote.check_url_safety(data.url, function(result) {
+            console.log(result);
+            if (result == true) {
+                socket.emit('start', 3);
+                setTimeout(function() {
+                    fs.readdir("lib/tips", function(err, files) {
+                        var tip = "lib/tips/" + files[Math.floor(files.length * Math.random())];
+                        fs.readFile(tip, {
+                            encoding: "utf-8"
+                        }, function(err, data) {
+                            if (err) {
+                                return;
+                            }
+                            socket.emit("tip", data);
+                            validProfiles = files;
+                        });
+                    });
+                }, 1500);
+                checker.check({
+                    url: data.url,
+                    events: sink,
+                    sockets: socket,
+                    profile: data.profile,
+                    checklist: checklist,
+                    id: uid,
+                    lang: "en"
                 });
-            });
-        }, 1500);
-        checker.check({
-            url: data.url,
-            events: sink,
-            sockets: socket,
-            profile: data.profile,
-            checklist: checklist,
-            id: uid,
-            lang: "en"
-        });
-        step = 0;
+                step = 0;
+            } else {
+                console.log("error url");
+            }
+        })
+
     });
 });
 
