@@ -12,8 +12,8 @@ var express = require("express"),
     logger = require('morgan'),
     uuid = require('node-uuid'),
     url = require('url'),
-    proc = require('child_process')
-checkremote = require('./lib/checkremote');
+    proc = require('child_process'),
+    checkremote = require('./lib/checkremote');
 
 
 var fs = require("fs");
