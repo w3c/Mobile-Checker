@@ -67,6 +67,7 @@ html, body{
 }
 #home > header > #errors > #dns-error > p{
   padding-top: 10px;
+  font-size: 14px;
 }
 #home > header > form {
   margin-top: 50px;
