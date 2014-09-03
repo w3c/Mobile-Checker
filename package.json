@@ -17,7 +17,9 @@
         "easyimage": "1.0.2",
         "intl": "0.1.4",
         "effective-domain-name-parser": "0.0.1",
-	    "css": "2.1.0"
+	    "css": "2.1.0",
+        "ip": "0.3.1",
+        "q": "1.0.1"
     },
     "devDependencies": {
         "mocha": "1.20.1",
