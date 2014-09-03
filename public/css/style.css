@@ -57,6 +57,17 @@ html, body{
   	text-align: center;
   	color: #FCFCFB;
 }
+#home > header > #errors {
+  margin-top: 100px;
+  padding: 30px;
+}
+#home > header > #errors > #dns-error {
+  background-color: #e74c3c;
+  color: white;
+}
+#home > header > #errors > #dns-error > p{
+  padding-top: 10px;
+}
 #home > header > form {
   margin-top: 50px;
 }

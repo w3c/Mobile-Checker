@@ -80,7 +80,6 @@ io.on('connection', function(socket) {
             }
         });
         checkremote.check_url_safety(data.url, function(result) {
-            console.log(result);
             if (result == true) {
                 socket.emit('start', 3);
                 setTimeout(function() {
@@ -108,7 +107,7 @@ io.on('connection', function(socket) {
                 });
                 step = 0;
             } else {
-                console.log("error url");
+                socket.emit('unsafeUrl', data.url);
             }
         })
 
