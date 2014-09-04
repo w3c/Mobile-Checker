@@ -136,7 +136,7 @@ socket.on('exception', function(msg) {
 });
 socket.on('unsafeUrl', function(data) {
     $('#dns-error').remove();
-    $('#errors').append($('<div id="dns-error" class="col-md-12"><p>DNS error while resolving ' + data + ' Check the spelling of the host, and ensure that the page is accessible from the public Internet.</p></div>'));
+    $('#errors').append($('<div id="dns-error" class="col-md-12"><p>error while resolving ' + data + ' Check the spelling of the host, the protocol (http, https) and ensure that the page is accessible from the public Internet.</p></div>'));
 });
 //server event : detect when check is done.
 socket.on('done', function(data) {});
