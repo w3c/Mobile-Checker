@@ -2,6 +2,8 @@
 
 The Mobile Checker is a tool for Web developers who want to make their Web page or Web app work better on mobile devices.
 
+[docs](http://guibbs.github.io/Mobile-Checker-Documentation/)
+
 ## Installation
 
 Mobile Checker is a Node application. It will eventually be distributed through npm, but in the meantime
