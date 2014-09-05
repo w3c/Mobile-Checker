@@ -1,6 +1,21 @@
 /*
  *  see documentation at http://guibbs.github.io/Mobile-Checker-Documentation/
  */
+/**
+ * @file
+ * @requires express
+ * @requires http
+ * @requires socket.io
+ * @requires util
+ * @requires checker.js
+ * @requires events
+ * @requires morgan
+ * @requires node-uuid
+ * @requires url
+ * @requires child_process
+ * @requires checkremote.js
+ * @requires fs
+ */
 global.rootRequire = function(name) {
     return require(__dirname + '/' + name);
 };
@@ -16,10 +31,9 @@ var express = require("express"),
     uuid = require('node-uuid'),
     url = require('url'),
     proc = require('child_process'),
-    checkremote = require('./lib/checkremote');
-
-
-var fs = require("fs");
+    checkremote = require('./lib/checkremote'),
+    fs = require("fs");
+    
 var step;
 
 var checklist = [
