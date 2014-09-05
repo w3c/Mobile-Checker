@@ -1,3 +1,6 @@
+/*
+ *  see documentation at http://guibbs.github.io/Mobile-Checker-Documentation/
+ */
 global.rootRequire = function(name) {
     return require(__dirname + '/' + name);
 };
