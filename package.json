@@ -19,7 +19,8 @@
         "effective-domain-name-parser": "0.0.1",
 	    "css": "2.1.0",
         "ip": "0.3.1",
-        "q": "1.0.1"
+        "q": "1.0.1",
+        "safe-url-input-checker":"0.0.1"
     },
     "devDependencies": {
         "mocha": "1.20.1",

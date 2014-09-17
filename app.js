@@ -31,7 +31,7 @@ var express = require("express"),
     uuid = require('node-uuid'),
     url = require('url'),
     proc = require('child_process'),
-    checkremote = require('./lib/checkremote'),
+    urlSafetyChecker = require('safe-url-input-checker'),
     fs = require("fs");
     
 var step;
@@ -96,7 +96,7 @@ io.on('connection', function(socket) {
                 });
             }
         });
-        checkremote.check_url_safety(data.url, function(result) {
+        urlSafetyChecker.checkUrlSafety(data.url, function(err, result) {
             if (result == true) {
                 socket.emit('start', 3);
                 setTimeout(function() {
