@@ -97,7 +97,7 @@ io.on('connection', function(socket) {
             }
         });
         urlSafetyChecker.checkUrlSafety(data.url, function(err, result) {
-            if (result == true) {
+            if (result != false) {
                 socket.emit('start', 3);
                 setTimeout(function() {
                     fs.readdir("lib/tips", function(err, files) {
@@ -114,7 +114,7 @@ io.on('connection', function(socket) {
                     });
                 }, 1500);
                 checker.check({
-                    url: data.url,
+                    url: result,
                     events: sink,
                     sockets: socket,
                     profile: data.profile,
