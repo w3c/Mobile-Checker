@@ -33,8 +33,6 @@ var express = require("express"),
     proc = require('child_process'),
     urlSafetyChecker = require('safe-url-input-checker'),
     fs = require("fs");
-    
-var step;
 
 var checklist = [
     require('./lib/checks/performance/number-requests'), require(
@@ -58,7 +56,6 @@ util.inherits(Sink, events.EventEmitter);
 
 
 io.on('connection', function(socket) {
-    var address = socket.handshake.address;
     socket.on('check', function(data) {
         var sink = new Sink(),
             checker = new Checker(),
@@ -78,9 +75,8 @@ io.on('connection', function(socket) {
             socket.emit('screenshot', data);
         });
         sink.on('done', function() {
-            step++;
             console.log('done');
-            socket.emit('done', step);
+            socket.emit('done');
         });
         sink.on('end', function(data) {
             socket.emit('end', data);
