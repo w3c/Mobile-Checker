@@ -230,7 +230,7 @@ describe('Starting test suite', function() {
                                             name +
                                             "." +
                                             key;
-                                        if (!data) {
+                                        if (!Object.keys(data).length) {
                                             return fullname;
                                         }
                                         return {
