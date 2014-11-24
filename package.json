@@ -30,6 +30,6 @@
     },
     "scripts": {
        "start": "node app.js",
-       "test": "mocha --timeout 20000 --globals Intl,IntlPolyfill"
+       "test": "mocha --timeout 20000 --globals Intl,IntlPolyfill,ErrorHandler"
     }
 }
