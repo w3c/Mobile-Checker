@@ -75,7 +75,6 @@ io.on('connection', function(socket) {
             socket.emit('screenshot', data);
         });
         sink.on('done', function() {
-            console.log('done');
             socket.emit('done');
         });
         sink.on('end', function(data) {
@@ -93,7 +92,7 @@ io.on('connection', function(socket) {
             }
         });
         urlSafetyChecker.checkUrlSafety(data.url, function(err, result) {
-            if (result != false) {
+            if (result !== false) {
                 socket.emit('start', 3);
                 setTimeout(function() {
                     fs.readdir("lib/tips", function(err, files) {
@@ -122,7 +121,7 @@ io.on('connection', function(socket) {
             } else {
                 socket.emit('unsafeUrl', data.url);
             }
-        })
+        });
 
     });
 });
