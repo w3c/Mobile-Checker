@@ -159,8 +159,23 @@ var tests = {
                     }],
                     saving: 1055
                 }
+            }],
+        }],
+        "exif": [{
+            doc: "firework.jpg",
+            warning: [{
+                name: "performance.exif.images-could-be-unexified",
+                data: {
+                    number: 1,
+                    minifiable: [{
+                        url: "http://0.0.0.0:3001/docs/firework.jpg",
+                        origSize: 106571,
+                        diff: 65532
+                    }],
+                    saving: 65532
+                }
             }]
-        }]
+        }],
     },
     "compatibility":{
         "css-prefixes":[
