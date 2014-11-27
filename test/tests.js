@@ -82,11 +82,11 @@ var tests = {
                         latency: null
                     }, {
                         from: "http://0.0.0.0:3001/scheme-relative-redirect",
-                        to: "http://localhost:3001/js/script.js",
-                        wastedBW: 578,
+                        to: "http://0.0.0.0:3001/js/script.js",
+                        wastedBW: 576,
                         latency: null
                     }],
-                    totalWastedBW: 1241,
+                    totalWastedBW: 1239,
                     totalLatency: null
                 }
             }]
