@@ -76,17 +76,17 @@ var tests = {
                 data: {
                     number: 2,
                     redirects: [{
-                        from: "http://localhost:3001/redirect.css",
-                        to: "http://localhost:3001/css/style.css",
-                        wastedBW: 665,
+                        from: "http://0.0.0.0:3001/redirect.css",
+                        to: "http://0.0.0.0:3001/css/style.css",
+                        wastedBW: 663,
                         latency: null
                     }, {
-                        from: "http://localhost:3001/scheme-relative-redirect",
+                        from: "http://0.0.0.0:3001/scheme-relative-redirect",
                         to: "http://localhost:3001/js/script.js",
-                        wastedBW: 580,
+                        wastedBW: 578,
                         latency: null
                     }],
-                    totalWastedBW: 1245,
+                    totalWastedBW: 1241,
                     totalLatency: null
                 }
             }]
@@ -98,7 +98,7 @@ var tests = {
                 data: {
                     number: 1,
                     errors: [{
-                        url: "http://localhost:3001/foo",
+                        url: "http://0.0.0.0:3001/foo",
                         status: 404,
                         statusText: "Not Found"
                     }]
@@ -109,7 +109,7 @@ var tests = {
             errors: [{
                 name: "performance.http-errors.favicon",
                 data: {
-                    url: "http://localhost:3001/favicon.ico"
+                    url: "http://0.0.0.0:3001/favicon.ico"
                 }
             }]
         }],
@@ -123,7 +123,7 @@ var tests = {
                 data: {
                     number: 1,
                     compressable: [{
-                        url: "http://localhost:3001/docs/uncompressed.html",
+                        url: "http://0.0.0.0:3001/docs/uncompressed.html",
                         origSize: 1363,
                         diff: 1055
                     }],
@@ -212,7 +212,7 @@ describe('Starting test suite', function() {
                                     done();
                                 });
                                 checker.check({
-                                    url: "http://localhost:" +
+                                    url: "http://0.0.0.0:" +
                                         port +
                                         "/docs/" +
                                         test.doc,
