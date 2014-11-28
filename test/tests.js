@@ -64,16 +64,10 @@ var tests = {
             doc: "number-requests.html",
             errors: [{
                 name: "performance.number-requests.info-number-requests",
+                dataSorter: {entries:"url"},
                 data: {
                     number: 4,
                     entries: [{
-                        "url": "http://0.0.0.0:3001/docs/number-requests.html",
-                        "status": 200,
-                        "mimeType": "text/html; charset=UTF-8",
-                        "bodySize": 139,
-                        "time": null
-                    },
-                              {
                                   "url": "http://0.0.0.0:3001/css/style.css",
                                   "status": 200,
                                   "mimeType": "text/css; charset=UTF-8",
@@ -81,10 +75,10 @@ var tests = {
                                   "time": null
                               },
                               {
-                                  "url": "http://0.0.0.0:3001/js/script.js",
+                                  "url": "http://0.0.0.0:3001/docs/number-requests.html",
                                   "status": 200,
-                                  "mimeType": "application/javascript",
-                                  "bodySize": 0,
+                                  "mimeType": "text/html; charset=UTF-8",
+                                  "bodySize": 139,
                                   "time": null
                               },
                               {
@@ -92,6 +86,13 @@ var tests = {
                                   "status": 404,
                                   "mimeType": "text/html",
                                   "bodySize": 24,
+                                  "time": null
+                              },
+                              {
+                                  "url": "http://0.0.0.0:3001/js/script.js",
+                                  "status": 200,
+                                  "mimeType": "application/javascript",
+                                  "bodySize": 0,
                                   "time": null
                               }
                              ]
@@ -225,13 +226,15 @@ describe('Starting test suite', function() {
                                         ).to.be.empty();
                                         //expect(sink.ok).to.eql(sink.done);
                                     } else {
+                                        sort(sink.errors,
+                                             test.errors);
                                         sink.errors =
                                             cleanNulls(
                                                 sink
                                                 .errors,
                                                 test
                                                 .errors
-                                        );
+                                            );
                                         expect(sink
                                             .errors
                                         ).to.eql(
@@ -304,4 +307,25 @@ function cleanNulls(obj1, obj2) {
         }
     }
     return obj;
+}
+
+// Sort lists in test results to avoid false positives when order is not
+// deterministic
+function sort(errors1, errors2) {
+    function keysrt(key,desc) {
+        return function(a,b){
+            return desc ? ~~(a[key] < b[key]) : ~~(a[key] > b[key]);
+        };
+    }
+
+    for (var i = 0 ; i < errors2.length; i++) {
+        var err2 = errors2[i];
+        if (err2.dataSorter) {
+            for (var key in err2.dataSorter) {
+                var sortProperty = err2.dataSorter[key];
+                errors1[i].data[key].sort(keysrt(sortProperty));
+            }
+            delete err2.dataSorter;
+        }
+    }
 }
