@@ -295,11 +295,13 @@ html, body{
 #cog2 { margin-top: -12px;}
 #cog1 { margin-top: 12px;}
 #cog1.active, #cog2.active {
+        -webkit-animation: 2s rotate linear infinite;
   	animation: 2s rotate linear infinite;
   	transform-origin: 50% 50%;
 }
 #cog2.active {
-  	animation-direction: reverse;
+  	 -webkit-animation-direction: reverse;
+  	 animation-direction: reverse;
 }
 @keyframes rotate {
   	from {
@@ -309,5 +311,15 @@ html, body{
 		transform: rotate(360deg);
   	}
 }
+
+@-webkit-keyframes rotate {
+  	from {
+		transform: rotate(0);
+  	}
+  	to {
+		transform: rotate(360deg);
+  	}
+}
+
 
 td.number { text-align:right;}
