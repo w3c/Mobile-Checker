@@ -65,7 +65,36 @@ var tests = {
             errors: [{
                 name: "performance.number-requests.info-number-requests",
                 data: {
-                    number: 4
+                    number: 4,
+                    entries: [{
+                        "url": "http://0.0.0.0:3001/docs/number-requests.html",
+                        "status": 200,
+                        "mimeType": "text/html; charset=UTF-8",
+                        "bodySize": 139,
+                        "time": null
+                    },
+                              {
+                                  "url": "http://0.0.0.0:3001/css/style.css",
+                                  "status": 200,
+                                  "mimeType": "text/css; charset=UTF-8",
+                                  "bodySize": 106,
+                                  "time": null
+                              },
+                              {
+                                  "url": "http://0.0.0.0:3001/js/script.js",
+                                  "status": 200,
+                                  "mimeType": "application/javascript",
+                                  "bodySize": 0,
+                                  "time": null
+                              },
+                              {
+                                  "url": "http://0.0.0.0:3001/favicon.ico",
+                                  "status": 404,
+                                  "mimeType": "text/html",
+                                  "bodySize": 24,
+                                  "time": null
+                              }
+                             ]
                 }
             }]
         }],
@@ -259,9 +288,9 @@ function cleanNulls(obj1, obj2) {
         var keys = Object.keys(obj1);
         for (var j = 0; j < keys.length; j++) {
             var key = keys[j];
-            if (obj2[key] === null) {
+            if (obj2 && obj2[key] === null) {
                 obj[key] = null;
-            } else if (typeof obj1[key] === "object") {
+            } else if (obj2 && typeof obj1[key] === "object") {
                 obj[key] = cleanNulls(obj1[key], obj2[key]);
             } else {
                 obj[key] = obj1[key];
