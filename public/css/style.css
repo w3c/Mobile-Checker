@@ -309,3 +309,5 @@ html, body{
 		transform: rotate(360deg);
   	}
 }
+
+td.number { text-align:right;}
