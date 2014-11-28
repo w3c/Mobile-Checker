@@ -143,6 +143,7 @@ socket.on('done', function(data) {});
 socket.on('ok', function(data) {});
 socket.on('err', function(data) {
     $('#issues-feed').append($(data));
+    $.bootstrapSortable();
 });
 //server event : get screenshot path when it is ready and display it in smartphone frame.
 socket.on('screenshot', function(path) {
