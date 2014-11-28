@@ -41,12 +41,10 @@ var checklist = [
         './lib/checks/performance/compression'), require(
         './lib/checks/responsive/doc-width'), require(
         './lib/checks/responsive/meta-viewport'), require(
-        './lib/checks/responsive/fonts-size'), require(
         './lib/checks/responsive/screenshot'), require(
         './lib/checks/compatibility/flash-detection'), require(
         './lib/checks/compatibility/css-prefixes'), require(
-        './lib/checks/interactions/alert'), require(
-        './lib/checks/interactions/touchscreen-target')
+        './lib/checks/interactions/alert')
 ];
 
 app.use(express.static('public'));
