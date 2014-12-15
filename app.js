@@ -52,6 +52,23 @@ function unlinkScreenshot(filename) {
     unlinkFile(SCREENSHOTS_DIR + filename);
 }
 
+function displayTips() {
+    setTimeout(function() {
+        fs.readdir("lib/tips", function(err, files) {
+            var tip = "lib/tips/" + files[Math.floor(files.length * Math.random())];
+            fs.readFile(tip, {
+                encoding: "utf-8"
+            }, function(err, data) {
+                if (err) {
+                    return;
+                }
+                socket.emit("tip", data);
+                validProfiles = files;
+            });
+        });
+    }, 1500);
+}
+
 function Sink() {}
 
 util.inherits(Sink, events.EventEmitter);
@@ -96,20 +113,7 @@ io.on('connection', function(socket) {
         urlSafetyChecker.checkUrlSafety(data.url, function(err, result) {
             if (result !== false) {
                 socket.emit('start', 3);
-                setTimeout(function() {
-                    fs.readdir("lib/tips", function(err, files) {
-                        var tip = "lib/tips/" + files[Math.floor(files.length * Math.random())];
-                        fs.readFile(tip, {
-                            encoding: "utf-8"
-                        }, function(err, data) {
-                            if (err) {
-                                return;
-                            }
-                            socket.emit("tip", data);
-                            validProfiles = files;
-                        });
-                    });
-                }, 1500);
+                displayTips();
                 checker.check({
                     url: result,
                     events: sink,
