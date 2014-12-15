@@ -14,6 +14,7 @@ var express = require("express"),
     url = require('url'),
     proc = require('child_process'),
     urlSafetyChecker = require('safe-url-input-checker'),
+    mkdirp = require('mkdirp'),
     fs = require("fs");
 
 var SCREENSHOTS_DIR = 'public/tmp/screenshots/';
@@ -31,6 +32,16 @@ var checklist = [
         './lib/checks/interactions/alert')
 ];
 
+function init() {
+    createScreenshotsFolder(SCREENSHOTS_DIR);
+}
+
+function createScreenshotsFolder(path) {
+    mkdirp(path, function(err) {
+        if (err) console.error(err);
+    });
+}
+
 function unlinkFile(path) {
     fs.unlink(path, function(err) {
         if (err) throw err;
@@ -46,6 +57,8 @@ function Sink() {}
 util.inherits(Sink, events.EventEmitter);
 
 app.use(express.static('public'));
+
+init();
 
 io.on('connection', function(socket) {
     socket.on('check', function(data) {
