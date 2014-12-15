@@ -1,21 +1,3 @@
-/*
- *  see documentation at http://guibbs.github.io/Mobile-Checker-Documentation/
- */
-/**
- * @file
- * @requires express
- * @requires http
- * @requires socket.io
- * @requires util
- * @requires checker.js
- * @requires events
- * @requires morgan
- * @requires node-uuid
- * @requires url
- * @requires child_process
- * @requires checkremote.js
- * @requires fs
- */
 global.rootRequire = function(name) {
     return require(__dirname + '/' + name);
 };
@@ -34,6 +16,8 @@ var express = require("express"),
     urlSafetyChecker = require('safe-url-input-checker'),
     fs = require("fs");
 
+var SCREENSHOTS_DIR = 'public/tmp/screenshots/';
+
 var checklist = [
     require('./lib/checks/performance/number-requests'), require(
         './lib/checks/performance/redirects'), require(
@@ -47,11 +31,21 @@ var checklist = [
         './lib/checks/interactions/alert')
 ];
 
-app.use(express.static('public'));
+function unlinkFile(path) {
+    fs.unlink(path, function(err) {
+        if (err) throw err;
+    });
+}
+
+function unlinkScreenshot(filename) {
+    unlinkFile(SCREENSHOTS_DIR + filename);
+}
 
 function Sink() {}
+
 util.inherits(Sink, events.EventEmitter);
 
+app.use(express.static('public'));
 
 io.on('connection', function(socket) {
     socket.on('check', function(data) {
@@ -82,11 +76,8 @@ io.on('connection', function(socket) {
             socket.emit('exception', data);
         });
         socket.on('disconnect', function() {
-            io.sockets.emit('user disconnected');
             if (screenshot) {
-                fs.unlink('public/' + uid + '.png', function(err) {
-                    if (err) throw err;
-                });
+                unlinkScreenshot(uid + '.png');
             }
         });
         urlSafetyChecker.checkUrlSafety(data.url, function(err, result) {
@@ -113,6 +104,7 @@ io.on('connection', function(socket) {
                     profile: data.profile,
                     checklist: checklist,
                     id: uid,
+                    SCREENSHOTS_DIR: SCREENSHOTS_DIR,
                     lang: "en"
                 });
                 step = 0;
