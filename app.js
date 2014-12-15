@@ -48,7 +48,7 @@ var logs = {
 
 function init() {
     createFolder(SCREENSHOTS_DIR);
-    createFolder(LOGS_DIR);
+    clearScreenshotFolder();
 }
 
 function updateLogs(code, socket) {
@@ -92,6 +92,14 @@ function unlinkScreenshot(filename) {
     unlinkFile(SCREENSHOTS_DIR + filename);
 }
 
+function clearScreenshotFolder() {
+    fs.readdir(SCREENSHOTS_DIR, function(err, files) {
+        files.forEach(function(name) {
+            unlinkScreenshot(name);
+        });
+    });
+}
+
 function displayTip(socket) {
     setTimeout(function() {
         fs.readdir("lib/tips", function(err, files) {
@@ -122,6 +130,8 @@ app.use(express.static('public'));
 app.get('/logs', function(req, res) {
     res.render('logs', logs);
 });
+
+init();
 
 io.on('connection', function(socket) {
     updateLogs('NEW_CLIENT', socket);
