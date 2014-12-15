@@ -15,6 +15,8 @@ var express = require("express"),
     proc = require('child_process'),
     urlSafetyChecker = require('safe-url-input-checker'),
     mkdirp = require('mkdirp'),
+    ejs = require('ejs'),
+    path = require('path'),
     fs = require("fs");
 
 var SCREENSHOTS_DIR = 'public/tmp/screenshots/';
@@ -32,11 +34,49 @@ var checklist = [
         './lib/checks/interactions/alert')
 ];
 
-function init() {
-    createScreenshotsFolder(SCREENSHOTS_DIR);
+var logs = {
+    currentState: {
+        clients: 0,
+        validations: 0
+    },
+    history: {
+        startDate: new Date(),
+        clients: 0,
+        validations: 0
+    }
 }
 
-function createScreenshotsFolder(path) {
+function init() {
+    createFolder(SCREENSHOTS_DIR);
+    createFolder(LOGS_DIR);
+}
+
+function updateLogs(code, socket) {
+    switch (code) {
+        case 'NEW_CLIENT':
+            logs.currentState.clients++;
+            logs.history.clients++;
+            break;
+        case 'NEW_VALIDATION':
+            logs.currentState.validations++;
+            logs.history.validations++;
+            break;
+        case 'CLIENT_DECONNECTED':
+            logs.currentState.clients--;
+            break;
+        case 'VALIDATION_ENDED':
+            logs.currentState.validations--;
+            break;
+    }
+    socket.broadcast.emit('logs', reportLogs());
+}
+
+function reportLogs() {
+    var str = fs.readFileSync(path.join(__dirname, '/lib/logs/logs.ejs'), 'utf8');
+    return ejs.render(str, logs);
+}
+
+function createFolder(path) {
     mkdirp(path, function(err) {
         if (err) console.error(err);
     });
@@ -73,11 +113,18 @@ function Sink() {}
 
 util.inherits(Sink, events.EventEmitter);
 
+app.set('views', __dirname + '/public');
+
+app.set('view engine', 'ejs');
+
 app.use(express.static('public'));
 
-init();
+app.get('/logs', function(req, res) {
+    res.render('logs', logs);
+});
 
 io.on('connection', function(socket) {
+    updateLogs('NEW_CLIENT', socket);
     socket.on('check', function(data) {
         var sink = new Sink(),
             checker = new Checker(),
@@ -100,12 +147,14 @@ io.on('connection', function(socket) {
             socket.emit('done');
         });
         sink.on('end', function(data) {
+            updateLogs('VALIDATION_ENDED', socket);
             socket.emit('end', data);
         });
         sink.on('exception', function(data) {
             socket.emit('exception', data);
         });
         socket.on('disconnect', function() {
+            updateLogs('CLIENT_DECONNECTED', socket);
             if (screenshot) {
                 unlinkScreenshot(uid + '.png');
             }
@@ -113,6 +162,7 @@ io.on('connection', function(socket) {
         urlSafetyChecker.checkUrlSafety(data.url, function(err, result) {
             if (result !== false) {
                 socket.emit('start', 3);
+                updateLogs('NEW_VALIDATION', socket);
                 displayTip(socket);
                 checker.check({
                     url: result,
@@ -129,7 +179,6 @@ io.on('connection', function(socket) {
                 socket.emit('unsafeUrl', data.url);
             }
         });
-
     });
 });
 
