@@ -52,7 +52,7 @@ function unlinkScreenshot(filename) {
     unlinkFile(SCREENSHOTS_DIR + filename);
 }
 
-function displayTips() {
+function displayTip(socket) {
     setTimeout(function() {
         fs.readdir("lib/tips", function(err, files) {
             var tip = "lib/tips/" + files[Math.floor(files.length * Math.random())];
@@ -113,7 +113,7 @@ io.on('connection', function(socket) {
         urlSafetyChecker.checkUrlSafety(data.url, function(err, result) {
             if (result !== false) {
                 socket.emit('start', 3);
-                displayTips();
+                displayTip(socket);
                 checker.check({
                     url: result,
                     events: sink,
