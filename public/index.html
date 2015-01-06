@@ -3,19 +3,19 @@
     <head>
         <meta charset='utf-8'>
         <title>mobile checker</title>
-        <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300,600,800' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Bitter:400,400italic,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap-sortable.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/report.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <section id="report" class="col-md-12">
             <nav class="navbar navbar-fixed-top">
-                <div class="col-md-1"><a href=""><span class="glyphicon glyphicon-chevron-left"></span></a></div>
-                <div class="col-md-1"><h3>REPORT</h3></div>
+                <div class="col-md-1"><a href=""><span class="glyphicon glyphicon-chevron-left"></span> back</a></div>
             </nav>
             <h3 id="console-title" class="col-md-8">debugging Console</h3>
             <div id="console" class="col-md-6">
@@ -32,45 +32,34 @@
                 <div id="smartphone"></div>
             </div>
         </section>
-        <section id="home">
-            <nav class="navbar navbar-fixed-top">
-                <div class="col-md-2"><a href="http://w3.org"><img src="img/w3c.svg" height="62px"><h3>MOBILE  CHECKER</h3></a></div>
-            </nav>
+        <section id="home" class='col-md-12'>
             <header id='header' class="col-md-12">
+                <h1 id='main-title'>Mobile Checker</h1>
+                <h2 id='slogan'>Improve your mobile web developement.</h2>
                 <div id="errors" class="col-md-8 col-md-offset-2"></div>
                 <form class="col-md-12">
-                    <div class="col-md-6 col-md-offset-2"><input id="url" placeholder="http://example.com"></div>
-                    <div class="col-md-2"><button><span class="glyphicon glyphicon-ok"></span>CHECK</button></div>
+                    <div class="col-md-4 col-md-offset-3"><input id="url" placeholder="Enter a web page url here"></div>
+
+                    <div class="col-md-2"><button>Check!</button></div>
+                    <div id="options" class="col-md-6 col-md-offset-3">
+                    <div class="btn-group col-md-12" data-toggle="buttons">
+                        <label class="device-selector btn btn-default active col-md-4">
+                            <input type="radio" name="device" value="default" checked><img data-height="550" src="img/smartphone.svg" id="sm" height="80" alt=""><br>640x1100 XHDPI
+                        </label>
+                        <label class="device-selector btn btn-default col-md-4">
+                            <input type="radio" name="device" value="smartphone2"><img data-height="480"  src="img/smartphone2.svg" id="sm2" height="80" alt=""><br> 640x960 XHDPI
+                        </label>
+                        <label class="device-selector btn btn-default col-md-4">
+                            <input type="radio" name="device" value="tablet"><img data-height="400" src="img/tablet.svg" height="80" id="tab" alt=""><br>800x1280 HDPI
+                        </label>
+                    </div>
+                    </div>
                 </form>
-                <div id="options" class="col-md-8 col-md-offset-2">
-                <h3 id="options-title" class="col-md-12">Device Options</h3>
-                  <div class="btn-group col-md-12" data-toggle="buttons">
-                    <label class="device-selector btn btn-default active col-md-3">
-                      <input type="radio" name="device" value="default" checked><img data-height="550" src="img/smartphone.svg" id="sm" height="80" alt=""><br>640x1100 XHDPI<span class="info btn btn-xs btn-default glyphicon glyphicon-question-sign" data-container="body" data-toggle="popover" data-placement="bottom" data-content="The rendering and analysis will be made on the basis of a device 640px wide, 960px high, with a factor of 2x for pixel density"></span>
-                    </label>
-                    <label class="device-selector btn btn-default col-md-3">
-                      <input type="radio" name="device" value="smartphone2"><img data-height="480"  src="img/smartphone2.svg" id="sm2" height="80" alt=""><br> 640x960 XHDPI<span class="info btn btn-xs btn-default glyphicon glyphicon-question-sign" data-container="body" data-toggle="popover" data-placement="bottom" data-content="The rendering and analysis will be made on the basis of a device 640px wide, 960px high, with a factor of 2x for pixel density"></span>
-                    </label>
-                    <label class="device-selector btn btn-default col-md-3">
-                      <input type="radio" name="device" value="tablet"><img data-height="400" src="img/tablet.svg" height="80" id="tab" alt=""><br>800x1280 HDPI<span class="info btn btn-xs btn-default glyphicon glyphicon-question-sign" data-container="body" data-toggle="popover" data-placement="bottom" data-content="The rendering and analysis will be made on the basis of a device 1280px wide, 800px high, with a factor of 1.5x for pixel density"></span>
-                    </label>
-                </div>
-                    <!--<div class="dropdown col-md-2">
-                        <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
-                         Browser <span class="caret"></span>
-                        </a>
-
-
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                            <li><a href="">saphari</a></li>
-                            <li><a href="">chrome</a></li>
-                         </ul>
-                    </div>-->
-                </div>
             </header>
+            <div id='footer' class='col-md-6 col-md-offset-3'>
+                <img src="img/w3c.svg" height='150'>
+            </div>
         </section>
-        <footer>
-        </footer>
     <script src='js/jquery.min.js'></script>
     <script src='js/bootstrap.min.js'></script>
     <script src='js/bootstrap-sortable.js'></script>
