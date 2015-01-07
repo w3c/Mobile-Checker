@@ -1,21 +1,3 @@
-/*
- *  see documentation at http://guibbs.github.io/Mobile-Checker-Documentation/
- */
-/**
- * @file
- * @requires express
- * @requires http
- * @requires socket.io
- * @requires util
- * @requires checker.js
- * @requires events
- * @requires morgan
- * @requires node-uuid
- * @requires url
- * @requires child_process
- * @requires checkremote.js
- * @requires fs
- */
 global.rootRequire = function(name) {
     return require(__dirname + '/' + name);
 };
@@ -32,7 +14,12 @@ var express = require("express"),
     url = require('url'),
     proc = require('child_process'),
     urlSafetyChecker = require('safe-url-input-checker'),
+    mkdirp = require('mkdirp'),
+    ejs = require('ejs'),
+    path = require('path'),
     fs = require("fs");
+
+var SCREENSHOTS_DIR = 'public/tmp/screenshots/';
 
 var checklist = [
     require('./lib/checks/performance/number-requests'), require(
@@ -47,13 +34,107 @@ var checklist = [
         './lib/checks/interactions/alert')
 ];
 
-app.use(express.static('public'));
+var logs = {
+    currentState: {
+        clients: 0,
+        validations: 0
+    },
+    history: {
+        startDate: new Date(),
+        clients: 0,
+        validations: 0
+    }
+}
+
+function init() {
+    createFolder(SCREENSHOTS_DIR);
+    clearScreenshotFolder();
+}
+
+function updateLogs(code, socket) {
+    switch (code) {
+        case 'NEW_CLIENT':
+            logs.currentState.clients++;
+            logs.history.clients++;
+            break;
+        case 'NEW_VALIDATION':
+            logs.currentState.validations++;
+            logs.history.validations++;
+            break;
+        case 'CLIENT_DECONNECTED':
+            logs.currentState.clients--;
+            break;
+        case 'VALIDATION_ENDED':
+            logs.currentState.validations--;
+            break;
+    }
+    socket.broadcast.emit('logs', reportLogs());
+}
+
+function reportLogs() {
+    var str = fs.readFileSync(path.join(__dirname, '/lib/logs/logs.ejs'), 'utf8');
+    return ejs.render(str, logs);
+}
+
+function createFolder(path) {
+    mkdirp(path, function(err) {
+        if (err) console.error(err);
+    });
+}
+
+function unlinkFile(path) {
+    fs.unlink(path, function(err) {
+        if (err) throw err;
+    });
+}
+
+function unlinkScreenshot(filename) {
+    unlinkFile(SCREENSHOTS_DIR + filename);
+}
+
+function clearScreenshotFolder() {
+    fs.readdir(SCREENSHOTS_DIR, function(err, files) {
+        files.forEach(function(name) {
+            unlinkScreenshot(name);
+        });
+    });
+}
+
+function displayTip(socket) {
+    setTimeout(function() {
+        fs.readdir("lib/tips", function(err, files) {
+            var tip = "lib/tips/" + files[Math.floor(files.length * Math.random())];
+            fs.readFile(tip, {
+                encoding: "utf-8"
+            }, function(err, data) {
+                if (err) {
+                    return;
+                }
+                socket.emit("tip", data);
+                validProfiles = files;
+            });
+        });
+    }, 1500);
+}
 
 function Sink() {}
+
 util.inherits(Sink, events.EventEmitter);
 
+app.set('views', __dirname + '/public');
+
+app.set('view engine', 'ejs');
+
+app.use(express.static('public'));
+
+app.get('/logs', function(req, res) {
+    res.render('logs', logs);
+});
+
+init();
 
 io.on('connection', function(socket) {
+    updateLogs('NEW_CLIENT', socket);
     socket.on('check', function(data) {
         var sink = new Sink(),
             checker = new Checker(),
@@ -76,36 +157,23 @@ io.on('connection', function(socket) {
             socket.emit('done');
         });
         sink.on('end', function(data) {
+            updateLogs('VALIDATION_ENDED', socket);
             socket.emit('end', data);
         });
         sink.on('exception', function(data) {
             socket.emit('exception', data);
         });
         socket.on('disconnect', function() {
-            io.sockets.emit('user disconnected');
+            updateLogs('CLIENT_DECONNECTED', socket);
             if (screenshot) {
-                fs.unlink('public/' + uid + '.png', function(err) {
-                    if (err) throw err;
-                });
+                unlinkScreenshot(uid + '.png');
             }
         });
         urlSafetyChecker.checkUrlSafety(data.url, function(err, result) {
             if (result !== false) {
                 socket.emit('start', 3);
-                setTimeout(function() {
-                    fs.readdir("lib/tips", function(err, files) {
-                        var tip = "lib/tips/" + files[Math.floor(files.length * Math.random())];
-                        fs.readFile(tip, {
-                            encoding: "utf-8"
-                        }, function(err, data) {
-                            if (err) {
-                                return;
-                            }
-                            socket.emit("tip", data);
-                            validProfiles = files;
-                        });
-                    });
-                }, 1500);
+                updateLogs('NEW_VALIDATION', socket);
+                displayTip(socket);
                 checker.check({
                     url: result,
                     events: sink,
@@ -113,6 +181,7 @@ io.on('connection', function(socket) {
                     profile: data.profile,
                     checklist: checklist,
                     id: uid,
+                    SCREENSHOTS_DIR: SCREENSHOTS_DIR,
                     lang: "en"
                 });
                 step = 0;
@@ -120,7 +189,6 @@ io.on('connection', function(socket) {
                 socket.emit('unsafeUrl', data.url);
             }
         });
-
     });
 });
 

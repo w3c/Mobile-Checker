@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>logs</title>
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-sortable.css">
+        <link rel="stylesheet" type="text/css" href="css/logs.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class='container'>
+            <nav class='navbar navbar-inverse'>
+                <a class="navbar-brand" href="#">mobile checker - realtime logs</a>
+            </nav>
+            <div id='logs'>
+                <section id='current-state'>
+                    <h4>Current State</h4>
+                    <p>clients connected: <%= currentState.clients %></p>
+                    <p>validations running: <%= currentState.validations %></p>
+                </section>
+                <section id='history'>
+                    <h4>History - <%= history.startDate %> </h4>
+                    <p>clients connections: <%= history.clients %></p>
+                    <p>validations runs: <%= history.validations %></p>
+                </section>
+            </div>
+        </div>
+    <script src='js/jquery.min.js'></script>
+    <script src='js/bootstrap.min.js'></script>
+    <script src='js/bootstrap-sortable.js'></script>
+    <script src='js/socket.io.js'></script>
+    <script src='js/logs.js'></script>
+    <script></script>
+    </body>
+</html>

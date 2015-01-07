@@ -1,0 +1,180 @@
+#report {
+    padding: 0px;
+    background-color: #ecf0f1;
+}
+#report > .navbar-fixed-top {
+    height: 62px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #ecf0f1;
+}
+
+#report > .navbar-fixed-top a {
+    font-size: 20px;
+    font-family: Open Sans;
+    font-weight: 700;
+    text-decoration: none;
+    color: #384047;
+}
+
+#report > .navbar-fixed-top > div > a > span {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #384047;
+}
+#report > #console-title {
+    padding-left: 20px;
+    margin-top: 100px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #8D9AA5;
+}
+#report > #console {
+    background-color: #3C3C3C;
+    height: 400px;
+    margin-left: 20px;
+    overflow:auto;
+    padding: 10px;
+    color: #FCFCFB;
+}
+#report > #issues-title {
+    padding: 0px;
+    margin-top: 20px;
+    font-size: 22px;
+    font-weight: 300;
+    color: #8D9AA5;
+    text-align: center;
+}
+#report > #issues-feed > .issue {
+    margin-top: 0px;
+    margin-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 0px;
+    padding-top: 15px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    color: black;
+}
+
+#side-nav {
+    height: 100%;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#side-nav a {
+    color: #8D9AA5;
+    border-bottom: 1px solid #bdc3c7;
+}
+
+#side-nav .available a {
+    color: #384047;
+}
+
+
+
+#report > #issues-feed > .issue > div > .title-issue {
+    margin-top: 15px;
+    font-weight: 700;
+    font-size: 20px;
+    color: #666;
+}
+#report > #issues-feed > .issue > .content-issue > p {
+    font-weight: 400;
+    color: #666;
+}
+#report > #issues-feed > .issue > .content-issue > h3 {
+    font-weight: 700;
+    font-size: 16px;
+    color: #666;
+}
+#report > #overview {
+    padding: 0px;
+    margin-top: 0px;
+    position: fixed;
+    top: 50px;
+}
+#report > #overview > #smartphone {
+    height: 700px;
+    background-repeat:no-repeat;
+    margin: auto;
+}
+#report > #overview > #smartphone.sm {
+  background-image: url(../img/smartphone.svg);
+}
+#report > #overview > #smartphone.sm2 {
+  background-image: url(../img/smartphone2.svg);
+}
+#report > #overview > #smartphone.tab {
+  background-image: url(../img/tablet.svg);
+  background-size:295px auto;
+}
+#report > #overview > .sm #screenshot, #report > #overview > .sm2 #screenshot {
+    margin-left: 28px;
+    margin-top:82px;
+}
+#report > #overview > .sm2 #screenshot {
+    margin-top:72px;
+}
+#report > #overview > .tab #screenshot {
+    margin-left: 15px;
+    margin-top:16px;
+}
+
+/* ANIMATION */
+#sm, #sm2, #tab, #home, #report {
+    transition: transform 1s;
+}
+.screenshot {   
+    transform-origin: 0 0 0;
+}
+#report {
+    position: absolute;
+    top: 0;
+    transform: translate3d(100%,0,0);
+}
+#report.report {
+    transform: translate3d(0,0,0);
+}
+#home.report {
+    transform: translate3d(-100%, 0,0);
+}
+#inprogress {
+    opacity:0.5;
+}
+#cogs {
+  text-align: center;
+}
+#cog2 { margin-top: -12px;}
+#cog1 { margin-top: 12px;}
+#cog1.active, #cog2.active {
+        -webkit-animation: 2s rotate linear infinite;
+    animation: 2s rotate linear infinite;
+    transform-origin: 50% 50%;
+}
+#cog2.active {
+     -webkit-animation-direction: reverse;
+     animation-direction: reverse;
+}
+@keyframes rotate {
+    from {
+    transform: rotate(0);
+    }
+    to {
+    transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes rotate {
+    from {
+    transform: rotate(0);
+    }
+    to {
+    transform: rotate(360deg);
+    }
+}
+
+
+td.number { text-align:right;}
