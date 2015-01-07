@@ -9,27 +9,33 @@ html, body{
     font-family: Open Sans;
 }
 
-/* MOBILE device view */
-@media screen and (max-width: 990px) {
-    #overview {
-    visibility: hidden;
-    }
-    #report > .navbar-fixed-top > div > h3 {
-    visibility: hidden;
-    }
-}
+
 
 /* DEFAULT view */
 #home{
     height: 100%;
+    padding: 0px;
+}
+
+#home nav {
+  text-align: center;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  border: 0px;
 }
 
 #home > header {
-    padding-top: 80px;
+  padding: 0px;
+    padding-top: 50px;
     font-size: 20px;
     font-weight: 400;
     text-align: center;
     color: #FCFCFB;
+}
+
+#home > header > form {
+  padding: 0px;
 }
 
 .device-selector {
@@ -42,6 +48,10 @@ html, body{
   border-radius: 0px;
   color: #8D9AA5;
   text-shadow:none;
+}
+
+.device-selector img{
+  margin-bottom: 20px;
 }
 
 .device-selector:hover {
@@ -98,6 +108,7 @@ html, body{
   font-weight: 300;
   font-size: 20px;
   background-color: #1abc9c;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
 }
 #home > header > form > div > button:hover {
   transition:0.6s;
@@ -136,4 +147,67 @@ html, body{
 
 #footer {
   background-color: #ecf0f1;
+  margin-top: 50px;
+  text-align: center;
+}
+
+#footer h2 {
+  margin-top: 10px;
+}
+
+#footer img{
+  text-align: center;
+}
+
+.border {
+  margin-top: 50px;
+  border-bottom: 1px solid #bdc3c7;
+}
+
+#donation-link{
+  background-color: #FF5E5E;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+}
+
+#infos {
+  margin-top: 50px;
+}
+
+#infos h2 {
+  font-family: Bitter;
+  font-weight: 700;
+  color: #8D9AA5;
+  font-size: 20px;
+}
+/* MOBILE device view */
+@media screen and (max-width: 990px) {
+    #overview {
+    visibility: hidden;
+    }
+    #report > .navbar-fixed-top > div > h3 {
+    visibility: hidden;
+    }
+    #main-title {
+      font-size: 32px;
+    }
+    #slogan {
+      font-size: 20px;
+    }
+    #home header {
+      padding-top: 20px;
+    }
+    #home > header > form > div > #url {
+      margin-top: 40px;
+    }
+    #home > header > form > div > button {
+      margin-top: 20px;
+    }
+    #device-selector {
+      width: 100%;
+    }
+    .border {
+      margin-top: 40px;
+    }
 }

@@ -38,8 +38,8 @@
     color: #FCFCFB;
 }
 #report > #issues-title {
-    padding-left: 20px;
-    margin-top: 80px;
+    padding: 0px;
+    margin-top: 20px;
     font-size: 22px;
     font-weight: 300;
     color: #8D9AA5;
@@ -52,11 +52,29 @@
     padding-right: 15px;
     padding-bottom: 0px;
     padding-top: 15px;
-    border-bottom: 3px solid #bdc3c7;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
     background-color: white;
     color: black;
 }
+
+#side-nav {
+    height: 100%;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#side-nav a {
+    color: #8D9AA5;
+    border-bottom: 1px solid #bdc3c7;
+}
+
+#side-nav .available a {
+    color: #384047;
+}
+
+
+
 #report > #issues-feed > .issue > div > .title-issue {
     margin-top: 15px;
     font-weight: 700;
@@ -76,13 +94,12 @@
     padding: 0px;
     margin-top: 0px;
     position: fixed;
-    top: 100px;
+    top: 50px;
 }
 #report > #overview > #smartphone {
     height: 700px;
     background-repeat:no-repeat;
     margin: auto;
-    margin-top: -25px;
 }
 #report > #overview > #smartphone.sm {
   background-image: url(../img/smartphone.svg);

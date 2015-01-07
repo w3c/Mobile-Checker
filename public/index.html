@@ -2,9 +2,10 @@
 <html>
     <head>
         <meta charset='utf-8'>
-        <title>mobile checker</title>
+        <title>The W3C Mobile Checker</title>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300,600,800' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Bitter:400,400italic,700' rel='stylesheet' type='text/css'>
+        <link rel="shortcut icon" href="http://www.w3.org/2008/site/images/favicon.ico" type="image/x-icon" />
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap-sortable.css">
@@ -14,14 +15,13 @@
     </head>
     <body>
         <section id="report" class="col-md-12">
-            <nav class="navbar navbar-fixed-top">
-                <div class="col-md-1"><a href=""><span class="glyphicon glyphicon-chevron-left"></span> back</a></div>
-            </nav>
-            <h3 id="console-title" class="col-md-8">debugging Console</h3>
-            <div id="console" class="col-md-6">
+            <div  id='side-nav' class="col-md-1">
+                <div class='col-md-12 available'><a href="" title='return to home'><span class="glyphicon glyphicon-chevron-left"></span></a></div>
+                <div class='col-md-12'><a title='not available yet'><span class="glyphicon glyphicon-repeat"></span></a></div>
+                <div class='col-md-12'><a title='not available yet'><span class="glyphicon glyphicon-hand-up"></span></a></div>
             </div>
-            <h3 id="issues-title" class="col-md-8">Issues</h3>
-            <div id="issues-feed" class="col-md-8">
+            <h3 id="issues-title" class="col-md-7">Issues</h3>
+            <div id="issues-feed" class="col-md-7">
               <div class="col-md-12 issue" id="inprogress">
                 <div class="col-md-12 content-issue">
                   <p id="cogs"><img alt="" src="img/cog.svg" id="cog1" /><img alt="" src="img/cog.svg" id="cog2" /></p>
@@ -34,30 +34,62 @@
         </section>
         <section id="home" class='col-md-12'>
             <header id='header' class="col-md-12">
+                <a href="https://github.com/w3c/Mobile-Checker"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a>
                 <h1 id='main-title'>Mobile Checker</h1>
                 <h2 id='slogan'>Improve your mobile web developement.</h2>
                 <div id="errors" class="col-md-8 col-md-offset-2"></div>
                 <form class="col-md-12">
-                    <div class="col-md-4 col-md-offset-3"><input id="url" placeholder="Enter a web page url here"></div>
+                    <div class="col-md-6 col-md-offset-2"><input id="url" placeholder="Enter a web page url here"></div>
 
                     <div class="col-md-2"><button>Check!</button></div>
-                    <div id="options" class="col-md-6 col-md-offset-3">
+                    <div id="options" class="col-md-6 col-md-offset-2">
                     <div class="btn-group col-md-12" data-toggle="buttons">
-                        <label class="device-selector btn btn-default active col-md-4">
+                        <label class="device-selector btn btn-default active col-md-4" title='The rendering and analysis will be made on the basis of a device 640px wide, 960px high, with a factor of 2x for pixel density'>
                             <input type="radio" name="device" value="default" checked><img data-height="550" src="img/smartphone.svg" id="sm" height="80" alt=""><br>640x1100 XHDPI
                         </label>
-                        <label class="device-selector btn btn-default col-md-4">
+                        <label class="device-selector btn btn-default col-md-4" title='The rendering and analysis will be made on the basis of a device 640px wide, 960px high, with a factor of 2x for pixel density'>
                             <input type="radio" name="device" value="smartphone2"><img data-height="480"  src="img/smartphone2.svg" id="sm2" height="80" alt=""><br> 640x960 XHDPI
                         </label>
-                        <label class="device-selector btn btn-default col-md-4">
+                        <label class="device-selector btn btn-default col-md-4" title='The rendering and analysis will be made on the basis of a device 1280px wide, 800px high, with a factor of 1.5x for pixel density'>
                             <input type="radio" name="device" value="tablet"><img data-height="400" src="img/tablet.svg" height="80" id="tab" alt=""><br>800x1280 HDPI
                         </label>
                     </div>
                     </div>
                 </form>
             </header>
-            <div id='footer' class='col-md-6 col-md-offset-3'>
-                <img src="img/w3c.svg" height='150'>
+            <div class='border col-md-8 col-md-offset-2'></div>
+            <div id='infos' class='col-md-8 col-md-offset-2'>
+                <div class='col-md-4'>
+                    <h2>About the tool</h2>
+                    <p>The Mobile Checker is a tool for Web developers who want to make their Web page or Web app work better on mobile devices. <a href="http://w3c.github.io/Mobile-Checker/">Learn more</a></p>
+                </div>
+                <div class='col-md-4'>
+                    <h2>Contribute</h2>
+                    <p>Looking to contribute to Mobile Checker? There is many ways to get involved in its development. 
+                    Please take few minutes to read <a href="https://github.com/w3c/Mobile-Checker/blob/master/CONTRIBUTING.md">this document</a> to understand how you can help in Mobile Checker development.</p>
+                </div>
+                <div class='col-md-4'>
+                    <h2>Give feedback</h2>
+                    <p>There are many ways to send feedback or discuss the new Mobile Checker. You can <a href="https://github.com/w3c/Mobile-Checker/issues">open an Issue on Github</a> or send an email to our <a href="mailto:public-qa-dev@w3.org">mailing list</a>.</p>
+                </div>
+            </div>
+            <div class='border col-md-8 col-md-offset-2'></div>
+            <div id='footer' class='col-md-8 col-md-offset-2'>
+                <div class='logos col-md-3'>
+                    <div class='col-md-6'><img src="img/w3c.svg" height='40'></div>
+                    <div class='col-md-6'><img src="img/opensource_logo.png" height='40'></div>
+                </div>
+                <div class='col-md-6'>
+                    <p class="copyright">Copyright &#xA9; 2014 W3C <sup>&#xAE;</sup> <br>(<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="http://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
+                    <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>) <a href="/Consortium/Legal/ipr-notice">Usage policies apply</a>.</p>
+                </div>
+                <div class='col-md-3'>
+                    <p id="support_logo">
+                        <a href="http://www.w3.org/QA/Tools/Donate">
+                            <img src="http://www.w3.org/QA/Tools/I_heart_validator" alt="I heart Validator logo" title=" Validators Donation Program" width="80" height="15"/>
+                        </a>
+                    </p>
+                </div>
             </div>
         </section>
     <script src='js/jquery.min.js'></script>
