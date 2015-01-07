@@ -47,8 +47,7 @@ var logs = {
 }
 
 function init() {
-    createFolder(SCREENSHOTS_DIR);
-    clearScreenshotFolder();
+    createFolder(SCREENSHOTS_DIR, clearScreenshotFolder);
 }
 
 function updateLogs(code, socket) {
@@ -76,9 +75,10 @@ function reportLogs() {
     return ejs.render(str, logs);
 }
 
-function createFolder(path) {
+function createFolder(path, cb) {
     mkdirp(path, function(err) {
         if (err) console.error(err);
+        else cb();
     });
 }
 
@@ -92,7 +92,7 @@ function unlinkScreenshot(filename) {
     unlinkFile(SCREENSHOTS_DIR + filename);
 }
 
-function clearScreenshotFolder() {
+var clearScreenshotFolder = function() {
     fs.readdir(SCREENSHOTS_DIR, function(err, files) {
         files.forEach(function(name) {
             unlinkScreenshot(name);
