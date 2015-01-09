@@ -125,20 +125,25 @@
 
 /* ANIMATION */
 #sm, #sm2, #tab, #home, #report {
+    transition: -webkit-transform 1s;
     transition: transform 1s;
 }
-.screenshot {   
+.screenshot {
+    -webkit-transform-origin: 0 0 0;   
     transform-origin: 0 0 0;
 }
 #report {
     position: absolute;
     top: 0;
+    -webkit-transform: translate3d(100%,0,0);
     transform: translate3d(100%,0,0);
 }
 #report.report {
+    -webkit-transform: translate3d(0,0,0);
     transform: translate3d(0,0,0);
 }
 #home.report {
+    -webkit-transform: translate3d(-100%, 0,0);
     transform: translate3d(-100%, 0,0);
 }
 #inprogress {
@@ -152,6 +157,7 @@
 #cog1.active, #cog2.active {
         -webkit-animation: 2s rotate linear infinite;
     animation: 2s rotate linear infinite;
+    -webkit-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
 }
 #cog2.active {

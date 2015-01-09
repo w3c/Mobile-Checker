@@ -61,10 +61,15 @@ function loadProgressPage() {
     var scale = scales[id];;
     var offset2 = selectedDevice.offset();
     var offset1 = $('#smartphone').offset();
+    var transformprefixwebkit = '-webkit-transform: translate3d(' +
+        (offset1.left - offset2.left) + 'px, ' + (offset1.top - offset2.top) +
+        'px,0) scale(' + scale + ',' + scale + ') rotate(360deg)';
     var transform = 'transform: translate3d(' +
         (offset1.left - offset2.left) + 'px, ' + (offset1.top - offset2.top) +
         'px,0) scale(' + scale + ',' + scale + ') rotate(360deg)';
     var style = $('<style>#' + id + '.screenshot {  ' + transform +
+        ' }</style>').appendTo('head');
+    var styleprefixed = $('<style>#' + id + '.screenshot {  ' + transformprefixwebkit +
         ' }</style>').appendTo('head');
     selectedDevice.addClass('screenshot');
     $('#home').addClass('report');
