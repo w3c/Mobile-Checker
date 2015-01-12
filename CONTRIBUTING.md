@@ -19,6 +19,6 @@ To report a bug, please use Github Issues. Before, check if the issue has alread
 
 ## Feature Requests
 
-	To send a feature request, please use Github Issues. Before, check if the feature request has already been sent.
+To send a feature request, please use Github Issues. Before, check if the feature request has already been sent.
 
 ## Donations
