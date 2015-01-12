@@ -204,7 +204,7 @@ html, body{
     #home > header > form > div > button {
       margin-top: 20px;
     }
-    #device-selector {
+    .device-selector {
       width: 100%;
     }
     .border {

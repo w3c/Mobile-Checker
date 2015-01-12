@@ -37,13 +37,14 @@
     padding: 10px;
     color: #FCFCFB;
 }
-#report > #issues-title {
+#report > .report-title {
     padding: 0px;
     margin-top: 20px;
-    font-size: 22px;
-    font-weight: 300;
+    font-size: 20px;
+    font-weight: 700;
     color: #8D9AA5;
     text-align: center;
+    font-family: Bitter;
 }
 #report > #issues-feed > .issue {
     margin-top: 0px;
@@ -53,33 +54,43 @@
     padding-bottom: 0px;
     padding-top: 15px;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
     background-color: white;
     color: black;
 }
 
 #side-nav {
-    height: 100%;
-    font-size: 30px;
-    text-align: center;
-    margin-top: 50px;
+    height: 50px;
+    font-size: 14px;
+    text-align: left;
+    margin-top: 0px;
+    padding-top: 20px;
 }
 
 #side-nav a {
     color: #8D9AA5;
-    border-bottom: 1px solid #bdc3c7;
+}
+
+#side-nav span {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 12px;
 }
 
 #side-nav .available a {
     color: #384047;
 }
 
-
+#report > #issues-feed {
+    margin-top: 10px;
+}
 
 #report > #issues-feed > .issue > div > .title-issue {
-    margin-top: 15px;
+    margin-top: 5px;
     font-weight: 700;
-    font-size: 20px;
-    color: #666;
+    font-size: 16px;
+    color: #384047;
+    font-family: Bitter;
 }
 #report > #issues-feed > .issue > .content-issue > p {
     font-weight: 400;
@@ -87,14 +98,14 @@
 }
 #report > #issues-feed > .issue > .content-issue > h3 {
     font-weight: 700;
-    font-size: 16px;
-    color: #666;
+    font-size: 14px;
+    color: #384047;
 }
 #report > #overview {
     padding: 0px;
     margin-top: 0px;
     position: fixed;
-    top: 50px;
+    top: 60px;
 }
 #report > #overview > #smartphone {
     height: 700px;
@@ -160,6 +171,16 @@
     -webkit-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
 }
+
+.fixit {
+    padding: 10px;
+    color: #666;
+    border: 1px solid #999;
+    border-radius: 5px;
+    background-color: #eee;
+    margin-top: 10px;
+}
+
 #cog2.active {
      -webkit-animation-direction: reverse;
      animation-direction: reverse;
