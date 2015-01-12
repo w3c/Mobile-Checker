@@ -183,6 +183,9 @@ html, body{
 }
 /* MOBILE device view */
 @media screen and (max-width: 990px) {
+    #github-banner {
+      visibility: hidden;
+    }
     #overview {
     visibility: hidden;
     }
