@@ -23,6 +23,8 @@
     "mobile-web-browser-emulator": "^0.0.2",
     "node-uuid": "1.4.1",
     "q": "1.0.1",
+    "request": "^2.58.0",
+    "jsonschema": "^1.0.1",
     "socket.io": "1.0.4"
   },
   "devDependencies": {

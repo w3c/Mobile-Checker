@@ -30,7 +30,8 @@ var checklist = [
         './lib/checks/responsive/screenshot'), require(
         './lib/checks/compatibility/flash-detection'), require(
         './lib/checks/compatibility/css-prefixes'), require(
-        './lib/checks/interactions/alert')
+        './lib/checks/interactions/alert'), require(
+        './lib/checks/integration/manifest')
 ];
 
 var logs = {
