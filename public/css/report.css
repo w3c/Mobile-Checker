@@ -114,7 +114,7 @@ table {
     margin-top: 0px;
     margin-bottom: 5px;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     color: #384047;
     font-family: Open Sans;
 }
@@ -126,6 +126,7 @@ table {
 #report > #issues-feed .issue > .content-issue > p {
     font-weight: 300;
     color: #666;
+    font-size: 14px;
 }
 #report > #issues-feed .issue > .content-issue > h3 {
     font-weight: 700;
@@ -158,7 +159,7 @@ table {
     color: #3498db;
 }
 #error-issue-feed h2 {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 700;
     font-family: Bitter;
     color: #333;
@@ -166,14 +167,14 @@ table {
 }
 
 #warning-issue-feed h2 {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 700;
     font-family: Bitter;
     margin: 0px;
 }
 
 #info-issue-feed h2 {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 700;
     font-family: Bitter;
     margin: 0px;
