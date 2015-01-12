@@ -46,19 +46,22 @@
     text-align: center;
     font-family: Bitter;
 }
-#report > #issues-feed > .issue {
-    margin-top: 0px;
+#report > #issues-feed .issue {
+    margin-top: 10px;
     margin-bottom: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
     padding-bottom: 0px;
     padding-top: 15px;
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+    color: black;
     border-radius: 5px;
     background-color: white;
-    color: black;
 }
 
+#report > #issues-feed .issue:hover {
+    transition: 0.3s;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+}
 #side-nav {
     height: 50px;
     font-size: 14px;
@@ -85,22 +88,34 @@
     margin-top: 10px;
 }
 
-#report > #issues-feed > .issue > div > .title-issue {
-    margin-top: 5px;
-    font-weight: 700;
+#report > #issues-feed .issue > div > .title-issue {
+    margin-top: 0px;
+    margin-bottom: 5px;
+    font-weight: 400;
     font-size: 16px;
     color: #384047;
-    font-family: Bitter;
+    font-family: Open Sans;
 }
-#report > #issues-feed > .issue > .content-issue > p {
-    font-weight: 400;
+
+#report > #issues-feed .issue > .content-issue {
+
+}
+
+#report > #issues-feed .issue > .content-issue > p {
+    font-weight: 300;
     color: #666;
 }
-#report > #issues-feed > .issue > .content-issue > h3 {
+#report > #issues-feed .issue > .content-issue > h3 {
     font-weight: 700;
     font-size: 14px;
     color: #384047;
 }
+
+#critical-issue-feed, #improvement-issue-feed, #info-issue-feed {
+    padding: 0px;
+    margin-top: 20px;
+}
+
 #report > #overview {
     padding: 0px;
     margin-top: 0px;
@@ -179,6 +194,12 @@
     border-radius: 5px;
     background-color: #eee;
     margin-top: 10px;
+}
+
+.range-issue {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 5px;
 }
 
 #cog2.active {
