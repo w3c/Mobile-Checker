@@ -51,12 +51,19 @@
     margin-bottom: 5px;
     padding-left: 5px;
     padding-right: 5px;
-    padding-bottom: 0px;
+    padding-bottom: 5px;
     padding-top: 15px;
     color: black;
     border-radius: 5px;
     background-color: white;
+    overflow-x: auto;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
 }
+
+table {
+    width: 100%;
+    overflow: auto;
+    background-color: #eee;}
 
 #report > #issues-feed .issue:hover {
     transition: 0.3s;
@@ -79,8 +86,23 @@
     padding-bottom: 10px;
     font-size: 12px;
 }
+#side-nav .return-button {
+    padding: 0px;
+}
+#side-nav .return-button a {
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+    border: 1px solid #999;
+    border-radius: 5px;
+    color: #384047;
+}
 
-#side-nav .available a {
+#side-nav .return-button a:hover {
+    padding: 10px;
+    background-color: #eee;
+    border: 1px solid #999;
+    border-radius: 5px;
     color: #384047;
 }
 
@@ -111,9 +133,50 @@
     color: #384047;
 }
 
-#critical-issue-feed, #improvement-issue-feed, #info-issue-feed {
+#error-issue-feed, #warning-issue-feed, #info-issue-feed{
     padding: 0px;
     margin-top: 20px;
+}
+
+#tip-issue-feed {
+    padding: 0px;
+    margin-top: 0px;
+}
+
+#error-issue-feed h2 span {
+    font-size: 16px;
+    color: #e74c3c;
+}
+
+#warning-issue-feed h2 span {
+    font-size: 16px;
+    color: #f39c12;
+}
+
+#info-issue-feed h2 span {
+    font-size: 16px;
+    color: #3498db;
+}
+#error-issue-feed h2 {
+    font-size: 16px;
+    font-weight: 700;
+    font-family: Bitter;
+    color: #333;
+    margin: 0px;
+}
+
+#warning-issue-feed h2 {
+    font-size: 16px;
+    font-weight: 700;
+    font-family: Bitter;
+    margin: 0px;
+}
+
+#info-issue-feed h2 {
+    font-size: 16px;
+    font-weight: 700;
+    font-family: Bitter;
+    margin: 0px;
 }
 
 #report > #overview {
@@ -224,5 +287,12 @@
     }
 }
 
+@media screen and (max-width: 990px) {
+
+table tbody {
+    max-width: 100%;
+    overflow: auto;
+}
+}
 
 td.number { text-align:right;}

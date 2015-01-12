@@ -1,0 +1,25 @@
+{
+	"compatibility": {
+		"css-prefixes": {
+			"mismatching-prefixes": "",
+			"missing-prefixes": ""
+		},
+		"flash-detection": {
+			"swf-file-detected": "",
+			"swfobject-lib-detected": ""
+		}
+	},
+	"interactions": {
+		"alert": {
+			"alert-detected": ""
+		},
+		"touchscreen-target": {
+			"too-small-touchscreen-target": ""
+		}
+	},
+	"performance": {
+		"compression": {
+			"resources-could-be-compressed": ""
+		}
+	}
+}

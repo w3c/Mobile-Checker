@@ -9,6 +9,9 @@ var settings = {
     url: null
 };
 
+var errors = 0;
+var warnings = 0;
+var infos = 0;
 //get querystring and return asked url if exist
 //this function provide an unique URI to share a report configuration.
 // TODO : insert device selector in URI
@@ -130,7 +133,7 @@ socket.on('tip', function(data) {
     var div = $('<div></div>').appendTo(wrapper);
     div.attr("id", "tipbody");
     div.append(tip.find('h2').nextAll());
-    $('#issues-feed').append(wrapperOut);
+    $('#tip-issue-feed').append(wrapperOut);
 });
 //server event : display console if some problems detected on server side.
 //TODO : display all server side errors. For the moment only display errors detected and interpreted via throw function.
@@ -147,7 +150,24 @@ socket.on('unsafeUrl', function(data) {
 socket.on('done', function(data) {});
 socket.on('ok', function(data) {});
 socket.on('err', function(data) {
-    $('#critical-issue-feed').append($(data));
+    if(data.status == "error") {
+        if(errors == 0)
+            $('#error-issue-feed').append($('<h2><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Should be fixed:</h2>'));
+        $('#error-issue-feed').append($(data.issue));
+        errors++;
+    }
+    if(data.status == "warning") {
+        if(warnings == 0)
+            $('#warning-issue-feed').append($('<h2><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Could be improved:</h2>'));
+        $('#warning-issue-feed').append($(data.issue));
+        warnings++;
+    }
+    if(data.status == "info") {
+        if(infos == 0)
+            $('#info-issue-feed').append($('<h2><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Info:</h2>'));
+        $('#info-issue-feed').append($(data.issue));
+        infos++;
+    }
     $.bootstrapSortable();
 });
 //server event : get screenshot path when it is ready and display it in smartphone frame.
