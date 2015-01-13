@@ -61,10 +61,17 @@ function checkURI(querystring) {
 //call checkURI function to insert an URI in input element if a query url exist.
 function loadHomePage() {
     $('#report').removeClass('report');
-    $('#report').hide();
+    //$('#report').hide();
     $('#home').removeClass('report');
     $('#sm').show();
     $('#sm').removeClass('screenshot');
+    $('#sm2').show();
+    $('#sm2').removeClass('screenshot');
+    $('#tab').show();
+    $('#tab').removeClass('screenshot');
+    $('#smartphone').removeClass("sm");
+    $('#smartphone').removeClass("sm2");
+    $('#smartphone').removeClass("tab");
     $('#console-title').hide();
     $('#console').hide();
     checkURI(window.location.search);
@@ -73,6 +80,10 @@ function loadHomePage() {
 //display all progress elements, report page and animate smartphone
 function loadProgressPage() {
     $('#report').show();
+    $('#tip-issue-feed').empty();
+    $('#info-issue-feed').empty();
+    $('#error-issue-feed').empty();
+    $('#warning-issue-feed').empty();
     $('#cog1').addClass("active");
     $('#cog2').addClass("active");
     var scales = {
