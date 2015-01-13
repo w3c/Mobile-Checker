@@ -61,7 +61,7 @@ function checkURI(querystring) {
 //call checkURI function to insert an URI in input element if a query url exist.
 function loadHomePage() {
     $('#report').removeClass('report');
-    //$('#report').hide();
+    $('#report').hide();
     $('#home').removeClass('report');
     $('#sm').show();
     $('#sm').removeClass('screenshot');
@@ -84,6 +84,7 @@ function loadProgressPage() {
     $('#info-issue-feed').empty();
     $('#error-issue-feed').empty();
     $('#warning-issue-feed').empty();
+    $('#smartphone').empty();
     $('#cog1').addClass("active");
     $('#cog2').addClass("active");
     var scales = {
