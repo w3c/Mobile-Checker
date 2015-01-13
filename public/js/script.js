@@ -12,6 +12,27 @@ var settings = {
 var errors = 0;
 var warnings = 0;
 var infos = 0;
+
+var checkButton = document.getElementById('checkButton');
+checkButton.addEventListener('click', clickHandler, true);
+
+window.addEventListener('popstate', function(event) {
+    console.log('popstate fired!');
+    loadHomePage();
+    updateContent(event.state);
+});
+
+function clickHandler(event) {
+    var data = $('#url').val();
+    history.pushState(data, event.target.textContent, event.target.href);
+}
+
+function updateContent(data) {
+    if(data == null)
+        return;
+    checkURI(window.location.search);
+
+}
 //get querystring and return asked url if exist
 //this function provide an unique URI to share a report configuration.
 // TODO : insert device selector in URI
@@ -31,6 +52,7 @@ function checkURI(querystring) {
             return;
         }
     } else {
+        document.getElementById('url').value = "";
         return;
     }
 }
@@ -95,12 +117,14 @@ function loadResultPage() {
 
 //PROTOCOL of client Side
 loadHomePage();
+
 //detect device choice and add a profile device in settings
 $('.device-selector').click(function() {
     var id = this.id;
     settings.profile = id;
     $('#device-selected').text(id);
 });
+
 //detect form submit, update URI of mobile checker, add URI asked to settings and send data to server side
 $('form').submit(function() {
     settings.url = $('#url').val();
@@ -112,10 +136,12 @@ $('form').submit(function() {
     socket.emit('check', settings);
     return false;
 });
+
 //server event : inform the check begin
 socket.on('start', function(data) {
     loadProgressPage();
 });
+
 //server event : add report header and some infos 
 socket.on('tip', function(data) {
     var tip = $("<div></div>");
@@ -135,6 +161,7 @@ socket.on('tip', function(data) {
     div.append(tip.find('h2').nextAll());
     $('#tip-issue-feed').append(wrapperOut);
 });
+
 //server event : display console if some problems detected on server side.
 //TODO : display all server side errors. For the moment only display errors detected and interpreted via throw function.
 socket.on('exception', function(msg) {
@@ -146,35 +173,38 @@ socket.on('unsafeUrl', function(data) {
     $('#dns-error').remove();
     $('#errors').append($('<div id="dns-error" class="col-md-12"><p>error while resolving ' + data + ' Check the spelling of the host, the protocol (http, https) and ensure that the page is accessible from the public Internet.</p></div>'));
 });
+
 //server event : detect when check is done.
 socket.on('done', function(data) {});
 socket.on('ok', function(data) {});
 socket.on('err', function(data) {
-    if(data.status == "error") {
-        if(errors == 0)
+    if (data.status == "error") {
+        if (errors == 0)
             $('#error-issue-feed').append($('<h2><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Should be fixed:</h2>'));
         $('#error-issue-feed').append($(data.issue));
         errors++;
     }
-    if(data.status == "warning") {
-        if(warnings == 0)
+    if (data.status == "warning") {
+        if (warnings == 0)
             $('#warning-issue-feed').append($('<h2><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Could be improved:</h2>'));
         $('#warning-issue-feed').append($(data.issue));
         warnings++;
     }
-    if(data.status == "info") {
-        if(infos == 0)
+    if (data.status == "info") {
+        if (infos == 0)
             $('#info-issue-feed').append($('<h2><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Info:</h2>'));
         $('#info-issue-feed').append($(data.issue));
         infos++;
     }
     $.bootstrapSortable();
 });
+
 //server event : get screenshot path when it is ready and display it in smartphone frame.
 socket.on('screenshot', function(path) {
     $('<img>').attr('src', path).attr('alt', 'Screenshot').attr('id',
         'screenshot').attr('width', 266).appendTo('#smartphone');
 });
+
 //server event : detect end of all checks and call loadResultPage function.
 socket.on('end', function() {
     loadResultPage();
