@@ -74,11 +74,16 @@ function loadHomePage() {
     $('#smartphone').removeClass("tab");
     $('#console-title').hide();
     $('#console').hide();
+    $('#cog1').addClass("active");
+    $('#cog2').addClass("active");
     checkURI(window.location.search);
 }
 
 //display all progress elements, report page and animate smartphone
 function loadProgressPage() {
+    errors = 0;
+    warnings = 0;
+    infos = 0;
     $('#report').show();
     $('#tip-issue-feed').empty();
     $('#info-issue-feed').empty();

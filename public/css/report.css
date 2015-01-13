@@ -54,10 +54,9 @@
     padding-bottom: 5px;
     padding-top: 15px;
     color: black;
-    border-radius: 5px;
     background-color: white;
     overflow-x: auto;
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+    --box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
 table {
@@ -65,10 +64,6 @@ table {
     overflow: auto;
     background-color: #eee;}
 
-#report > #issues-feed .issue:hover {
-    transition: 0.3s;
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
-}
 #side-nav {
     height: 50px;
     font-size: 14px;
@@ -84,7 +79,7 @@ table {
 #side-nav span {
     padding-top: 10px;
     padding-bottom: 10px;
-    font-size: 12px;
+    font-size: 16px;
 }
 #side-nav .return-button {
     padding: 0px;
@@ -93,15 +88,14 @@ table {
     padding: 10px;
     background-color: white;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
-    border: 1px solid #999;
     border-radius: 5px;
     color: #384047;
 }
 
 #side-nav .return-button a:hover {
+    transition:0.3s;
     padding: 10px;
     background-color: #eee;
-    border: 1px solid #999;
     border-radius: 5px;
     color: #384047;
 }
@@ -113,7 +107,7 @@ table {
 #report > #issues-feed .issue > div > .title-issue {
     margin-top: 0px;
     margin-bottom: 5px;
-    font-weight: 400;
+    font-weight: 700;
     font-size: 14px;
     color: #384047;
     font-family: Open Sans;
@@ -124,8 +118,8 @@ table {
 }
 
 #report > #issues-feed .issue > .content-issue > p {
-    font-weight: 300;
-    color: #666;
+    font-weight: 400;
+    color: #333;
     font-size: 14px;
 }
 #report > #issues-feed .issue > .content-issue > h3 {
@@ -144,6 +138,18 @@ table {
     margin-top: 0px;
 }
 
+#error-issue-feed .issue {
+    border-left: 3px solid #e74c3c;
+}
+
+#warning-issue-feed .issue {
+    border-left: 3px solid #f39c12;
+}
+
+#info-issue-feed .issue {
+    border-left: 3px solid #3498db;
+}
+
 #error-issue-feed h2 span {
     font-size: 16px;
     color: #e74c3c;
@@ -160,23 +166,20 @@ table {
 }
 #error-issue-feed h2 {
     font-size: 18px;
-    font-weight: 700;
-    font-family: Bitter;
+    font-weight: 400;
     color: #333;
     margin: 0px;
 }
 
 #warning-issue-feed h2 {
     font-size: 18px;
-    font-weight: 700;
-    font-family: Bitter;
+    font-weight: 400;
     margin: 0px;
 }
 
 #info-issue-feed h2 {
     font-size: 18px;
-    font-weight: 700;
-    font-family: Bitter;
+    font-weight: 400;
     margin: 0px;
 }
 
