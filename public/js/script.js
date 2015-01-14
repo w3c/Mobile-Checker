@@ -1,5 +1,5 @@
 // webSockets client side declaration
-var socket = io();
+var socket = io.connect(location.protocol + "//" + location.host, {resource: location.pathname.substring(1) + 'socket.io'})
 
 //settings sent to server
 // profile : device profile, selected by user.
