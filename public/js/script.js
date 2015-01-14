@@ -13,6 +13,8 @@ var errors = 0;
 var warnings = 0;
 var infos = 0;
 
+console.log(window.innerWidth);
+
 var checkButton = document.getElementById('checkButton');
 checkButton.addEventListener('click', clickHandler, true);
 
@@ -196,20 +198,41 @@ socket.on('done', function(data) {});
 socket.on('ok', function(data) {});
 socket.on('err', function(data) {
     if (data.status == "error") {
-        if (errors == 0)
-            $('#error-issue-feed').append($('<h2><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Should be fixed:</h2>'));
+        if (errors == 0) {
+            var errortitle = "<div class='alert alert-danger alert-dismissible' role='alert'>"
+            + "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"
+            + "<span aria-hidden='true'>&times;</span>"
+            + "</button>"
+            + "<span class='glyphicon glyphicon-exclamation-sign' aria-hidden='true'></span>"
+            + " We detected some issues which can strongly affect your mobile friendliness.</div>";
+            $('#error-issue-feed').append($(errortitle));
+        }
         $('#error-issue-feed').append($(data.issue));
         errors++;
     }
     if (data.status == "warning") {
-        if (warnings == 0)
-            $('#warning-issue-feed').append($('<h2><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Could be improved:</h2>'));
+        if (warnings == 0) {
+            var warningtitle = "<div class='alert alert-warning alert-dismissible' role='alert'>"
+            + "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"
+            + "<span aria-hidden='true'>&times;</span>"
+            + "</button>"
+            + "<span class='glyphicon glyphicon-exclamation-sign' aria-hidden='true'></span>"
+            + " We detected some possible mobile-friendliness improvements on your web application.</div>";
+            $('#warning-issue-feed').append($(warningtitle));
+        }
         $('#warning-issue-feed').append($(data.issue));
         warnings++;
     }
     if (data.status == "info") {
-        if (infos == 0)
-            $('#info-issue-feed').append($('<h2><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Info:</h2>'));
+        if (infos == 0) {
+            var infotitle = "<div class='alert alert-info alert-dismissible' role='alert'>"
+            + "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"
+            + "<span aria-hidden='true'>&times;</span>"
+            + "</button>"
+            + "<span class='glyphicon glyphicon-exclamation-sign' aria-hidden='true'></span>"
+            + " We detected some interesting informations.</div>";
+            $('#info-issue-feed').append($(infotitle));
+        }
         $('#info-issue-feed').append($(data.issue));
         infos++;
     }

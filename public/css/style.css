@@ -45,7 +45,7 @@ html, body{
   background-color: transparent;
   border: 0px;
   box-shadow: none;
-  border-radius: 0px;
+  border-radius: 5px;
   color: #8D9AA5;
   text-shadow:none;
 }
@@ -63,15 +63,18 @@ html, body{
 .btn-default:active, .btn-default.active {
   background-image: none;
   box-shadow: none;
-  background-color: white;
+  background-color: #eee;
   text-shadow:none;
   color: #8D9AA5;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+  --box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
 .btn-group {
   padding-left: 0px;
   padding-right: 0px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
 }
 
 .btn-group .btn + .btn{
@@ -89,11 +92,12 @@ html, body{
   border-top: 0px solid #eee;
   border-bottom: 0px solid #eee;
   border-radius: 5px;
-  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: #fcfcfb;
   font-size: 16px;
   font-weight: 300;
   color: #666;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+  --box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
 }
 #home > header > form > div > button {
   height: 50px;
@@ -105,8 +109,8 @@ html, body{
   border-bottom: 0px;
   border-radius: 5px;
   color: #FFF;
-  font-weight: 300;
-  font-size: 20px;
+  font-weight: 700;
+  font-size: 16px;
   background-color: #1abc9c;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
 }
@@ -148,6 +152,7 @@ html, body{
 #footer {
   background-color: #ecf0f1;
   margin-top: 50px;
+  margin-bottom: 50px;
   text-align: center;
 }
 

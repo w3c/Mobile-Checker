@@ -47,15 +47,16 @@
     font-family: Bitter;
 }
 #report > #issues-feed .issue {
-    margin-top: 10px;
-    margin-bottom: 5px;
+    margin-top: 5px;
     padding-left: 5px;
     padding-right: 5px;
     padding-bottom: 5px;
     padding-top: 15px;
     color: black;
+    border-radius: 5px;
     background-color: white;
     overflow-x: auto;
+  border: 1px solid rgba(0, 0, 0, 0.2);
     --box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
@@ -138,49 +139,42 @@ table {
     margin-top: 0px;
 }
 
-#error-issue-feed .issue {
-    border-left: 3px solid #e74c3c;
-}
-
-#warning-issue-feed .issue {
-    border-left: 3px solid #f39c12;
-}
-
-#info-issue-feed .issue {
-    border-left: 3px solid #3498db;
-}
-
 #error-issue-feed h2 span {
-    font-size: 16px;
+    font-size: 14px;
     color: #e74c3c;
 }
 
 #warning-issue-feed h2 span {
-    font-size: 16px;
+    font-size: 14px;
     color: #f39c12;
 }
 
 #info-issue-feed h2 span {
-    font-size: 16px;
+    font-size: 14px;
     color: #3498db;
 }
-#error-issue-feed h2 {
-    font-size: 18px;
-    font-weight: 400;
-    color: #333;
-    margin: 0px;
+
+.alert {
+    border: 0px;
+    margin-bottom: 0px;
+    padding: 10px;
+    background-image: none;
+    color: white;
 }
 
-#warning-issue-feed h2 {
-    font-size: 18px;
-    font-weight: 400;
-    margin: 0px;
+.alert-danger {
+    background-color: #e74c3c;
+    background-color: rgba(231, 76, 60, 0.8);
 }
 
-#info-issue-feed h2 {
-    font-size: 18px;
-    font-weight: 400;
-    margin: 0px;
+.alert-warning {
+    background-color: #f39c12;
+    background-color: rgba(243, 156, 18, 0.8);
+}
+
+.alert-info {
+    background-color: #3498db;
+    background-color: rgba(52, 152, 219, 0.8);
 }
 
 #report > #overview {
@@ -257,7 +251,7 @@ table {
 .fixit {
     padding: 10px;
     color: #666;
-    border: 1px solid #999;
+    border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     background-color: #eee;
     margin-top: 10px;
