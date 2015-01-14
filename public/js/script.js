@@ -1,5 +1,8 @@
 // webSockets client side declaration
-var socket = io.connect(location.protocol + "//" + location.host, {resource: location.pathname.substring(1) + 'socket.io'})
+if(window.location.host == "localhost:3000")
+    var socket = io.connect();
+else
+    var socket = io.connect('http://ariel.w3.org:3000');
 
 //settings sent to server
 // profile : device profile, selected by user.
