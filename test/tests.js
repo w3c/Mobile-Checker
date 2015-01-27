@@ -17,7 +17,7 @@ var tests = {
         //Checks
         "doc-width": [, {
                 doc: "width_fail.html",
-                errors: ["responsive.doc-width.doc-width-too-large"]
+                error: ["responsive.doc-width.doc-width-too-large"]
             },
                       {
                 doc: "width_success.html"
@@ -25,7 +25,7 @@ var tests = {
         ],
         "meta-viewport": [, {
             doc: "viewport_incorrect-initial-scale.html",
-            errors: [{
+            error: [{
                 name: "responsive.meta-viewport.invalid-viewport-value",
                 data: {
                     property: "initial-scale",
@@ -35,7 +35,7 @@ var tests = {
             }]
         }, {
             doc: "viewport_incorrect-width.html",
-            errors: [{
+            error: [{
                 name: "responsive.meta-viewport.invalid-viewport-value",
                 data: {
                     property: "width",
@@ -45,14 +45,14 @@ var tests = {
             }]
         }, {
             doc: "viewport_many-viewport.html",
-            errors: [
+            warning: [
                 "responsive.meta-viewport.several-viewports-declared"
             ]
         }, {
             doc: "viewport_no-initial-scale.html"
         }, {
             doc: "viewport_no-meta-viewport.html",
-            errors: ["responsive.meta-viewport.no-viewport-declared"]
+            error: ["responsive.meta-viewport.no-viewport-declared"]
         }, {
             doc: "viewport_no-width.html"
         }, {
@@ -62,7 +62,7 @@ var tests = {
     "performance": {
         "number-requests": [{
             doc: "number-requests.html",
-            errors: [{
+            info: [{
                 name: "performance.number-requests.info-number-requests",
                 dataSorter: {entries:"url"},
                 data: {
@@ -101,7 +101,7 @@ var tests = {
         }],
         "redirects": [{
             doc: "redirects.html",
-            errors: [{
+            info: [{
                 name: "performance.redirects.redirects-encountered",
                 data: {
                     number: 2,
@@ -123,7 +123,7 @@ var tests = {
         }],
         "http-errors": [{
             doc: "http-errors.html",
-            errors: [{
+            error: [{
                 name: "performance.http-errors.http-errors-detected",
                 data: {
                     number: 1,
@@ -136,7 +136,7 @@ var tests = {
             }]
         }, {
             doc: "http-errors-favicon.html",
-            errors: [{
+            warning: [{
                 name: "performance.http-errors.favicon",
                 data: {
                     url: "http://0.0.0.0:3001/favicon.ico"
@@ -148,7 +148,7 @@ var tests = {
             doc: "compressed.html"
         }, {
             doc: "uncompressed.html",
-            errors: [{
+            warning: [{
                 name: "performance.compression.resources-could-be-compressed",
                 data: {
                     number: 1,
@@ -166,8 +166,9 @@ var tests = {
 
 function Sink() {
     this.ok = 0;
-    this.errors = [];
-    this.warnings = [];
+    this.error = [];
+    this.warning = [];
+    this.info = [];
     this.done = 0;
 }
 
@@ -190,10 +191,14 @@ describe('Starting test suite', function() {
                 describe("Check " + check, function() {
                     tests[category][check].forEach(function(
                         test) {
-                        var passTest = test.errors ?
-                            false : true;
+                        var passTest = !(test.error || test.info || test.warning);
+
+                        if (test.error === undefined) test.error = [];
+                        if (test.warning === undefined) test.warning = [];
+                        if (test.info === undefined) test.info = [];
+
                         it("should " + (passTest ?
-                                "pass" : "fail") +
+                                "emit no report" : "emit a report") +
                             " for " + test.doc,
                             function(done) {
                                 var c = require(
@@ -205,15 +210,10 @@ describe('Starting test suite', function() {
                                 sink.on('ok', function() {
                                     sink.ok++;
                                 });
-                                sink.on('warning',
-                                    function(type) {
-                                        sink.errors.push(
-                                            type);
-                                    });
                                 sink.on('err', function(
-                                    type) {
-                                    sink.errors.push(
-                                        type);
+                                    report) {
+                                    sink[report.status].push(
+                                        report.issue);
                                 });
                                 sink.on('done',
                                     function() {
@@ -222,24 +222,63 @@ describe('Starting test suite', function() {
                                 sink.on('end', function() {
                                     if (passTest) {
                                         expect(sink
-                                            .errors
+                                            .error
+                                        ).to.be.empty();
+
+                                        expect(sink
+                                            .warning
+                                        ).to.be.empty();
+
+                                        expect(sink
+                                            .info
                                         ).to.be.empty();
                                         //expect(sink.ok).to.eql(sink.done);
                                     } else {
-                                        sort(sink.errors,
-                                             test.errors);
-                                        sink.errors =
+                                        sort(sink.error,
+                                             test.error);
+                                        sort(sink.warning,
+                                             test.warning);
+                                        sort(sink.info,
+                                             test.info);
+                                        sink.error =
                                             cleanNulls(
                                                 sink
-                                                .errors,
+                                                .error,
                                                 test
-                                                .errors
+                                                .error
+                                            );
+
+                                        sink.warning =
+                                            cleanNulls(
+                                                sink
+                                                .warning,
+                                                test
+                                                .warning
+                                            );
+
+                                        sink.info =
+                                            cleanNulls(
+                                                sink
+                                                .info,
+                                                test
+                                                .info
                                             );
                                         expect(sink
-                                            .errors
+                                            .error
                                         ).to.eql(
-                                            test.errors
+                                            test.error
                                         );
+                                        expect(sink
+                                            .warning
+                                        ).to.eql(
+                                            test.warning
+                                        );
+                                        expect(sink
+                                            .info
+                                        ).to.eql(
+                                            test.info
+                                        );
+
                                     }
                                     done();
                                 });
@@ -252,24 +291,7 @@ describe('Starting test suite', function() {
                                     profile: "default",
                                     checklist: [c],
                                     id: uuid.v4(),
-                                    formatReport: function(
-                                        key, name,
-                                        category,
-                                        data) {
-                                        var fullname =
-                                            category +
-                                            "." +
-                                            name +
-                                            "." +
-                                            key;
-                                        if (!Object.keys(data).length) {
-                                            return fullname;
-                                        }
-                                        return {
-                                            name: fullname,
-                                            data: data
-                                        };
-                                    }
+                                    formatReport: formatReport
                                 });
                             });
                     });
@@ -278,6 +300,17 @@ describe('Starting test suite', function() {
         });
     });
 });
+
+function formatReport(key, name, category,data) {
+    var fullname = category + "." + name + "." + key;
+    if (!Object.keys(data).length) {
+        return fullname;
+    }
+    return {
+        name: fullname,
+        data: data
+    };
+}
 
 function cleanNulls(obj1, obj2) {
     var obj;
