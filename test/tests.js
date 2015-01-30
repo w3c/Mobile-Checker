@@ -17,7 +17,7 @@ var tests = {
         //Checks
         "doc-width": [, {
                 doc: "width_fail.html",
-                error: ["responsive.doc-width.doc-width-too-large"]
+                warning: ["responsive.doc-width.doc-width-too-large"]
             },
                       {
                 doc: "width_success.html"
@@ -101,7 +101,7 @@ var tests = {
         }],
         "redirects": [{
             doc: "redirects.html",
-            info: [{
+            warning: [{
                 name: "performance.redirects.redirects-encountered",
                 data: {
                     number: 2,
