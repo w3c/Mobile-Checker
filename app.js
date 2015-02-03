@@ -211,7 +211,7 @@ io.on('connection', function(socket) {
             socket.emit('end', data);
         });
         sink.on('wait', function(){
-            socket.emit('wait');
+            socket.emit('wait', jobQueue.length);
         });
         sink.on('exception', function(data) {
             socket.emit('exception', data);

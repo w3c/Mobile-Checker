@@ -94,6 +94,9 @@ function loadProgressPage() {
     $('#info-issue-feed').empty();
     $('#error-issue-feed').empty();
     $('#warning-issue-feed').empty();
+    $('#info-issue-feed').hide();
+    $('#error-issue-feed').hide();
+    $('#warning-issue-feed').hide();
     $('#smartphone').empty();
     $('#cog1').addClass("active");
     $('#cog2').addClass("active");
@@ -200,19 +203,20 @@ socket.on('unsafeUrl', function(data) {
 socket.on('done', function(data) {});
 socket.on('ok', function(data) {});
 
-socket.on('wait', function() {
-    var waitMessage = "<p>added to waiting queue</p>";
+socket.on('wait', function(data) {
+    var waitingTime = data * 10;
+    var waitMessage = "<p>too many connection. waiting time around " +waitingTime+ "s</p>";
     $('#system-info').append($(waitMessage));
 });
 
 socket.on('err', function(data) {
     if (data.status == "error") {
         if (errors == 0) {
+            $('#error-issue-feed').show();
             var errortitle = "<div class='alert alert-danger alert-dismissible' role='alert'>"
             + "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"
             + "<span aria-hidden='true'>&times;</span>"
             + "</button>"
-            + "<span class='glyphicon glyphicon-exclamation-sign' aria-hidden='true'></span>"
             + " We detected some issues which can strongly affect your mobile friendliness.</div>";
             $('#error-issue-feed').append($(errortitle));
         }
@@ -221,11 +225,11 @@ socket.on('err', function(data) {
     }
     if (data.status == "warning") {
         if (warnings == 0) {
+            $('#warning-issue-feed').show();
             var warningtitle = "<div class='alert alert-warning alert-dismissible' role='alert'>"
             + "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"
             + "<span aria-hidden='true'>&times;</span>"
             + "</button>"
-            + "<span class='glyphicon glyphicon-exclamation-sign' aria-hidden='true'></span>"
             + " We detected some possible mobile-friendliness improvements on your web application.</div>";
             $('#warning-issue-feed').append($(warningtitle));
         }
@@ -234,11 +238,11 @@ socket.on('err', function(data) {
     }
     if (data.status == "info") {
         if (infos == 0) {
+            $('#info-issue-feed').show();
             var infotitle = "<div class='alert alert-info alert-dismissible' role='alert'>"
             + "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"
             + "<span aria-hidden='true'>&times;</span>"
             + "</button>"
-            + "<span class='glyphicon glyphicon-exclamation-sign' aria-hidden='true'></span>"
             + " We detected some interesting informations.</div>";
             $('#info-issue-feed').append($(infotitle));
         }

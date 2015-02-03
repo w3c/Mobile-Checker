@@ -53,10 +53,10 @@
     padding-bottom: 5px;
     padding-top: 15px;
     color: black;
-    border-radius: 5px;
+    border-radius: 0px;
     background-color: white;
     overflow-x: auto;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid #eee;
     --box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
@@ -108,9 +108,8 @@ table {
 #report > #issues-feed .issue > div > .title-issue {
     margin-top: 0px;
     margin-bottom: 5px;
-    font-weight: 700;
+    font-weight: 300;
     font-size: 14px;
-    color: #384047;
     font-family: Open Sans;
 }
 
@@ -124,26 +123,48 @@ table {
     font-size: 14px;
 }
 #report > #issues-feed .issue > .content-issue > h3 {
-    font-weight: 700;
-    font-size: 14px;
+    font-weight: 300;
+    font-size: 18px;
     color: #384047;
 }
 
 #system-info p{
-    text-align: center;
-    font-size: 20px;
-    font-weight: 400;
-    color: #333;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 700;
+    color: #e74c3c;
 }
 
 #error-issue-feed, #warning-issue-feed, #info-issue-feed{
     padding: 0px;
     margin-top: 20px;
+    background-color: white;
+    border-radius: 2px;
+    --border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
 #tip-issue-feed {
     padding: 0px;
     margin-top: 0px;
+}
+
+#error-issue-feed .title-issue{
+    font-size: 14px;
+    color: #e74c3c;
+    border-bottom: 1px solid #e74c3c;
+}
+
+#warning-issue-feed .title-issue{
+    font-size: 14px;
+    color: #f39c12;
+    border-bottom: 1px solid #f39c12;
+}
+
+#info-issue-feed .title-issue{
+    font-size: 14px;
+    color: #3498db;
+    border-bottom: 1px solid #3498db;
 }
 
 #error-issue-feed h2 span {
@@ -167,6 +188,7 @@ table {
     padding: 10px;
     background-image: none;
     color: white;
+    border-radius: 2px 2px 0px 0px;
 }
 
 .alert-danger {
@@ -259,7 +281,7 @@ table {
     padding: 10px;
     color: #666;
     border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
+    border-radius: 2px;
     background-color: #eee;
     margin-top: 10px;
 }
