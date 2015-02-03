@@ -129,6 +129,13 @@ table {
     color: #384047;
 }
 
+#system-info p{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    color: #333;
+}
+
 #error-issue-feed, #warning-issue-feed, #info-issue-feed{
     padding: 0px;
     margin-top: 20px;

@@ -199,6 +199,12 @@ socket.on('unsafeUrl', function(data) {
 //server event : detect when check is done.
 socket.on('done', function(data) {});
 socket.on('ok', function(data) {});
+
+socket.on('wait', function() {
+    var waitMessage = "<p>added to waiting queue</p>";
+    $('#system-info').append($(waitMessage));
+});
+
 socket.on('err', function(data) {
     if (data.status == "error") {
         if (errors == 0) {
