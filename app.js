@@ -94,6 +94,13 @@ function endJob(){
         runNewJobFromQueue();
 }
 
+function removeDisconnectJobToQueue(checkId) {
+    for(var i = 0; i < jobQueue.length - 1; i++) {
+        if(jobQueue[i].options.id == checkId) {
+            removeJobToQueue(i);
+        }
+    }
+}
 
 function init() {
     createFolder(SCREENSHOTS_DIR, clearScreenshotFolder);
@@ -218,6 +225,7 @@ io.on('connection', function(socket) {
         });
         socket.on('disconnect', function() {
             updateLogs('CLIENT_DECONNECTED', socket);
+            removeDisconnectJobToQueue(uid);
             if (screenshot) {
                 unlinkScreenshot(uid + '.png');
             }

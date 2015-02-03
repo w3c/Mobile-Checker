@@ -88,17 +88,15 @@ table {
 #side-nav .return-button a {
     padding: 10px;
     background-color: white;
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
+    border-radius: 2px;
     color: #384047;
+    border-bottom: 2px solid #eee;
 }
 
 #side-nav .return-button a:hover {
     transition:0.3s;
     padding: 10px;
     background-color: #eee;
-    border-radius: 5px;
-    color: #384047;
 }
 
 #report > #issues-feed {
