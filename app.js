@@ -48,6 +48,10 @@ var logs = {
     }
 }
 
+/*
+ * Job Manager
+ * Manage a job queue to avoid a server overload
+ */
 var maxJobs = 5;
 var jobQueue = [];
 var currentJobs = 0;
@@ -66,6 +70,7 @@ function addJobToQueue(checker, options) {
         checker: checker,
         options: options
     });
+    options.events.emit('wait');
 }
 
 function removeJobToQueue(jobIndex){ 
@@ -204,6 +209,9 @@ io.on('connection', function(socket) {
             updateLogs('VALIDATION_ENDED', socket);
             endJob();
             socket.emit('end', data);
+        });
+        sink.on('wait', function(){
+            socket.emit('wait');
         });
         sink.on('exception', function(data) {
             socket.emit('exception', data);
