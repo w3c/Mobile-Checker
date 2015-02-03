@@ -217,7 +217,7 @@ socket.on('err', function(data) {
             + "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"
             + "<span aria-hidden='true'>&times;</span>"
             + "</button>"
-            + " We detected some issues which can strongly affect your mobile friendliness.</div>";
+            + " Critical issues: can strongly affect your mobile friendliness.</div>";
             $('#error-issue-feed').append($(errortitle));
         }
         $('#error-issue-feed').append($(data.issue));
@@ -230,7 +230,7 @@ socket.on('err', function(data) {
             + "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"
             + "<span aria-hidden='true'>&times;</span>"
             + "</button>"
-            + " We detected some possible mobile-friendliness improvements on your web application.</div>";
+            + " Warning: can potentially affect your mobile friendliness.</div>";
             $('#warning-issue-feed').append($(warningtitle));
         }
         $('#warning-issue-feed').append($(data.issue));
@@ -243,7 +243,7 @@ socket.on('err', function(data) {
             + "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"
             + "<span aria-hidden='true'>&times;</span>"
             + "</button>"
-            + " We detected some interesting informations.</div>";
+            + " Info: some improvements on your web application.</div>";
             $('#info-issue-feed').append($(infotitle));
         }
         $('#info-issue-feed').append($(data.issue));
