@@ -121,15 +121,21 @@ function loadProgressPage() {
         ' }</style>').appendTo('head');
     var styleprefixed = $('<style>#' + id + '.screenshot {  ' + transformprefixwebkit +
         ' }</style>').appendTo('head');
-    selectedDevice.addClass('screenshot');
+    if($( window ).width() > 990) {
+        selectedDevice.addClass('screenshot');
+    }
     $('#home').addClass('report');
     $('#report').addClass('report');
-    setTimeout(function() {
-        $('#smartphone').addClass(id);
-        selectedDevice.hide();
-        selectedDevice.removeClass('screenshot');
-        style.remove();
-    }, 1000);
+
+    if($( window ).width() > 990) {
+        setTimeout(function() {
+            $('#smartphone').addClass(id);
+            selectedDevice.hide();
+            selectedDevice.removeClass('screenshot');
+            style.remove();
+        }, 1000);
+    }
+
 }
 
 //hide progress animation

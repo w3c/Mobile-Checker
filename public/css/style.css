@@ -74,7 +74,7 @@ html, body{
   padding-right: 0px;
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
+  border-radius: 2px;
 }
 
 .btn-group .btn + .btn{
@@ -91,7 +91,7 @@ html, body{
   border-right: 0px solid #eee;
   border-top: 0px solid #eee;
   border-bottom: 0px solid #eee;
-  border-radius: 5px;
+  border-radius: 2px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   background-color: #fcfcfb;
   font-size: 16px;
@@ -107,12 +107,12 @@ html, body{
   border-right: 0px;
   border-top: 0px;
   border-bottom: 0px;
-  border-radius: 5px;
+  border-radius: 2px;
   color: #FFF;
   font-weight: 700;
   font-size: 16px;
   background-color: #1abc9c;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+  border-bottom: 2px solid #16a085;
 }
 #home > header > form > div > button:hover {
   transition:0.6s;
@@ -217,5 +217,11 @@ html, body{
     }
     .border {
       margin-top: 40px;
+    }
+    #home > header > form > div > button {
+      margin-top: 5px;
+    }
+    #home > header > form > div > #url {
+      margin-top: 10px;
     }
 }
