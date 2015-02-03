@@ -2,14 +2,10 @@
 
 The Mobile Checker is a tool for Web developers who want to make their Web page or Web app work better on mobile devices.
 
-This tool, is a full JavaScript web application, built with Node.js and Selenium WebDriver.
-
-Based on the mobile web browser emulator API, the Mobile Checker combines powerful technologies to simulate a web browser on a mobile device.
-
+This tool, is a full JavaScript web application, built with Node.js and Selenium WebDriver. Based on the mobile web browser emulator API, the Mobile Checker combines powerful technologies to simulate a web browser on a mobile device.
 That's why, contrary to most of the current online mobile emulators, the Mobile Checker can provide an emulation close of what your web app looks like on different kinds of mobile devices, as well as tablets and smartphones.
 
 The Mobile Checker was built to provide to all of us, web developers, a new and helpful experience of the mobile web developement.
-
 We built the base. Now join us, and make it grant your wishes. We think you will make it awesome.
 
 ## Installation
