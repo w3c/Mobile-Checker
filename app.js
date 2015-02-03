@@ -17,6 +17,8 @@ var express = require("express"),
     mkdirp = require('mkdirp'),
     ejs = require('ejs'),
     path = require('path'),
+    headless = require('headless'),
+    Browser = require('mobile-web-browser-emulator').Browser,
     fs = require("fs");
 
 var SCREENSHOTS_DIR = 'public/tmp/screenshots/';
@@ -45,6 +47,48 @@ var logs = {
         validations: 0
     }
 }
+
+var maxJobs = 5;
+var jobQueue = [];
+var currentJobs = 0;
+
+function newJob(checker, options) {
+    if (currentJobs < maxJobs) {
+        currentJobs++;
+        checker.check(options);
+    } else {
+        addJobToQueue(checker, options);
+    }
+}
+
+function addJobToQueue(checker, options) {
+    jobQueue.push({
+        checker: checker,
+        options: options
+    });
+}
+
+function removeJobToQueue(jobIndex){ 
+    jobQueue.splice(jobIndex, 1);
+}
+
+function runNewJobFromQueue() {
+    if (currentJobs < maxJobs) {
+        currentJobs++;
+        jobQueue[0].checker.check(jobQueue[0].options);
+        removeJobToQueue(0);
+    } else {
+        return;
+    }
+}
+
+function endJob(){
+    if (currentJobs > 0)
+        currentJobs--;
+    if(jobQueue.length > 0) 
+        runNewJobFromQueue();
+}
+
 
 function init() {
     createFolder(SCREENSHOTS_DIR, clearScreenshotFolder);
@@ -158,6 +202,7 @@ io.on('connection', function(socket) {
         });
         sink.on('end', function(data) {
             updateLogs('VALIDATION_ENDED', socket);
+            endJob();
             socket.emit('end', data);
         });
         sink.on('exception', function(data) {
@@ -174,7 +219,7 @@ io.on('connection', function(socket) {
                 socket.emit('start', 3);
                 updateLogs('NEW_VALIDATION', socket);
                 displayTip(socket);
-                checker.check({
+                newJob(checker, {
                     url: result,
                     events: sink,
                     sockets: socket,
