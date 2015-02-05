@@ -150,12 +150,12 @@ html, body{
 
 #footer {
   background-color: #ecf0f1;
-  margin-top: 50px;
+  margin-top: 10px;
   margin-bottom: 50px;
   text-align: center;
 }
 
-#footer h2 {
+#footer p {
   margin-top: 10px;
 }
 
