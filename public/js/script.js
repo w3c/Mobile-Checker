@@ -144,6 +144,7 @@ function loadResultPage() {
     $('#cog2').removeClass("active");
     $("#inprogress").hide("1s");
     $("#tipbody").addClass("collapse");
+    $('#navbar-report').addClass("navbar-active");
 }
 
 //PROTOCOL of client Side

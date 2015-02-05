@@ -17,12 +17,15 @@ html, body{
     padding: 0px;
 }
 
-#home nav {
-  text-align: center;
-  background-color: transparent;
-  background-image: none;
-  box-shadow: none;
-  border: 0px;
+.navbar-default {
+    background-image: none;
+    background-color: #384047;
+    box-shadow: none;
+    border-radius: 0px;
+    border: 0px;
+    padding-top: 15px;
+    text-align: center;
+    margin-bottom: 0px;
 }
 
 #home > header {
