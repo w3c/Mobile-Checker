@@ -150,13 +150,19 @@ html, body{
 
 #footer {
   background-color: #ecf0f1;
-  margin-top: 10px;
-  margin-bottom: 50px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   text-align: center;
+  background-color: #384047;
 }
 
 #footer p {
-  margin-top: 10px;
+  color: white;
+  padding-top: 10px;
+}
+
+#footer a {
+  color: #bdc3c7;
 }
 
 #footer img{
@@ -176,7 +182,10 @@ html, body{
 }
 
 #infos {
-  margin-top: 50px;
+  margin-top: 30px;
+  padding-bottom: 30px;
+  background-color: #384047;
+  background-color: #ecf0f1;
 }
 
 #infos h2 {
