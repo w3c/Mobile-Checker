@@ -220,9 +220,6 @@ socket.on('err', function(data) {
         if (errors == 0) {
             $('#error-issue-feed').show();
             var errortitle = "<div class='alert alert-danger alert-dismissible' role='alert'>"
-            + "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"
-            + "<span aria-hidden='true'>&times;</span>"
-            + "</button>"
             + " Critical issues: can strongly affect your mobile friendliness.</div>";
             $('#error-issue-feed').append($(errortitle));
         }
@@ -233,9 +230,6 @@ socket.on('err', function(data) {
         if (warnings == 0) {
             $('#warning-issue-feed').show();
             var warningtitle = "<div class='alert alert-warning alert-dismissible' role='alert'>"
-            + "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"
-            + "<span aria-hidden='true'>&times;</span>"
-            + "</button>"
             + " Warning: can potentially affect your mobile friendliness.</div>";
             $('#warning-issue-feed').append($(warningtitle));
         }
@@ -246,9 +240,6 @@ socket.on('err', function(data) {
         if (infos == 0) {
             $('#info-issue-feed').show();
             var infotitle = "<div class='alert alert-info alert-dismissible' role='alert'>"
-            + "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"
-            + "<span aria-hidden='true'>&times;</span>"
-            + "</button>"
             + " Info: some improvements on your web application.</div>";
             $('#info-issue-feed').append($(infotitle));
         }
