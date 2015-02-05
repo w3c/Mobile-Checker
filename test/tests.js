@@ -161,6 +161,60 @@ var tests = {
                 }
             }]
         }]
+    },
+    "compatibility":{
+        "css-prefixes":[
+            {
+                doc: "css-prefixes.html",
+                warning: [{
+                    name: "compatibility.css-prefixes.missing-prefixes",
+                    data: {
+                        "missingPrefixes": {
+                            "http://0.0.0.0:3001/docs/prefixes.css": [
+                                {
+                                    "rule": "body {\n  -webkit-opacity: 0.5;\n}",
+                                    "position": {
+                                        "line": 1,
+                                        "column": 1
+                                    },
+                                    "prop": "opacity",
+                                    "missing": [
+                                        "opacity"
+                                    ],
+                                    "decls": [
+                                        "-webkit-opacity: 0.5;\n"
+                                    ],
+                                    "value": "0.5"
+                                }
+                            ]
+                        }
+                    }
+                }]
+            },
+            {
+                doc: "css-inconsistent-prefixes.html",
+                warning: [{
+                    name: "compatibility.css-prefixes.mismatching-prefixes",
+                    data: {
+                        "mismatchingPrefixes": {
+                            "http://0.0.0.0:3001/docs/inconsistent-prefixes.css": [
+                                {
+                                    "rule": "body {\n  -webkit-border-radius: 5%;\n  border-radius: 15%;\n}",
+                                    "position": {
+                                        "line": 1,
+                                        "column": 1
+                                    },
+                                    "prop": "border-radius",
+                                    "decls": [
+                                        "-webkit-border-radius: 5%;\n",
+                                        "border-radius: 15%;\n"
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                }]
+            }]
     }
 };
 
