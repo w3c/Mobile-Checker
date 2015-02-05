@@ -207,8 +207,6 @@ table {
 #report > #overview {
     padding: 0px;
     margin-top: 0px;
-    position: fixed;
-    top: 60px;
 }
 #report > #overview > #smartphone {
     height: 700px;
