@@ -86,7 +86,7 @@ html, body{
   width: 100%;
   padding: 5px;
   margin: 0px;
-  margin-top: 40px;
+  margin-top: 5px;
   border-left: 0px solid #eee;
   border-right: 0px solid #eee;
   border-top: 0px solid #eee;
@@ -102,7 +102,7 @@ html, body{
 #home > header > form > div > button {
   height: 50px;
   width: 100%;
-  margin-top: 40px;
+  margin-top: 5px;
   border-left: 0px;
   border-right: 0px;
   border-top: 0px;
@@ -142,11 +142,11 @@ html, body{
 }
 
 #slogan {
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 300;
-  color: #8D9AA5;
-  text-align: center;
-  margin-top: 0px;
+  color: #384047;
+  text-align: left;
+  margin-top: 40px;
 }
 
 #footer {
