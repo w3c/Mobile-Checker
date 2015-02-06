@@ -136,11 +136,19 @@ table {
     color: #384047;
 }
 
+#system-info {
+    padding: 0px;
+}
+
 #system-info p{
     text-align: left;
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 400;
     color: #e74c3c;
+    padding: 10px;
+    background-color: white;
+    border-radius: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 #error-issue-feed, #warning-issue-feed, #info-issue-feed{
