@@ -80,6 +80,7 @@ function removeJobToQueue(jobIndex){
 function runNewJobFromQueue() {
     if (currentJobs < maxJobs) {
         currentJobs++;
+        jobQueue[0].options.events.emit('jobStarted');
         jobQueue[0].checker.check(jobQueue[0].options);
         removeJobToQueue(0);
     } else {
@@ -219,6 +220,9 @@ io.on('connection', function(socket) {
         });
         sink.on('wait', function(){
             socket.emit('wait', jobQueue.length);
+        });
+        sink.on('jobStarted', function(){
+            socket.emit('jobStarted');
         });
         sink.on('exception', function(data) {
             socket.emit('exception', data);

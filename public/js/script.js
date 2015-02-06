@@ -212,8 +212,12 @@ socket.on('ok', function(data) {});
 
 socket.on('wait', function(data) {
     var waitingTime = data * 10;
-    var waitMessage = "<p>too many connection. waiting time around " +waitingTime+ "s</p>";
+    var waitMessage = "<p>Hi, this service is receiving too many requests. Waiting time around " +waitingTime+ "s. Please don't leave the page.</p>";
     $('#system-info').append($(waitMessage));
+});
+
+socket.on('jobStarted', function(){
+    $('#system-info').empty();
 });
 
 socket.on('err', function(data) {
