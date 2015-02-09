@@ -17,11 +17,10 @@ you can simply clone this repository:
  
 1. Install [Node.js](http://nodejs.org/)
 
-2. Install npm dependencies
-
+2. Install npm dependencies:
 	npm install -d
 
-3. In addition to the npm dependencies, you need to have installed:
+3. In addition to the npm dependencies, install:
 
 * [google-chrome](https://www.google.com/chrome/)
 * [browsermob-proxy](https://github.com/lightbody/browsermob-proxy/) running on port 8080
