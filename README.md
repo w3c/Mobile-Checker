@@ -19,25 +19,17 @@ you can simply clone this repository:
 
 2. Install npm dependencies
 
-run in your terminal:
-
 	npm install -d
 
-3. Install additional dependencies
+3. In addition to the npm dependencies, you need to have installed:
 
-In addition to the npm dependencies, the checker needs:
 * [google-chrome](https://www.google.com/chrome/)
 * [browsermob-proxy](https://github.com/lightbody/browsermob-proxy/) running on port 8080
 * [ImageMagick](http://www.imagemagick.org/)
 * [XVFB](http://www.x.org/archive/X11R7.6/doc/man/man1/Xvfb.1.xhtml)
 
-In order to get all the dependencies installed. Naturally, this requires that you have a reasonably
-recent version of Node installed.
-
 ## Running
-It's pretty simple to run the Mobile Checker;
-
-in your terminal, run:
+In your terminal, run:
 
     node app.js
 
