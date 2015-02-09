@@ -22,7 +22,7 @@ All check scripts are located in the [lib](https://github.com/w3c/Mobile-Checker
 
 This is the basic template of check file. Save it in the lib directory:
 
-	```javascript
+	````javascript
 	var self = this;
 	exports.name = "name-of-the-check"; //write here the name of your check. Have to match with the file's name.
 	exports.category = "name-of-the-category"; //write here the name. Have to match with a category's directory name.
