@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/w3c/Mobile-Checker.svg?branch=master)](https://travis-ci.org/w3c/Mobile-Checker)
 [![Join the chat at https://gitter.im/w3c/Mobile-Checker](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/w3c/Mobile-Checker?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 # Mobile Checker
