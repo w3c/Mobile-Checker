@@ -14,17 +14,17 @@ Mobile Checker is a Node application. It will eventually be distributed through 
 you can simply clone this repository:
 
 	git clone https://github.com/w3c/Mobile-Checker.git
-
-
-It's pretty simple to run your own Mobile Checker instance:
  
 1. Install [Node.js](http://nodejs.org/)
 
 2. Install npm dependencies
+
 run in your terminal:
+
 	npm install -d
 
 3. Install additional dependencies
+
 In addition to the npm dependencies, the checker needs:
 * [google-chrome](https://www.google.com/chrome/)
 * [browsermob-proxy](https://github.com/lightbody/browsermob-proxy/) running on port 8080
@@ -35,9 +35,10 @@ In order to get all the dependencies installed. Naturally, this requires that yo
 recent version of Node installed.
 
 ## Running
-It's pretty simple to run the Mobile Checker.
+It's pretty simple to run the Mobile Checker;
 
 in your terminal, run:
+
     node app.js
 
 Then, connect on the localhost:3000 port.
