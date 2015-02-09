@@ -79,7 +79,17 @@ exports.check = function(checker, browser) {
 };
 ```
 
-####
+#### report a result:
+to report a result, use the report function of the checker object.
+	checker.report(key, name, category, status, data);
+
+* **key**:
+* **name**:
+* **category**:
+* **status**:
+* **data**:
+
+
 ### Add an issue
 
 ### Add a test
