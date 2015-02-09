@@ -68,6 +68,7 @@ exports.check = function(checker, browser) {
 ```
 
 #### run your own script:
+````javascript
 exports.check = function(checker, browser) {
 	browser.do(function(driver) {
 		return driver.executeScript(function() {
@@ -75,6 +76,7 @@ exports.check = function(checker, browser) {
         });
 	});
 };
+```
 
 ### Add an issue
 
