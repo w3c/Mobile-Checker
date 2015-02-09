@@ -83,11 +83,11 @@ exports.check = function(checker, browser) {
 to report a result, use the report function of the checker object.
 	checker.report(key, name, category, status, data);
 
-* **key**:
-* **name**:
-* **category**:
-* **status**:
-* **data**:
+* **key**: name of the file issue to display in the report.
+* **name**:	self.name
+* **category**: self.category
+* **status**: error, warning or info
+* **data**: data to display in the issue reported. (optional)
 
 
 ### Add an issue
