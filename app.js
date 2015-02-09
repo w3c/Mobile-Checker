@@ -52,7 +52,7 @@ var logs = {
  * Job Manager
  * Manage a job queue to avoid a server overload
  */
-var maxJobs = 5;
+var maxJobs = 15;
 var jobQueue = [];
 var currentJobs = 0;
 
