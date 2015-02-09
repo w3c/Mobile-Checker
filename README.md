@@ -1,6 +1,7 @@
+[![Join the chat at https://gitter.im/w3c/Mobile-Checker](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/w3c/Mobile-Checker?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 # Mobile Checker
 
-[![Join the chat at https://gitter.im/w3c/Mobile-Checker](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/w3c/Mobile-Checker?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 The Mobile Checker is a tool for Web developers who want to make their Web page or Web app work better on mobile devices.
 
 The Mobile Checker was built to provide to all of us, web developers, a new and helpful experience of the mobile web developement.
