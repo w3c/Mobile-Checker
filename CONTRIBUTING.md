@@ -34,10 +34,23 @@ The ```check(checker, browser)``` function, receive ```checker``` and ```browser
 * Use ```browser``` to test the web page.
 * Use ```checker``` to report the result.
 
-N.B: The ```browser``` object is based on the [mobile-web-browser-emulator API](https://github.com/w3c/mobile-web-browser-emulator) which is based on [selenium web driver API](http://selenium.googlecode.com/git/docs/api/javascript/index.html). That allow you to use all the functions provided by these APIs.
+N.B: The ```browser``` object is based on the [mobile-web-browser-emulator API](https://github.com/w3c/mobile-web-browser-emulator) which is based on [selenium WebDriverJS API](https://code.google.com/p/selenium/wiki/WebDriverJs). That allow you to use all the functions provided by these APIs.
 
 
-#### access to selenium webdriver API: 
+#### access to mobile-web-browser-emulator API: 
+````javascript
+exports.check = function(checker, browser) {
+	// get a browser object which can be use with mobile-web-browser-emulator API
+};
+```
+example: 
+````javascript
+exports.check = function(checker, browser) {
+	browser.takeScreenshot(__dirname + "/../screenshot.png"); //mobile-web-browser-emulator method
+};
+```
+
+#### access to selenium WebDriverJS API: 
 ````javascript
 	browser.do(function(driver) { //take a function in parameter
 		// get a driver object which can be use with selenium webdriver 
@@ -53,19 +66,7 @@ exports.check = function(checker, browser) {
 	});
 };
 ```
-
-#### access to mobile-web-browser-emulator API: 
-````javascript
-exports.check = function(checker, browser) {
-	// get a browser object which can be use with mobile-web-browser-emulator API
-};
-```
-example: 
-````javascript
-exports.check = function(checker, browser) {
-	browser.takeScreenshot(__dirname + "/../screenshot.png"); //mobile-web-browser-emulator method
-};
-```
+N.B: WebDriverJS uses "promises" to track the state of each operation. [learn more](https://code.google.com/p/selenium/wiki/WebDriverJs#Promises).
 
 #### run your own script:
 ````javascript
@@ -78,6 +79,7 @@ exports.check = function(checker, browser) {
 };
 ```
 
+####
 ### Add an issue
 
 ### Add a test
