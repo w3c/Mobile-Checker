@@ -51,11 +51,11 @@ from the root and you will be running the test suite. Mocha can be installed wit
 
 ## Feedback and contributions
 
-* Send feedback about the tool and join us on the [mailing list](public-qa-dev@w3.org).
-* Discuss about the Mobile Checker in our [Gitter room](https://gitter.im/w3c/Mobile-Checker).
-* Report a bug and open an issue on [Github](https://github.com/w3c/Mobile-Checker/issues).
-* Send a feature request on [Github](https://github.com/w3c/Mobile-Checker/issues).
-* Contribute to the Mobile Checker in following the contribute [guideline](https://github.com/w3c/Mobile-Checker/blob/master/CONTRIBUTING.md).
+* **Send feedback** about the tool and join us on the [mailing list](public-qa-dev@w3.org).
+* **Discuss** about the Mobile Checker in our [Gitter room](https://gitter.im/w3c/Mobile-Checker).
+* **Report a bug** and open an issue on [Github](https://github.com/w3c/Mobile-Checker/issues).
+* **Send a feature request** on [Github](https://github.com/w3c/Mobile-Checker/issues).
+* **Contribute** to the Mobile Checker in following the contribute [guideline](https://github.com/w3c/Mobile-Checker/blob/master/CONTRIBUTING.md).
 
 
 
