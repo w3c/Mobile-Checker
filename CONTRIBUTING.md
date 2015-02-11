@@ -94,11 +94,15 @@ All check issues are located in the [lib/issues](https://github.com/w3c/Mobile-C
 
 The Mobile Checker use [EJS](http://www.embeddedjs.com/) to write the issues sent to the client side. That allow you to insert data in the reported issue.
 
-template
+template:
 ````html
 <div class="col-md-12 issue">
     <div class="col-md-12 content-issue">
-    <h2 class="title-issue page-header"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> title-of-the-issue <small><%=category%></small></h2>
+    	<h2 class="title-issue page-header">
+    		<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> 
+    		<!-- title of your issue -->
+    		<small><%=category%></small>
+    	</h2>
         <p> <!-- write here what's going on --> </p>
         <p class='fixit'><strong>Fix it:</strong> <!-- explain here how to fix it --> </p>
     </div>
