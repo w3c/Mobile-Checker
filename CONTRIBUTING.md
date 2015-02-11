@@ -90,7 +90,7 @@ checker.report(key, name, category, status, data)
 
 
 ### issue template
-All check issues are located in the [lib/issues](https://github.com/w3c/Mobile-Checker/tree/master/lib/issues) directory. You just have to add your own issue file in the correct path as ```category/name-of-your-check/your-file```. You can create all issue templates you need. That allow you to use more than once the ```checker.report(key, name, category, status, data)``` function in your script.
+All check issues are located in the [lib/issues](https://github.com/w3c/Mobile-Checker/tree/master/lib/issues) directory. You just have to add your own issue file in the correct path as ```category/name-of-your-check/your-file```. You can create all issues you need. That allow you to use more than once the ```checker.report(key, name, category, status, data)``` function in your script.
 
 The Mobile Checker use [EJS](http://www.embeddedjs.com/) to write the issues sent to the client side. That allow you to insert data in the reported issue.
 
