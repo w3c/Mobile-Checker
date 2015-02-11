@@ -12,9 +12,7 @@ A new check is composed by 3 composants:
 * the issue sent to the user.
 * testing.
 
-### Add a script
-
-####template
+### script
 All check scripts are located in the [lib](https://github.com/w3c/Mobile-Checker/tree/master/lib) directory. You just have to add your own script file in the correct category. Of course, feel free to create a new category if no category match with your check. Ready? Let's create your first check!
 
 This is the basic template of check file. Save it in the lib directory:
@@ -91,6 +89,6 @@ checker.report(key, name, category, status, data);
 * **data**: data to display in the issue reported (optional)
 
 
-### Add an issue
+### issue
 
 ### Add a test
