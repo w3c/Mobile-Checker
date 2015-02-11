@@ -7,13 +7,13 @@ Please take few minutes to read this document to understand how you can help in 
 
 It is pretty simple to add a new check to the mobile checker. Create a new check require only an experience in a client side JavaScript developement.
 
-A new check is composed by 3 composants:
+A new check is composed by 2 composants:
 * the script itself, who will be executed on the tested web page.
-* the issue sent to the user.
+* the issue template, sent to the user.
 * testing.
 
 ### script
-All check scripts are located in the [lib](https://github.com/w3c/Mobile-Checker/tree/master/lib) directory. You just have to add your own script file in the correct category. Of course, feel free to create a new category if no category match with your check. Ready? Let's create your first check!
+All check scripts are located in the [lib/checks](https://github.com/w3c/Mobile-Checker/tree/master/lib/checks) directory. You just have to add your own script file in the correct category. Of course, feel free to create a new category if no category match with your check. Ready? Let's create your first check!
 
 This is the basic template of check file. Save it in the lib directory:
 
@@ -80,7 +80,7 @@ exports.check = function(checker, browser) {
 #### report a result:
 to report a result, use the report function of the checker object.
 ````javascript
-checker.report(key, name, category, status, data);
+checker.report(key, name, category, status, data)
 ```
 * **key**: name of the file issue to display in the report
 * **name**:	self.name
@@ -89,6 +89,18 @@ checker.report(key, name, category, status, data);
 * **data**: data to display in the issue reported (optional)
 
 
-### issue
+### issue template
+All check issues are located in the [lib/issues](https://github.com/w3c/Mobile-Checker/tree/master/lib/issues) directory. You just have to add your own issue file in the correct path as ```category/name-of-your-check/your-file```. You can create all issue templates you need. That allow you to use more than once the ```checker.report(key, name, category, status, data)``` function in your script.
 
-### Add a test
+The Mobile Checker use [EJS](http://www.embeddedjs.com/) to write the issues sent to the client side. That allow you to insert data in the reported issue.
+
+template
+````html
+<div class="col-md-12 issue">
+    <div class="col-md-12 content-issue">
+    <h2 class="title-issue page-header"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> title-of-the-issue <small><%=category%></small></h2>
+        <p> <!-- write here what's going on --> </p>
+        <p class='fixit'><strong>Fix it:</strong> <!-- explain here how to fix it --> </p>
+    </div>
+</div>
+```
