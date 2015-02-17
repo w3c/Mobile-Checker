@@ -151,7 +151,7 @@ html, body{
   margin-top: 40px;
 }
 
-#footer {
+footer {
   background-color: #ecf0f1;
   padding-top: 30px;
   padding-bottom: 30px;
@@ -159,16 +159,16 @@ html, body{
   background-color: #384047;
 }
 
-#footer p {
+footer p {
   color: white;
   padding-top: 10px;
 }
 
-#footer a {
+footer a {
   color: #bdc3c7;
 }
 
-#footer img{
+footer img{
   text-align: center;
 }
 
