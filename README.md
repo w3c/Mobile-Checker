@@ -22,9 +22,9 @@ you can simply clone this repository:
 1. Install [Node.js](http://nodejs.org/)
 
 2. Install npm dependencies:
-
-
-	npm install -d
+````
+npm install -d
+```
 
 3. In addition to the npm dependencies, install:
 
