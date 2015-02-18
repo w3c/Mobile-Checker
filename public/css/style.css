@@ -156,16 +156,16 @@ footer {
   padding-top: 30px;
   padding-bottom: 30px;
   text-align: center;
-  background-color: #384047;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 footer p {
-  color: white;
+  color: #384047;
   padding-top: 10px;
+  font-weight: 300;
 }
 
 footer a {
-  color: #bdc3c7;
 }
 
 footer img{

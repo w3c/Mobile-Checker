@@ -88,12 +88,12 @@
          xml:space="preserve"
          transform="scale(0.99041196,1.0096809)"><tspan
            id="tspan3306"
-           style="font-size:35.15522385px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;font-family:OpenSymbol;-inkscape-font-specification:Sans"
+           style="font-size:35.15522385px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;font-family:OpenSymbol;-inkscape-font-specification:Sans"
            y="-643.90765"
            x="-402.74231"
            sodipodi:role="line">open</tspan><tspan
            id="tspan3294-7"
-           style="font-size:37.00550079px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;font-family:FreeSans;-inkscape-font-specification:Sans"
+           style="font-size:37.00550079px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;font-family:FreeSans;-inkscape-font-specification:Sans"
            y="-599.96362"
            x="-402.74231"
            sodipodi:role="line" /><tspan
@@ -114,12 +114,12 @@
          xml:space="preserve"
          transform="scale(0.99041196,1.0096809)"><tspan
            id="tspan3306-2"
-           style="font-size:35.15522385px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;font-family:OpenSymbol;-inkscape-font-specification:Sans"
+           style="font-size:35.15522385px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;font-family:OpenSymbol;-inkscape-font-specification:Sans"
            y="-644.53589"
            x="-299.91721"
            sodipodi:role="line">source</tspan><tspan
            id="tspan3294-7-9"
-           style="font-size:37.00550079px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;font-family:FreeSans;-inkscape-font-specification:Sans"
+           style="font-size:37.00550079px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;font-family:FreeSans;-inkscape-font-specification:Sans"
            y="-600.5918"
            x="-299.91721"
            sodipodi:role="line" /><tspan
@@ -140,7 +140,7 @@
          xml:space="preserve"
          transform="scale(0.99041196,1.0096809)"><tspan
            id="tspan3306-2-7"
-           style="font-size:35.15522385px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;font-family:OpenSymbol;-inkscape-font-specification:Sans"
+           style="font-size:35.15522385px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;font-family:OpenSymbol;-inkscape-font-specification:Sans"
            y="-609.43024"
            x="-368.47388"
            sodipodi:role="line">initiative</tspan><tspan
@@ -168,14 +168,14 @@
            sodipodi:cy="646.64789"
            sodipodi:cx="645.71429"
            id="path3015"
-           style="fill:none;stroke:#ffffff;stroke-width:6.66513872;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           style="fill:none;stroke:#000000;stroke-width:6.66513872;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
            sodipodi:type="arc" />
         <text
            sodipodi:linespacing="125%"
            id="text3793"
            y="-685.33014"
            x="-188.29698"
-           style="font-size:12.65519524px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:OpenSymbol;-inkscape-font-specification:OpenSymbol Bold"
+           style="font-size:12.65519524px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:OpenSymbol;-inkscape-font-specification:OpenSymbol Bold"
            xml:space="preserve"><tspan
              y="-685.33014"
              x="-188.29698"
