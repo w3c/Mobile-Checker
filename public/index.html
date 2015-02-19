@@ -64,19 +64,19 @@
         <section id="home" class='col-md-12'>
             <header id='header' class="col-md-12">
                 <a id='github-banner' href="https://github.com/w3c/Mobile-Checker"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a>
-                <h1 id='main-title'>Mobile Checker</h1>
+                <div id='main-title' class="col-md-6 col-md-offset-3"><img src="img/mobilechecker-logo.png" width='100%'></div>
                 <div class="col-md-8 col-md-offset-2"><h2 id='slogan'>Start to improve your web page on mobile devices:</h2></div>
                 <div id="errors" class="col-md-8 col-md-offset-2"></div>
                 <form class="col-md-12">
                     <div class="col-md-6 col-md-offset-2"><input id="url" type="url" placeholder="Enter a web page url here" autofocus required></div>
-                    <div class="col-md-2"><button id='checkButton'>Check!</button></div>
+                    <div class="col-md-2"><button id='checkButton'>check</button></div>
                     <div id="options" class="col-md-8 col-md-offset-2">
                     <div class="btn-group col-md-12" data-toggle="buttons">
-                        <label class="device-selector btn btn-default active col-md-4" title='The rendering and analysis will be made on the basis of a device 640px wide, 1100px high, with a factor of 2x for pixel density'>
-                            <input type="radio" name="device" value="default" checked><img data-height="550" src="img/smartphone.svg" id="sm" height="80" alt=""><br>640x1100 XHDPI
-                        </label>
                         <label class="device-selector btn btn-default col-md-4" title='The rendering and analysis will be made on the basis of a device 640px wide, 960px high, with a factor of 2x for pixel density'>
                             <input type="radio" name="device" value="smartphone2"><img data-height="480"  src="img/smartphone2.svg" id="sm2" height="80" alt=""><br> 640x960 XHDPI
+                        </label>
+                        <label class="device-selector btn btn-default active col-md-4" title='The rendering and analysis will be made on the basis of a device 640px wide, 1100px high, with a factor of 2x for pixel density'>
+                            <input type="radio" name="device" value="default" checked><img data-height="550" src="img/smartphone.svg" id="sm" height="80" alt=""><br>640x1100 XHDPI
                         </label>
                         <label class="device-selector btn btn-default col-md-4" title='The rendering and analysis will be made on the basis of a device 1280px wide, 800px high, with a factor of 1.5x for pixel density'>
                             <input type="radio" name="device" value="tablet"><img data-height="400" src="img/tablet.svg" height="80" id="tab" alt=""><br>800x1280 HDPI

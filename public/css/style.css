@@ -110,16 +110,19 @@ html, body{
   border-right: 0px;
   border-top: 0px;
   border-bottom: 0px;
-  border-radius: 2px;
+  border-radius: 3px;
   color: #FFF;
-  font-weight: 700;
-  font-size: 16px;
-  background-color: #1abc9c;
-  border-bottom: 2px solid #16a085;
+  font-weight: 400;
+  font-size: 20px;
+  background-color: #334d5c;
+  border: 2px solid #334d5c;
+  font-family: Open Sans;
 }
 #home > header > form > div > button:hover {
-  transition:0.6s;
-    background-color: #16a085;
+  transition:0.3s;
+  background-color: #ecf0f1;
+  border: 2px solid #334d5c;
+  color: #334d5c;
 }
 #home > header > form > div > button > span {
 }
