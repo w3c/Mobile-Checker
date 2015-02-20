@@ -51,6 +51,8 @@ html, body{
   border-radius: 2px;
   color: #8D9AA5;
   text-shadow:none;
+  font-size: 18px;
+  font-weight: 300;
 }
 
 .device-selector img{
@@ -97,7 +99,7 @@ html, body{
   border-radius: 2px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   background-color: #fcfcfb;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 300;
   color: #666;
   --box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
@@ -112,8 +114,8 @@ html, body{
   border-bottom: 0px;
   border-radius: 3px;
   color: #FFF;
-  font-weight: 400;
-  font-size: 20px;
+  font-weight: 300;
+  font-size: 22px;
   background-color: #334d5c;
   border: 2px solid #334d5c;
   font-family: Open Sans;
@@ -143,7 +145,8 @@ html, body{
   font-weight: 700;
   color: #384047;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 #slogan {
@@ -159,7 +162,6 @@ footer {
   padding-top: 30px;
   padding-bottom: 30px;
   text-align: center;
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 footer p {
@@ -188,17 +190,19 @@ footer img{
 }
 
 #infos {
-  margin-top: 30px;
-  padding-bottom: 30px;
+  margin-top: 50px;
+  padding-bottom: 0px;
   background-color: #384047;
   background-color: #ecf0f1;
+  font-size: 18px;
+  font-weight: 300;
 }
 
 #infos h2 {
-  font-family: Bitter;
-  font-weight: 700;
+  font-family: Open Sans;
+  font-weight: 400;
   color: #8D9AA5;
-  font-size: 20px;
+  font-size: 22px;
 }
 /* MOBILE device view */
 @media screen and (max-width: 990px) {
