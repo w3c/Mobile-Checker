@@ -3,6 +3,8 @@
 
 # Mobile Checker
 
+![alt mobile checker by the World Wide Web Consortium](https://github.com/w3c/Mobile-Checker/blob/master/public/img/mobilechecker-logo-w3c.png)
+
 The Mobile Checker is a tool for Web developers who want to make their Web page or Web app work better on mobile devices.
 
 The Mobile Checker was built to provide all of us web developers with a new and helpful experience of mobile Web developement.
