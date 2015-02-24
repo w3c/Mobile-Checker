@@ -49,7 +49,7 @@ html, body{
   border: 0px;
   box-shadow: none;
   border-radius: 2px;
-  color: #8D9AA5;
+  color: #7E8A94;
   text-shadow:none;
   font-size: 18px;
   font-weight: 300;
@@ -61,7 +61,7 @@ html, body{
 
 .device-selector:hover {
   background-color: transparent;
-  color: #8D9AA5;
+  color: #7E8A94;
   transition:0.2s;
 }
 
@@ -70,7 +70,7 @@ html, body{
   box-shadow: none;
   background-color: #eee;
   text-shadow:none;
-  color: #8D9AA5;
+  color: #7E8A94;
   --box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
@@ -136,7 +136,7 @@ html, body{
     font-weight: 700;
     font-size: 18px;
     text-align: left;
-    color: #8D9AA5;
+    color: #7E8A94;
 }
 
 #main-title {
@@ -201,7 +201,7 @@ footer img{
 #infos h2 {
   font-family: Open Sans;
   font-weight: 400;
-  color: #8D9AA5;
+  color: #7E8A94;
   font-size: 22px;
 }
 /* MOBILE device view */
