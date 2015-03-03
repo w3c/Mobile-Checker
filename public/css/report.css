@@ -67,7 +67,7 @@
     --box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
     padding: 0px;
     border-radius: 2px;
-    background-color: white;
+    background-color: #ecf0f1;
 }
 
 table {
@@ -225,22 +225,24 @@ table {
     background-image: none;
     color: white;
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 700;
     border-bottom: 3px solid  #ecf0f1;
     border-radius: 0px;
+    background-color: #ecf0f1;
+    text-transform: uppercase;
 
 }
 
 .alert-danger {
-    background-color: #df5a49;
+    color: #df5a49;
 }
 
 .alert-warning {
-    background-color: #efc94c;
+   color: #efc94c;
 }
 
 .alert-info {
-    background-color: #3498db;
+    color: #3498db;
 }
 
 #report > #overview {
