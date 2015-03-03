@@ -17,20 +17,20 @@ html, body{
     padding: 0px;
 }
 
-.navbar-default {
+#home .navbar-default {
     background-image: none;
-    background-color: #384047;
+    background-color: transparent;
     box-shadow: none;
     border-radius: 0px;
     border: 0px;
-    padding-top: 15px;
-    text-align: center;
+    padding-top: 0px;
+    text-align: left;
     margin-bottom: 0px;
+    height: 62px;
 }
 
 #home > header {
   padding: 0px;
-    padding-top: 50px;
     font-size: 20px;
     font-weight: 400;
     text-align: center;
@@ -139,6 +139,10 @@ html, body{
     color: #7E8A94;
 }
 
+#logo {
+
+}
+
 #main-title {
   font-family: Bitter;
   font-size: 50px;
@@ -146,15 +150,19 @@ html, body{
   color: #384047;
   text-align: center;
   margin-top: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
 }
 
 #slogan {
-  font-size: 20px;
   font-weight: 300;
   color: #384047;
-  text-align: left;
-  margin-top: 40px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#slogan h2 {
+  font-weight: 300;
+  font-size: 25px;
 }
 
 footer {
@@ -166,20 +174,33 @@ footer {
 
 footer p {
   color: #384047;
-  padding-top: 10px;
+  padding-top: 0px;
   font-weight: 300;
+  text-align: left;
+  font-size: 14px;
 }
 
 footer a {
 }
 
 footer img{
+  margin-top: 0px;
   text-align: center;
 }
 
 .border {
   margin-top: 50px;
   border-bottom: 1px solid #bdc3c7;
+}
+
+#copyright {
+  margin-top: 20px;
+}
+
+#copyright p{
+  font-weight: 300;
+  font-size: 12px;
+  text-align: center;
 }
 
 #donation-link{
@@ -191,18 +212,18 @@ footer img{
 
 #infos {
   margin-top: 50px;
-  padding-bottom: 0px;
-  background-color: #384047;
-  background-color: #ecf0f1;
-  font-size: 18px;
+  padding: 20px;
+  font-size: 16px;
   font-weight: 300;
+  background-color: #334d5c;
+  color: #ecf0f1;
 }
 
 #infos h2 {
   font-family: Open Sans;
-  font-weight: 400;
-  color: #7E8A94;
-  font-size: 22px;
+  font-weight: 700;
+  color: #FCFCFB;
+  font-size: 20px;
 }
 /* MOBILE device view */
 @media screen and (max-width: 990px) {

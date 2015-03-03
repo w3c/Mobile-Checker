@@ -12,9 +12,8 @@
     padding-top: 15px;
     text-align: center;
     color: #384047;
-    font-size: 14px;
-    font-family: Bitter;
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: 300;
 }
 
 .navbar-default a {
@@ -22,7 +21,7 @@
 }
 
 .navbar-active {
-    background-color: #384047;
+    background-color: #334d5c;
     transition:0.6s;
     color: white;
 }
@@ -57,17 +56,18 @@
     font-family: Bitter;
 }
 #report > #issues-feed .issue {
-    margin-top: 5px;
     padding-left: 5px;
     padding-right: 5px;
     padding-bottom: 5px;
     padding-top: 15px;
     color: black;
     border-radius: 0px;
-    background-color: white;
     overflow-x: auto;
-    border-bottom: 1px solid #eee;
+    border-bottom: 5px solid  #ecf0f1;
     --box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+    padding: 0px;
+    border-radius: 2px;
+    background-color: white;
 }
 
 table {
@@ -113,21 +113,31 @@ table {
     margin-top: 10px;
 }
 
+.issue-category {
+    margin-top: 5px;
+    color: #999;
+}
+
 #report > #issues-feed .issue > div > .title-issue {
     margin-top: 0px;
     margin-bottom: 5px;
-    font-weight: 300;
+    font-weight: 700;
     font-size: 14px;
     font-family: Open Sans;
+    color: #334d5c;
+    text-align: left;
+    text-transform: uppercase;
 }
 
 #report > #issues-feed .issue > .content-issue {
-
+    background-color: white;
+    padding: 10px;
+    border-radius: 2px;
 }
 
 #report > #issues-feed .issue > .content-issue > p {
     font-weight: 400;
-    color: #333;
+    color: #666;
     font-size: 14px;
 }
 #report > #issues-feed .issue > .content-issue > h3 {
@@ -164,65 +174,78 @@ table {
 }
 
 #error-issue-feed .title-issue{
-    font-size: 14px;
-    color: #e74c3c;
-    border-bottom: 1px solid #e74c3c;
 }
 
 #warning-issue-feed .title-issue{
-    font-size: 14px;
-    color: #f39c12;
-    border-bottom: 1px solid #f39c12;
 }
 
 #info-issue-feed .title-issue{
-    font-size: 14px;
+}
+
+#error-issue-feed #issue-status span {
+    font-size: 40px;
+    color: #df5a49;
+}
+
+#warning-issue-feed #issue-status span {
+    font-size: 40px;
+    color: #efc94c;
+}
+
+#info-issue-feed #issue-status span {
+    font-size: 40px;
     color: #3498db;
-    border-bottom: 1px solid #3498db;
 }
 
-#error-issue-feed h2 span {
-    font-size: 14px;
-    color: #e74c3c;
+#tip-issue-feed .issue {
+    background-color: transparent;
 }
 
-#warning-issue-feed h2 span {
-    font-size: 14px;
-    color: #f39c12;
+#tip-issue-feed .issue .title-issue {
+    background-color: white;
 }
 
-#info-issue-feed h2 span {
-    font-size: 14px;
-    color: #3498db;
+#issue-status {
+    
+}
+#issue-status span {
+    margin-top: 10px;
+    font-size: 40px;
+}
+
+.fixit span {
+    color: #44ad99;
+    font-size: 20px;
 }
 
 .alert {
     border: 0px;
     margin-bottom: 0px;
-    padding: 10px;
+    padding: 15px;
     background-image: none;
     color: white;
-    border-radius: 2px 2px 0px 0px;
+    font-size: 16px;
+    font-weight: 300;
+    border-bottom: 3px solid  #ecf0f1;
+    border-radius: 0px;
+
 }
 
 .alert-danger {
-    background-color: #e74c3c;
-    background-color: rgba(231, 76, 60, 0.8);
+    background-color: #df5a49;
 }
 
 .alert-warning {
-    background-color: #f39c12;
-    background-color: rgba(243, 156, 18, 0.8);
+    background-color: #efc94c;
 }
 
 .alert-info {
     background-color: #3498db;
-    background-color: rgba(52, 152, 219, 0.8);
 }
 
 #report > #overview {
     padding: 0px;
-    margin-top: 10px;
+    margin-top: 30px;
 }
 #report > #overview > #smartphone {
     height: 700px;
@@ -290,12 +313,22 @@ table {
 }
 
 .fixit {
-    padding: 10px;
+    padding: 0px;
     color: #666;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 2px;
-    background-color: #eee;
+    background-color: white;
     margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.fixit h2 {
+    margin-top: 0px;
+    margin-bottom: 5px;
+    font-weight: 700;
+    font-size: 14px;
+    font-family: Open Sans;
+    color: #999;
+    text-align: left;
+    text-transform: uppercase;
 }
 
 .range-issue {
@@ -332,6 +365,16 @@ table tbody {
     max-width: 100%;
     overflow: auto;
 }
+.return-button {
+    visibility: hidden;
+}
+.navbar-default {
+    padding-top: 0px;
+}
+#title-report {
+    margin-top: 0px;
+}
+
 }
 
 td.number { text-align:right;}

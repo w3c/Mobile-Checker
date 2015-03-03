@@ -175,7 +175,7 @@ socket.on('start', function(data) {
 });
 
 //server event : add report header and some infos 
-socket.on('tip', function(data) {
+/*socket.on('tip', function(data) {
     var tip = $("<div></div>");
     tip.html(data);
     var wrapper = $('<div class="col-md-12 content-issue tip"></div>');
@@ -192,7 +192,7 @@ socket.on('tip', function(data) {
     div.attr("id", "tipbody");
     div.append(tip.find('h2').nextAll());
     $('#tip-issue-feed').append(wrapperOut);
-});
+});*/
 
 //server event : display console if some problems detected on server side.
 //TODO : display all server side errors. For the moment only display errors detected and interpreted via throw function.
@@ -225,7 +225,7 @@ socket.on('err', function(data) {
         if (errors == 0) {
             $('#error-issue-feed').show();
             var errortitle = "<div class='alert alert-danger alert-dismissible' role='alert'>"
-            + " Critical issues: can strongly affect your mobile friendliness.</div>";
+            + " Should be fixed:</div>";
             $('#error-issue-feed').append($(errortitle));
         }
         $('#error-issue-feed').append($(data.issue));
@@ -235,7 +235,7 @@ socket.on('err', function(data) {
         if (warnings == 0) {
             $('#warning-issue-feed').show();
             var warningtitle = "<div class='alert alert-warning alert-dismissible' role='alert'>"
-            + " Warning: can potentially affect your mobile friendliness.</div>";
+            + " Consider to fix:</div>";
             $('#warning-issue-feed').append($(warningtitle));
         }
         $('#warning-issue-feed').append($(data.issue));
@@ -245,7 +245,7 @@ socket.on('err', function(data) {
         if (infos == 0) {
             $('#info-issue-feed').show();
             var infotitle = "<div class='alert alert-info alert-dismissible' role='alert'>"
-            + " Info: some improvements on your web application.</div>";
+            + " Potential improvements:</div>";
             $('#info-issue-feed').append($(infotitle));
         }
         $('#info-issue-feed').append($(data.issue));
