@@ -10,15 +10,10 @@ var express = require("express"),
     util = require("util"),
     Checker = require("./lib/checker").Checker,
     events = require("events"),
-    logger = require('morgan'),
     uuid = require('node-uuid'),
-    url = require('url'),
-    proc = require('child_process'),
     mkdirp = require('mkdirp'),
     ejs = require('ejs'),
     path = require('path'),
-    headless = require('headless'),
-    Browser = require('mobile-web-browser-emulator').Browser,
     fs = require("fs"),
     insafe = require("insafe");
 
@@ -243,7 +238,7 @@ io.on('connection', function(socket) {
             if(res.status == false) {
                 socket.emit('unsafeUrl', res.url);
             } else {
-                socket.emit('start', 3);
+                socket.emit('start');
                 updateLogs('NEW_VALIDATION', socket);
                 displayTip(socket);
                 newJob(checker, {
@@ -256,7 +251,6 @@ io.on('connection', function(socket) {
                     SCREENSHOTS_DIR: SCREENSHOTS_DIR,
                     lang: "en"
                 });
-                step = 0;
             }
         }).catch(function(err){
             console.log(err);
