@@ -2,6 +2,7 @@ global.rootRequire = function(name) {
     return require(__dirname + '/' + name);
 };
 
+
 var express = require("express"),
     app = express(),
     http = require('http').Server(app),
@@ -13,13 +14,13 @@ var express = require("express"),
     uuid = require('node-uuid'),
     url = require('url'),
     proc = require('child_process'),
-    urlSafetyChecker = require('safe-url-input-checker'),
     mkdirp = require('mkdirp'),
     ejs = require('ejs'),
     path = require('path'),
     headless = require('headless'),
     Browser = require('mobile-web-browser-emulator').Browser,
-    fs = require("fs");
+    fs = require("fs"),
+    insafe = require("insafe");
 
 var SCREENSHOTS_DIR = 'public/tmp/screenshots/';
 
@@ -234,13 +235,19 @@ io.on('connection', function(socket) {
                 unlinkScreenshot(uid + '.png');
             }
         });
-        urlSafetyChecker.checkUrlSafety(data.url, function(err, result) {
-            if (result !== false) {
+        insafe.check({
+            url: data.url,
+            statusCodesAccepted: ["301", "404"]
+        }).then(function(res){
+            console.log(res);
+            if(res.status == false) {
+                socket.emit('unsafeUrl', res.url);
+            } else {
                 socket.emit('start', 3);
                 updateLogs('NEW_VALIDATION', socket);
                 displayTip(socket);
                 newJob(checker, {
-                    url: result,
+                    url: res.url,
                     events: sink,
                     sockets: socket,
                     profile: data.profile,
@@ -250,9 +257,9 @@ io.on('connection', function(socket) {
                     lang: "en"
                 });
                 step = 0;
-            } else {
-                socket.emit('unsafeUrl', data.url);
             }
+        }).catch(function(err){
+            console.log(err);
         });
     });
 });
