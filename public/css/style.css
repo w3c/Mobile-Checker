@@ -219,6 +219,15 @@ footer img{
   color: #ecf0f1;
 }
 
+#errors .alert-danger {
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: lowercase;
+  text-align: left;
+  background-color: white;
+  border-radius: 2px;
+}
+
 #infos h2 {
   font-family: Open Sans;
   font-weight: 700;
