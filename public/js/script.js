@@ -100,6 +100,7 @@ function loadProgressPage() {
     $('#smartphone').empty();
     $('#cog1').addClass("active");
     $('#cog2').addClass("active");
+    $("#inprogress").show("1s");
     var scales = {
         'sm': 8.31,
         'sm2': 8.31,
