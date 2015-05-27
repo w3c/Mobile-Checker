@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "compression": "1.0.11",
+    "coveralls": "^2.11.2",
     "expect.js": "0.3.1",
     "istanbul": "^0.3.14",
     "jsdom": "",
@@ -33,6 +34,7 @@
   },
   "scripts": {
     "coverage": "istanbul cover _mocha",
+    "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls",
     "start": "node app.js",
     "test": "mocha --timeout 20000 --globals Intl,IntlPolyfill,ErrorHandler"
   }

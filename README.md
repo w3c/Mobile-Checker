@@ -1,6 +1,7 @@
 ![alt mobile checker by the World Wide Web Consortium](https://github.com/w3c/Mobile-Checker/blob/master/public/img/mobilechecker-logo-w3c.png)
 
 [![Build Status](https://travis-ci.org/w3c/Mobile-Checker.svg?branch=master)](https://travis-ci.org/w3c/Mobile-Checker)
+[![Coverage Status](https://coveralls.io/repos/w3c/Mobile-Checker/badge.svg)](https://coveralls.io/r/w3c/Mobile-Checker)
 [![Dependency Status](https://david-dm.org/w3c/Mobile-Checker.svg)](https://david-dm.org/w3c/Mobile-Checker)
 [![devDependency Status](https://david-dm.org/w3c/Mobile-Checker/dev-status.svg)](https://david-dm.org/w3c/Mobile-Checker#info=devDependencies)
 [![Join the chat at https://gitter.im/w3c/Mobile-Checker](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/w3c/Mobile-Checker)
