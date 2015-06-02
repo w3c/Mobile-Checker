@@ -1,2 +1,9 @@
+# Logs
+logs
+*.log
+
+# Coverage directory used by tools like istanbul
+coverage
+
 public/*.png
 node_modules
