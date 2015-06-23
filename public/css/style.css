@@ -17,6 +17,10 @@ html, body{
     padding: 0px;
 }
 
+#home #main-logo {
+    width: 80%;
+}
+
 #home .navbar-default {
     background-image: none;
     background-color: transparent;
@@ -193,11 +197,11 @@ footer img{
   border-bottom: 1px solid #bdc3c7;
 }
 
-#copyright {
+.copyright {
   margin-top: 20px;
 }
 
-#copyright p{
+.copyright p{
   font-weight: 300;
   font-size: 12px;
   text-align: center;
