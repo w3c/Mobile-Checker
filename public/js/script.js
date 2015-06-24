@@ -243,7 +243,7 @@ socket.on('err', function(data) {
         if (warnings == 0) {
             $('#warning-issue-feed').show();
             var warningtitle = "<div class='alert alert-warning alert-dismissible' role='alert'>"
-            + " Consider to fix</div>";
+            + " Consider fixing</div>";
             $('#warning-issue-feed').append($(warningtitle));
         }
         $('#warning-issue-feed').append($(data.issue));
