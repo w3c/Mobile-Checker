@@ -84,6 +84,12 @@ function loadHomePage() {
     checkURI(window.location.search);
 }
 
+function loadFailurePage() {
+    $('#cog1').removeClass("active");
+    $('#cog2').removeClass("active");
+    $('#system-info').html($("<p>Sorry, it looks like we’ve crashed :(</p>"));
+}
+
 //display all progress elements, report page and animate smartphone
 function loadProgressPage() {
     errors = 0;
@@ -100,6 +106,7 @@ function loadProgressPage() {
     $('#smartphone').empty();
     $('#cog1').addClass("active");
     $('#cog2').addClass("active");
+    $('#system-info').html('');
     $("#inprogress").show("1s");
     var scales = {
         'sm': 8.31,
@@ -217,6 +224,10 @@ socket.on('unsafeUrl', function(data) {
 //server event : detect when check is done.
 socket.on('done', function(data) {});
 socket.on('ok', function(data) {});
+
+socket.on('disconnect', function() {
+    loadFailurePage();
+});
 
 socket.on('wait', function(data) {
     var waitingTime = data * 10;
