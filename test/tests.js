@@ -172,19 +172,20 @@ var tests = {
                         "missingPrefixes": {
                             "http://0.0.0.0:3001/docs/prefixes.css": [
                                 {
-                                    "rule": "body {\n  -webkit-opacity: 0.5;\n}",
+                                    "rule": "body {\n  -webkit-columns: 2;\n}",
                                     "position": {
                                         "line": 1,
                                         "column": 1
                                     },
-                                    "prop": "opacity",
+                                    "prop": "columns",
                                     "missing": [
-                                        "opacity"
+                                        "columns",
+                                        "-moz-columns"
                                     ],
                                     "decls": [
-                                        "-webkit-opacity: 0.5;\n"
+                                        "-webkit-columns: 2;\n"
                                     ],
-                                    "value": "0.5"
+                                    "value": "2"
                                 }
                             ]
                         }
