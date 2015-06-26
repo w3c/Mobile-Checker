@@ -245,13 +245,13 @@ describe('Starting test suite', function() {
                 describe("Check " + check, function() {
                     tests[category][check].forEach(function(
                         test) {
-                        var passTest = !(test.error || test.info || test.warning);
-
+                        var testOutcome = test.error ? "error" : test.warning ? "warning" : test.info ? "info" : "pass";
+                        var formatter;
                         if (test.error === undefined) test.error = [];
                         if (test.warning === undefined) test.warning = [];
                         if (test.info === undefined) test.info = [];
 
-                        it("should " + (passTest ?
+                        it("should " + (testOutcome === "pass" ?
                                 "emit no report" : "emit a report") +
                             " for " + test.doc,
                             function(done) {
@@ -274,7 +274,7 @@ describe('Starting test suite', function() {
                                         sink.done++;
                                     });
                                 sink.on('end', function() {
-                                    if (passTest) {
+                                    if (testOutcome === "pass") {
                                         expect(sink
                                             .error
                                         ).to.be.empty();
@@ -344,10 +344,23 @@ describe('Starting test suite', function() {
                                     events: sink,
                                     profile: "default",
                                     checklist: [c],
-                                    id: uuid.v4(),
-                                    formatReport: formatReport
+                                    id: uuid.v4()
+                                });
+                                formatter = checker.formatReport;
+                                checker.formatReport = formatReport;
+                            });
+                        if (testOutcome !== "pass") {
+                            it("should be renderable without exception", function() {
+                                test[testOutcome].forEach(function(t) {
+                                    var name = t;
+                                    if (t.name) {
+                                        name = t.name;
+                                    }
+                                    var comps = name.split(".");
+                                    formatter(comps[2], comps[1], comps[0], t.data);
                                 });
                             });
+                        }
                     });
                 });
             });
