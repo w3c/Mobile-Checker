@@ -216,6 +216,89 @@ var tests = {
                     }
                 }]
             }]
+    },
+    "integration":{
+        "manifest":[
+            {
+                doc: "multiple-manifests.html",
+                warning: [{
+                    name: "integration.manifest.multiple-manifests",
+                    data: {
+                        links: ["http://0.0.0.0:3001/docs/manifest.json", "http://0.0.0.0:3001/docs/manifest.json"]
+                    }
+                }]
+            },
+            {
+                doc: "404-manifest.html",
+                warning: [{
+                    name: "integration.manifest.httperror",
+                    data: {
+                        manifest: "http://0.0.0.0:3001/docs/manifest1.json",
+                        httperror: 404
+                    }
+                }]
+            },
+            {
+                doc: "badjson-manifest.html",
+                warning: [{
+                    name: "integration.manifest.jsonerror",
+                    data: {
+                        manifest: "http://0.0.0.0:3001/docs/badmanifest.json",
+                        error: {name: "SyntaxError", message: "Unexpected end of input"}
+                    }
+                }]
+            },
+            {
+                doc: "invalid-manifest.html",
+                warning: [{
+                    name: "integration.manifest.jsonserror",
+                    data: {
+                        manifest: "http://0.0.0.0:3001/docs/invalidmanifest.json",
+                        errors: [
+                            {
+                                "property": "instance.name",
+                                "message": "is not of a type(s) string",
+                                "schema": {
+                                    "description": "The name of the web application.",
+                                    "type": "string"
+                                },
+                                "instance": 1,
+                                "stack": "instance.name is not of a type(s) string"
+                            }
+                        ]
+                    }
+                }]
+            },
+            {
+                doc: "brokenlinks-manifest.html",
+                warning: [{
+                    name: "integration.manifest.httperror_property",
+                    data: {
+                        manifest: "http://0.0.0.0:3001/docs/brokenlinks-manifest.json",
+                        property: "start_url",
+                        url: "http://0.0.0.0:3001/url/does/not/exist",
+                        error: 404
+                    }
+                }]
+            },
+            {
+                doc: "brokenlinks-manifest2.html",
+                warning: [{
+                    name: "integration.manifest.networkerror_property",
+                    data: {
+                        manifest: "http://0.0.0.0:3001/docs/brokenlinks-manifest2.json",
+                        property: "icon",
+                        url: "http://domain-does-not-exist/",
+                        error: {
+                            "code": "ENOTFOUND",
+                            "errno": "ENOTFOUND",
+                            "syscall": "getaddrinfo"
+                        }
+                    }
+                }]
+            }
+
+        ]
     }
 };
 
