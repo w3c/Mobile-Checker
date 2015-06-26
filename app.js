@@ -44,7 +44,7 @@ var logs = {
         clients: 0,
         validations: 0
     }
-}
+};
 
 /*
  * Job Manager
@@ -153,7 +153,7 @@ var clearScreenshotFolder = function() {
             unlinkScreenshot(name);
         });
     });
-}
+};
 
 function displayTip(socket) {
     setTimeout(function() {
@@ -239,7 +239,7 @@ io.on('connection', function(socket) {
             statusCodesAccepted: ["301", "404"]
         }).then(function(res){
             console.log(res);
-            if(res.status == false) {
+            if(res.status === false) {
                 socket.emit('unsafeUrl', res.url);
             } else {
                 socket.emit('start');
