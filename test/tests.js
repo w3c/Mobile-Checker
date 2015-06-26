@@ -220,6 +220,9 @@ var tests = {
     "integration":{
         "manifest":[
             {
+                doc: "no-manifest.html"
+            },
+            {
                 doc: "multiple-manifests.html",
                 warning: [{
                     name: "integration.manifest.multiple-manifests",
