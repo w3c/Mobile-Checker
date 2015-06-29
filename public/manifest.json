@@ -1,0 +1,12 @@
+{
+    "name": "W3C Mobile Checker",
+    "lang": "en",
+    "start_url": "./",
+    "icons": [
+        {"src": "img/mobilechecker-icon.svg",
+         "sizes": "any",
+         "type": "image/svg+xml"
+        }
+    ],
+    "display": "standalone"
+}
