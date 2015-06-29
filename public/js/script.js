@@ -95,6 +95,8 @@ function loadProgressPage() {
     errors = 0;
     warnings = 0;
     infos = 0;
+    $('#target').attr('href', document.getElementById('url').value);
+    $('#target').text(document.getElementById('url').value);
     $('#report').show();
     $('#tip-issue-feed').empty();
     $('#info-issue-feed').empty();
