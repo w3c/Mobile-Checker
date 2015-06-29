@@ -6,6 +6,7 @@ global.rootRequire = function(name) {
 var express = require("express"),
     app = express(),
     http = require('http').Server(app),
+    compress = require('compression'),
     io = require('socket.io')(http),
     util = require("util"),
     Checker = require("./lib/checker").Checker,
@@ -177,6 +178,8 @@ util.inherits(Sink, events.EventEmitter);
 app.set('views', __dirname + '/public');
 
 app.set('view engine', 'ejs');
+
+app.use(compress());
 
 app.use(express.static('public'));
 
