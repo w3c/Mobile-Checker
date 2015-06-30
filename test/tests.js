@@ -351,14 +351,14 @@ describe('Starting test suite', function() {
                                 checker.formatReport = formatReport;
                             });
                         if (testOutcome !== "pass") {
-                            it("should be renderable without exception", function() {
+                            it("should be renderable without exception", function(done) {
                                 test[testOutcome].forEach(function(t) {
                                     var name = t;
                                     if (t.name) {
                                         name = t.name;
                                     }
                                     var comps = name.split(".");
-                                    formatter(comps[2], comps[1], comps[0], t.data);
+                                    formatter(comps[2], comps[1], comps[0], t.data, function() { done(); });
                                 });
                             });
                         }
@@ -369,15 +369,16 @@ describe('Starting test suite', function() {
     });
 });
 
-function formatReport(key, name, category,data) {
+function formatReport(key, name, category,data, cb) {
     var fullname = category + "." + name + "." + key;
     if (!Object.keys(data).length) {
-        return fullname;
+        cb(fullname);
+    } else {
+        cb({
+            name: fullname,
+            data: data
+        });
     }
-    return {
-        name: fullname,
-        data: data
-    };
 }
 
 function cleanNulls(obj1, obj2) {
