@@ -16,7 +16,8 @@ var express = require("express"),
     ejs = require('ejs'),
     path = require('path'),
     fs = require("fs"),
-    insafe = require("insafe");
+    insafe = require("insafe"),
+    formatter = require('./lib/reports/format.js');
 
 var SCREENSHOTS_DIR = 'public/tmp/screenshots/';
 
@@ -164,7 +165,9 @@ function displayTip(socket) {
                 if (err) {
                     return;
                 }
-                socket.emit("tip", data);
+                formatter.format("<div class='issue'>" + data + "</div>", "tip", function(content) {
+                    socket.emit("tip", content);
+                });
                 validProfiles = files;
             });
         });
