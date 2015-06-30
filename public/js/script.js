@@ -1,8 +1,5 @@
 // webSockets client side declaration
-if(window.location.host == "localhost:3000")
-    var socket = io.connect();
-else
-    var socket = io.connect({ path: '/mobile-alpha/socket.io' });
+var socket = io.connect({ path: '/mobile-alpha/socket.io' });
 
 //settings sent to server
 // profile : device profile, selected by user.
