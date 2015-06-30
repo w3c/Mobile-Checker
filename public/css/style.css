@@ -45,6 +45,10 @@ html, body{
   padding: 0px;
 }
 
+#home #hero {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
 .device-selector {
   margin-left: 0px;
   padding: 15px;
