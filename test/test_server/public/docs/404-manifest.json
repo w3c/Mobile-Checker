@@ -1,0 +1,7 @@
+<!doctype html>
+<html>
+<head>
+<title>Manifest is 404</title>
+<link rel="manifest" href="manifest1.json">
+</head>
+<body>Manifest is 404</body></html>

@@ -31,7 +31,8 @@ var checklist = [
         './lib/checks/responsive/screenshot'), require(
         './lib/checks/compatibility/flash-detection'), require(
         './lib/checks/compatibility/css-prefixes'), require(
-        './lib/checks/interactions/alert')
+        './lib/checks/interactions/alert'), require(
+        './lib/checks/integration/manifest')
 ];
 
 var logs = {
@@ -44,7 +45,7 @@ var logs = {
         clients: 0,
         validations: 0
     }
-}
+};
 
 /*
  * Job Manager
@@ -153,7 +154,7 @@ var clearScreenshotFolder = function() {
             unlinkScreenshot(name);
         });
     });
-}
+};
 
 function displayTip(socket) {
     setTimeout(function() {
@@ -241,7 +242,7 @@ io.on('connection', function(socket) {
             statusCodesAccepted: ["301", "404"]
         }).then(function(res){
             console.log(res);
-            if(res.status == false) {
+            if(res.status === false) {
                 socket.emit('unsafeUrl', res.url);
             } else {
                 socket.emit('start');

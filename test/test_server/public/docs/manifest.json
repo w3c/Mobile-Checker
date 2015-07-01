@@ -1,0 +1,10 @@
+{
+    "name": "Mobile checker test manifest",
+    "start_url": "http://0.0.0.0:3001/docs/width_success.html",
+    "icons": [{
+        "src": "//0.0.0.0:3001/docs/icon1.png"
+      },
+      {
+        "src": "/docs/icon2.svg"
+      }]
+}
