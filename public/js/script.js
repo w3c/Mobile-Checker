@@ -211,11 +211,11 @@ socket.on('exception', function(msg) {
 socket.on('unsafeUrl', function(data) {
     $('#dns-error').remove();
     $('#errors').append($(
-        '<div class="alert alert-danger alert-dismissible" role="alert">'
-        + ' <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> '
+        '<div class="alert alert-danger" role="alert">'
+        + '<span class="octicon octicon-alert"></span>'
         + ' error while resolving '
         + data
-        + ' Check the spelling of the host, the protocol (http, https) and ensure that the page is accessible from the public Internet. '
+        + '. Check the spelling of the host, the protocol (http, https) and ensure that the page is accessible from the public Internet. '
         + '</div>'
     ));
 });

@@ -34,6 +34,14 @@ main {
     padding-bottom: 50px;
 }
 
+main #errors .alert-danger {
+    margin: 0px;
+    border: 0px;
+    border-radius: 2px;
+    font-size: 0.9rem;
+    color: #df5a49;
+    background-color: transparent;
+}
 main form {
     max-width: 1000px;
     margin: auto;

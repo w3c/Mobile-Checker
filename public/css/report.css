@@ -208,7 +208,7 @@ table {
 }
 
 #issue-status {
-    
+
 }
 #issue-status span {
     margin-top: 10px;
@@ -218,25 +218,6 @@ table {
 .fixit span {
     color: #44ad99;
     font-size: 20px;
-}
-
-.alert {
-    border: 0px;
-    margin-bottom: 0px;
-    padding: 15px;
-    background-image: none;
-    color: white;
-    font-size: 16px;
-    font-weight: 700;
-    border-bottom: 3px solid  #ecf0f1;
-    border-radius: 0px;
-    background-color: #ecf0f1;
-    text-transform: uppercase;
-
-}
-
-.alert-danger {
-    color: #df5a49;
 }
 
 .alert-warning {
@@ -284,7 +265,7 @@ table {
     transition: transform 1s;
 }
 .screenshot {
-    -webkit-transform-origin: 0 0 0;   
+    -webkit-transform-origin: 0 0 0;
     transform-origin: 0 0 0;
 }
 #report {
