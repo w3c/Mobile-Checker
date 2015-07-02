@@ -211,7 +211,7 @@ socket.on('exception', function(msg) {
 socket.on('unsafeUrl', function(data) {
     $('#dns-error').remove();
     $('#errors').append($(
-        '<div class="alert alert-danger" role="alert">'
+        '<div id="dns-error" class="alert alert-danger" role="alert">'
         + '<span class="octicon octicon-alert"></span>'
         + ' error while resolving '
         + data
