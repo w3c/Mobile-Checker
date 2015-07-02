@@ -126,6 +126,7 @@ main form fieldset .btn-group .btn img {
 }
 
 #home #donate {
+    background-color: white;
     padding-top: 50px;
     padding-bottom: 50px;
 }
