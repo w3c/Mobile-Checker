@@ -15,7 +15,7 @@ var infos = 0;
 
 console.log(window.innerWidth);
 
-var checkButton = document.getElementById('checkButton');
+var checkButton = document.getElementById('submit');
 checkButton.addEventListener('click', clickHandler, true);
 
 window.addEventListener('popstate', function(event) {
@@ -181,7 +181,7 @@ socket.on('start', function(data) {
     loadProgressPage();
 });
 
-//server event : add report header and some infos 
+//server event : add report header and some infos
 /*socket.on('tip', function(data) {
     var tip = $("<div></div>");
     tip.html(data);
@@ -212,10 +212,10 @@ socket.on('unsafeUrl', function(data) {
     $('#dns-error').remove();
     $('#errors').append($(
         '<div class="alert alert-danger alert-dismissible" role="alert">'
-        + ' <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> '  
-        + ' error while resolving ' 
-        + data 
-        + ' Check the spelling of the host, the protocol (http, https) and ensure that the page is accessible from the public Internet. ' 
+        + ' <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> '
+        + ' error while resolving '
+        + data
+        + ' Check the spelling of the host, the protocol (http, https) and ensure that the page is accessible from the public Internet. '
         + '</div>'
     ));
 });

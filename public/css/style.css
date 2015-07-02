@@ -167,9 +167,6 @@ footer a {
     color: #89C4F4;
 }
 
-#report {
-    display: none;
-}
 /* MOBILE device view */
 @media screen and (max-width: 992px) {
     #home #hero {
