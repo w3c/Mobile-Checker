@@ -67,6 +67,7 @@ main form #submit {
     border-radius: 2px;
     background-image: none;
     background-color: #89C4F4;
+    outline-width: 0;
 }
 
 main form #submit span {
