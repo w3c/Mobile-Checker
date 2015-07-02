@@ -1,5 +1,3 @@
-/* TODO : use full path of elements */
-
 html, body{
     margin: 0px;
     padding: 0px;
@@ -168,7 +166,6 @@ footer a {
     color: #89C4F4;
 }
 
-/* MOBILE device view */
 @media screen and (max-width: 992px) {
     #home #hero {
         padding-top: 50px;
