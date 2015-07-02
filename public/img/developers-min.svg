@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" xmlns:xlink="http://www.w3.org/1999/xlink">
+     
+  <title>W3C developers</title>
+  <svg id="logo" width="400" height="400">
+      
+      <!--
+        
+        left bracket
+
+        -->
+      <circle cx="60" cy="200" r="40" fill="#ecf0f1"/>
+      <circle cx="155" cy="105" r="40" fill="#ecf0f1"/>
+      <circle cx="155" cy="295" r="40" fill="#ecf0f1"/>
+      <line x1="60" y1="200" x2="155" y2="105" stroke-width="80" stroke="#ecf0f1"/>
+      <line x1="60" y1="200" x2="155" y2="295" stroke-width="80" stroke="#ecf0f1"/>
+      <line x1="60" y1="200" x2="155" y2="105" stroke-width="60" stroke="#F99D1C"/>
+      <line x1="60" y1="200" x2="155" y2="295" stroke-width="60" stroke="#D02E27"/>
+      <circle cx="155" cy="105" r="30" fill="#F99D1C"/>
+      <circle cx="60" cy="200" r="30" fill="#D02E27"/>
+      <circle cx="155" cy="295" r="30" fill="#D02E27"/>
+      <circle cx="60" cy="200" r="15" fill="#ecf0f1"/>
+      <circle cx="155" cy="105" r="15" fill="#ecf0f1"/>
+      <circle cx="155" cy="295" r="15" fill="#ecf0f1"/>
+      
+      <!--
+        
+        right bracket
+
+        -->
+      <circle cx="340" cy="200" r="40" fill="#ecf0f1"/>
+      <circle cx="245" cy="105" r="40" fill="#ecf0f1"/>
+      <circle cx="245" cy="295" r="40" fill="#ecf0f1"/>
+      <line x1="340" y1="200" x2="245" y2="105" stroke-width="80" stroke="#ecf0f1"/>
+      <line x1="340" y1="200" x2="245" y2="295" stroke-width="80" stroke="#ecf0f1"/>
+      <line x1="340" y1="200" x2="245" y2="105" stroke-width="60" stroke="#30B4C5"/>
+      <line x1="340" y1="200" x2="245" y2="295" stroke-width="60" stroke="#694D9F"/>
+      <circle cx="340" cy="200" r="30" fill="#694D9F"/>
+      <circle cx="245" cy="105" r="30" fill="#30B4C5"/>
+      <circle cx="245" cy="295" r="30" fill="#694D9F"/>
+      <circle cx="340" cy="200" r="15" fill="#ecf0f1"/>
+      <circle cx="245" cy="105" r="15" fill="#ecf0f1"/>
+      <circle cx="245" cy="295" r="15" fill="#ecf0f1"/>
+      
+  </svg>
+</svg>
