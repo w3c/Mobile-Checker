@@ -7,7 +7,7 @@ var express = require("express"),
     app = express(),
     http = require('http').Server(app),
     compress = require('compression'),
-    io = require('socket.io')(http, {path: '/mobile-alpha/socket.io'}),
+    io = require('socket.io')(http),
     util = require("util"),
     Checker = require("./lib/checker").Checker,
     events = require("events"),
@@ -72,7 +72,7 @@ function addJobToQueue(checker, options) {
     options.events.emit('wait');
 }
 
-function removeJobToQueue(jobIndex){ 
+function removeJobToQueue(jobIndex){
     jobQueue.splice(jobIndex, 1);
 }
 
@@ -90,7 +90,7 @@ function runNewJobFromQueue() {
 function endJob(){
     if (currentJobs > 0)
         currentJobs--;
-    if(jobQueue.length > 0) 
+    if(jobQueue.length > 0)
         runNewJobFromQueue();
 }
 

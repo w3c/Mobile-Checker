@@ -1,5 +1,6 @@
 // webSockets client side declaration
-var socket = io.connect({ path: '/mobile-alpha/socket.io' });
+var websocket = location.pathname + "socket.io";
+var socket = io.connect({ path: websocket });
 
 //settings sent to server
 // profile : device profile, selected by user.
