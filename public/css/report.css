@@ -140,16 +140,24 @@ table {
 #report > #issues-feed .issue > .content-issue > p {
     font-weight: 400;
     color: #666;
-    font-size: 14px;
+    font-size: 1rem;
 }
 #report > #issues-feed .issue > .content-issue > h3 {
     font-weight: 300;
-    font-size: 18px;
+    font-size: 1.2rem;
     color: #384047;
 }
 
 #system-info {
     padding: 0px;
+}
+
+#report .alert {
+        background-color: #ecf0f1;
+        padding-bottom: 20px;
+        margin-bottom: 0px;
+        border: 0px;
+
 }
 
 #system-info p{
