@@ -459,7 +459,7 @@ describe('Starting test suite', function() {
                                         name = t.name;
                                     }
                                     var comps = name.split(".");
-                                    formatter(comps[2], comps[1], comps[0], t.data, function() { done(); });
+                                    formatter(comps[2], comps[1], comps[0], testOutcome, t.data, function() { done(); });
                                 });
                             });
                         }
@@ -470,7 +470,7 @@ describe('Starting test suite', function() {
     });
 });
 
-function formatReport(key, name, category,data, cb) {
+function formatReport(key, name, category, status, data, cb) {
     var fullname = category + "." + name + "." + key;
     if (!Object.keys(data).length) {
         cb(fullname);
