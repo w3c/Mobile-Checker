@@ -20,7 +20,7 @@
     "media-type": "0.1.0",
     "metaviewport-parser": "^0.0.1",
     "mkdirp": "0.5.0",
-    "mobile-web-browser-emulator": "^0.0.2",
+    "mobile-web-browser-emulator": "^0.0.3",
     "node-uuid": "1.4.1",
     "q": "1.0.1",
     "socket.io": "1.0.4"
