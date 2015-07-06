@@ -13,8 +13,6 @@ html, body{
 }
 
 #home #hero {
-    max-width: 800px;
-    margin: auto;
     text-align: center;
     padding-top: 0px;
 }
