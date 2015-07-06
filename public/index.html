@@ -3,16 +3,15 @@
     <head>
         <meta charset='utf-8'>
         <title>The W3C Mobile Checker</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href='//fonts.googleapis.com/css?family=Open+Sans:400,700,300,600,800' rel='stylesheet' type='text/css'>
         <link href='//fonts.googleapis.com/css?family=Bitter:400,400italic,700' rel='stylesheet' type='text/css'>
         <link rel="shortcut icon" href="//www.w3.org/2008/site/images/favicon.ico" type="image/x-icon" />
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap-sortable.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/report.css">
         <link rel="stylesheet" href="octicons/octicons.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="manifest" href="manifest.json">
     </head>
     <body>
@@ -45,34 +44,150 @@
             <div id="overview" class="col-md-4">
                 <div id="smartphone"></div>
             </div>
-            <div class="border col-md-6 col-md-offset-3"></div>
-            <footer class='col-md-12'>
-                <div class="col-md-8 col-md-offset-2">
-                <div class='col-md-2'>
-                        <a href="http://www.w3.org/QA/Tools/Donate">
-                            <img src="//www.w3.org/QA/Tools/I_heart_validator_lg" alt="I love Validator logo" title=" Validators Donation Program" height="50"/>
-                            
-                        </a>
-                    <div class='col-md-12'><a href="http://www.w3.org/"><img src="img/w3c.svg" height='60' alt="w3c logo"></a></div>
-                </div>
-                <div class="col-md-10">
-                    <p>Good tools cost a lot to develop, support, host and maintain: with your help, we can make the validators better, faster, friendlier, and maintain a great, free service for all of the Web.</p>
-                    <p>Donations to this program will be used exclusively for the maintenance, hosting and development of our free validation tools and other similar open source projects. <a href="http://www.w3.org/QA/Tools/Donate">Donate to validators</a>.</p>
-                </div>
-                <div class='col-md-12 copyright'>
-                    <p class="copyright">Copyright &#xA9; 2015 W3C <sup>&#xAE;</sup> <br>(<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="http://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
-                    <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>).</p>
-                </div>
                 </div>
             </footer>
         </section>
-        <section id="home" class='col-md-12'>
-            <header id='header' class="col-md-12">
-                <a id='github-banner' href="https://github.com/w3c/Mobile-Checker"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a>
-                <div id='main-title' class='col-md-6 col-md-offset-3'><img id="main-logo" alt="The W3C Mobile Checker" src="img/mobilechecker-logo-w3c.svg"></div>
-                <div id='slogan' class="col-md-6 col-md-offset-3"><h2>Be mobile friendly</h2></div>
-                <div id="errors" class="col-md-8 col-md-offset-2"></div>
-                <form class="col-md-12">
+
+        <section id="home">
+            <nav class="navbar navbar-default visible-md visible-lg">
+                <div class="container">
+                    <div class="navbar-right">
+                        <iframe src="https://ghbtns.com/github-btn.html?user=w3c&repo=Mobile-Checker&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+                        <iframe src="https://ghbtns.com/github-btn.html?user=w3c&repo=Mobile-Checker&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="158px" height="30px"></iframe>
+                    </div>
+                </div>
+            </nav>
+            <header id="hero">
+                <div class="row">
+                    <div class="col-md-12">
+                        <img src="img/mobile-checker.svg" alt="Mobile Checker by W3C" class="visible-md visible-lg" height="150">
+                        <img src="img/mobile-checker-icon.svg" alt="Mobile Checker by W3C" class="visible-sm visible-xs" height="100">
+                    </div>
+                </div>
+                <!--<div id="errors" class="col-md-8 col-md-offset-2"></div>-->
+            </header>
+
+            <main class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <div id="errors" class="col-xs-12 col-md-12"></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-12 col-md-9">
+                                    <label for="url" class="sr-only">Url</label>
+                                    <input id="url" placeholder="Enter a web page URL">
+                                </div>
+                                <div class="col-xs-12 col-md-3">
+                                    <button id="submit" type="submit" name="button"><span class="octicon octicon-check"></span></button>
+                                </div>
+                            </div>
+                                <div class="form-group">
+                                </div>
+                            <fieldset class="form-group">
+                                <div class="col-md-12">
+                                    <div class="btn-group" role="group" data-toggle="buttons">
+                                        <label class="btn device-selector col-md-4 col-xs-12" title='The rendering and analysis will be made on the basis of a device 640px wide, 960px high, with a factor of 2x for pixel density'>
+                                            <input type="radio" name="device" value="smartphone2">
+                                            <img data-height="480"  src="img/smartphone2.svg" id="sm2" height="120" alt="">
+                                            <br>
+                                            640x960 XHDPI
+                                        </label>
+                                        <label class="btn device-selector active col-md-4 col-xs-12" title='The rendering and analysis will be made on the basis of a device 640px wide, 1100px high, with a factor of 2x for pixel density'>
+                                            <input type="radio" name="device" value="default" checked>
+                                            <img data-height="550" src="img/smartphone.svg" id="sm" height="120" alt="">
+                                            <br>
+                                            640x1100 XHDPI
+                                        </label>
+                                        <label class="btn device-selector col-md-4 col-xs-12" title='The rendering and analysis will be made on the basis of a device 1280px wide, 800px high, with a factor of 1.5x for pixel density'>
+                                            <input type="radio" name="device" value="tablet">
+                                            <img data-height="400" src="img/tablet.svg" height="120" id="tab" alt="">
+                                            <br>
+                                            800x1280 HDPI
+                                        </label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </main>
+
+            <div id="info" class="hidden-xs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h2>Be mobile friendly</h2>
+                            <p>
+                                The Mobile Checker is a tool for Web developers who want to make their Web page or Web app work better on mobile devices.
+                                <a href="https://github.com/w3c/Mobile-Checker">Learn more</a>.
+                            </p>
+                        </div>
+                            <div class="col-md-4">
+                                <h2>Contribute</h2>
+                                <p>
+                                    Looking to contribute to Mobile Checker? There are many ways to get involved in its development.
+                                    Please take a few minutes to read <a href="https://github.com/w3c/Mobile-Checker/blob/master/CONTRIBUTING.md">this document</a> to understand how you can help in Mobile Checker development.
+                                </p>
+                            </div>
+                            <div class="col-md-4">
+                                <h2>Give Feedback</h2>
+                                <p>
+                                    There are many ways to send feedback or discuss the new Mobile Checker. You can <a href="https://github.com/w3c/Mobile-Checker/issues">open an Issue on Github</a> or send us a <a href="https://twitter.com/W3C_DevTools">tweet</a>.
+                                </p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div id="donate" class="hidden-xs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-2 col-md-offset-2">
+                            <img src="img/heart.svg" alt="" width="100">
+                        </div>
+                        <div class="col-md-6">
+                            <h2>We need your help!</h2>
+                            <p>
+                                Good tools cost a lot to develop, support, host and maintain: with your help, we can make the tools and validators better, faster, friendlier, and maintain a great, free service for all of the Web. =)
+                            </p>
+                            <p>
+                                <a href="https://www.w3.org/developers/donate" class="btn donate">Donate</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 visible-xs">
+                            <p>
+                                <a href="https://github.com/w3c/Mobile-Checker">Github</a>
+                            </p>
+                            <p>
+                                <a href="https://github.com/w3c/Mobile-Checker/issues">Open an issue</a>
+                            </p>
+                            <p>
+                                <a href="https://www.w3.org/developers/donate">Donate</a>
+                            </p>
+                        </div>
+                        <div class="col-xs-12 col-md-8 col-md-offset-2">
+                            <a href="https://www.w3.org/developers/tools" class="visible-md visible-lg"><img src="img/w3c-developers.svg" alt="W3C developers" height="100"></a>
+                        </div>
+                        <div id="credits" class="col-xs-12 col-md-8 col-md-offset-2">
+                            <p>
+                                <span class="octicon octicon-code"></span> with <span class="octicon octicon-heart"></span> by <a href="https://twitter.com/gbaudusseau">@gbaudusseau</a> and <a href="https://twitter.com/dontcallmeDOM">@dontcallmeDOM</a> on <a href="#"><span class="octicon octicon-mark-github"></span></a>.
+                            </p>
+                        </div>
+                        <div id="copyright" class="col-md-8 col-md-offset-2">
+                            <p class="copyright">Copyright &#xA9; 2015 W3C <sup>&#xAE;</sup> <br>(<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="http://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
+                            <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>).</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+                <!--<form class="col-md-12">
                     <div class="col-md-6 col-md-offset-2"><input id="url" placeholder="Enter a web page url here" required></div>
                     <div class="col-md-2"><button id='checkButton'>check</button></div>
                     <div id="options" class="col-md-8 col-md-offset-2">
@@ -89,7 +204,6 @@
                     </div>
                     </div>
                 </form>
-            </header>
             <div id='infos' class='col-md-12'>
                 <div class="col-md-8 col-md-offset-2">
                 <div class='col-md-4'>
@@ -98,8 +212,8 @@
                 </div>
                 <div class='col-md-4'>
                     <h2>Contribute</h2>
-                    <p>Looking to contribute to Mobile Checker? There is many ways to get involved in its development. 
-                    Please take few minutes to read <a href="https://github.com/w3c/Mobile-Checker/blob/master/CONTRIBUTING.md">this document</a> to understand how you can help in Mobile Checker development.</p>
+                    <p>Looking to contribute to Mobile Checker? There are many ways to get involved in its development.
+                    Please take a few minutes to read <a href="https://github.com/w3c/Mobile-Checker/blob/master/CONTRIBUTING.md">this document</a> to understand how you can help in Mobile Checker development.</p>
                 </div>
                 <div class='col-md-4'>
                     <h2>Give feedback</h2>
@@ -112,7 +226,7 @@
                 <div class='col-md-2'>
                         <a href="http://www.w3.org/QA/Tools/Donate">
                             <img src="//www.w3.org/QA/Tools/I_heart_validator_lg" alt="I love Validator logo" title=" Validators Donation Program" height="50"/>
-                            
+
                         </a>
                     <div class='col-md-12'><a href="http://www.w3.org/"><img src="img/w3c.svg" height='60' alt="w3c logo"></a></div>
                 </div>
@@ -125,7 +239,7 @@
                     <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>).</p>
                 </div>
                 </div>
-            </footer>
+            </footer>-->
         </section>
     <script src='js/jquery.min.js'></script>
     <script src='js/bootstrap.min.js'></script>

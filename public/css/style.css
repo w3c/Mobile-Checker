@@ -1,279 +1,193 @@
-/* TODO : use full path of elements */
-
 html, body{
-  margin: 0px;
+    margin: 0px;
     padding: 0px;
     outline: 0px;
     height: 100%;
-    background-color: #ecf0f1;
-    font-family: Open Sans;
-}
-
-
-
-/* DEFAULT view */
-#home{
-    height: 100%;
-    padding: 0px;
-}
-
-#home #main-logo {
-    width: 80%;
-}
-
-#home .navbar-default {
-    background-image: none;
-    background-color: transparent;
-    box-shadow: none;
-    border-radius: 0px;
-    border: 0px;
-    padding-top: 0px;
-    text-align: left;
-    margin-bottom: 0px;
-    height: 62px;
-}
-
-#home > header {
-  padding: 0px;
-    font-size: 20px;
-    font-weight: 400;
-    text-align: center;
-    color: #FCFCFB;
-}
-
-#home > header > form {
-  padding: 0px;
-}
-
-.device-selector {
-  margin-left: 0px;
-  padding: 15px;
-  background-image: none;
-  background-color: transparent;
-  border: 0px;
-  box-shadow: none;
-  border-radius: 2px;
-  color: #7E8A94;
-  text-shadow:none;
-  font-size: 18px;
-  font-weight: 300;
-}
-
-.device-selector img{
-  margin-bottom: 20px;
-}
-
-.device-selector:hover {
-  background-color: transparent;
-  color: #7E8A94;
-  transition:0.2s;
-}
-
-.btn-default:active, .btn-default.active {
-  background-image: none;
-  box-shadow: none;
-  background-color: #eee;
-  text-shadow:none;
-  color: #7E8A94;
-  --box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
-}
-
-.btn-group {
-  padding-left: 0px;
-  padding-right: 0px;
-  background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 2px;
-}
-
-.btn-group .btn + .btn{
-  margin-left: 0px;
-}
-
-#home > header > form > div > #url {
-  height: 50px;
-  width: 100%;
-  padding: 5px;
-  margin: 0px;
-  margin-top: 5px;
-  border-left: 0px solid #eee;
-  border-right: 0px solid #eee;
-  border-top: 0px solid #eee;
-  border-bottom: 0px solid #eee;
-  border-radius: 2px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  background-color: #fcfcfb;
-  font-size: 18px;
-  font-weight: 300;
-  color: #666;
-  --box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
-}
-#home > header > form > div > button {
-  height: 50px;
-  width: 100%;
-  margin-top: 5px;
-  border-left: 0px;
-  border-right: 0px;
-  border-top: 0px;
-  border-bottom: 0px;
-  border-radius: 3px;
-  color: #FFF;
-  font-weight: 300;
-  font-size: 22px;
-  background-color: #334d5c;
-  border: 2px solid #334d5c;
-  font-family: Open Sans;
-}
-#home > header > form > div > button:hover {
-  transition:0.3s;
-  background-color: #ecf0f1;
-  border: 2px solid #334d5c;
-  color: #334d5c;
-}
-#home > header > form > div > button > span {
-}
-#home > header #options {
-    margin-top: 30px;
-}
-#home > header > #options > #options-title {
-    margin-top: 0px;
-    font-weight: 700;
+    font-family: Lato;
     font-size: 18px;
-    text-align: left;
-    color: #7E8A94;
+    color: #455164;
+    background-color: #ecf0f1;
+}
+#home .navbar {
+    padding-top: 20px;
 }
 
-#logo {
-
+#home #hero {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    padding-top: 0px;
 }
 
-#main-title {
-  font-family: Bitter;
-  font-size: 50px;
-  font-weight: 700;
-  color: #384047;
-  text-align: center;
-  margin-top: 30px;
-  margin-bottom: 0px;
+#home #hero img {
+    margin: auto;
 }
 
-#slogan {
-  font-weight: 300;
-  color: #384047;
-  text-align: center;
-  margin-bottom: 30px;
+#home #hero p {
+    margin-top: 30px;
+    font-size: 1.2rem;
+    font-weight: 300;
 }
 
-#slogan h2 {
-  font-weight: 300;
-  font-size: 25px;
+main {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+main #errors .alert-danger {
+    margin: 0px;
+    border: 0px;
+    border-radius: 2px;
+    font-size: 0.9rem;
+    color: #df5a49;
+    background-color: transparent;
+}
+main form {
+    max-width: 1000px;
+    margin: auto;
+}
+
+main form #url {
+    width: 100%;
+    height: 60px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    border-radius: 2px;
+    outline-width: 0px;
+    box-shadow: none;
+    font-family: Lato;
+    font-size: 1rem;
+}
+
+main form #submit {
+    width: 100%;
+    height: 60px;
+    border: 0px;
+    border-radius: 2px;
+    background-image: none;
+    background-color: #89C4F4;
+    outline-width: 0;
+}
+
+main form #submit span {
+    color: #333c4e;
+    font-size: 2rem;
+    text-shadow: 2px 2px rgba(0,0,0,0.3);
+}
+
+main form fieldset .btn-group {
+    width: 100%;
+    border: 0px;
+    border-radius: 2px;
+    background-color: white;
+}
+
+main form fieldset .btn-group .btn {
+    margin-left: 0px !important;
+    border: 0px;
+    border-radius: 2px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-family: Lato;
+    font-size: 1rem;
+    color: #777;
+}
+
+main form fieldset .btn-group .btn:active {
+    margin-left: 0px !important;
+    background-color: rgba(0,0,0,0.1);
+    box-shadow: none;
+}
+
+main form fieldset .btn-group .btn.active {
+    margin-left: 0px !important;
+    background-color: rgba(0,0,0,0.1);
+    box-shadow: none;
+}
+
+main form fieldset .btn-group .btn img {
+    margin-bottom: 10px;
+}
+
+#home #info {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #333c4e;
+    color: white;
+}
+
+#home #info h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #89C4F4;
+}
+
+#home #info p {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+#home #info a {
+    color: #89C4F4;
+}
+
+#home #donate {
+    background-color: white;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#home #donate h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #EE677E;
+}
+
+#home #donate img {
+    margin-top: 20px;
+}
+
+#home #donate a.donate {
+    border-radius: 2px;
+    font-size: 1rem;
+    padding: 10px;
+    background-color: #EE677E;
+    color: white;
 }
 
 footer {
-  background-color: #ecf0f1;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #333c4e;
+    text-align: center;
+    color: white;
 }
 
-footer p {
-  color: #384047;
-  padding-top: 0px;
-  font-weight: 300;
-  text-align: left;
-  font-size: 14px;
+footer #credits {
+}
+
+footer #credits span {
+    font-size: 1.2rem;
 }
 
 footer a {
+    color: #89C4F4;
 }
 
-footer img{
-  margin-top: 0px;
-  text-align: center;
+footer #copyright {
+        font-size: 0.8rem;
+        margin-top: 20px;
 }
 
-.border {
-  margin-top: 50px;
-  border-bottom: 1px solid #bdc3c7;
-}
-
-.copyright {
-  margin-top: 20px;
-}
-
-.copyright p{
-  font-weight: 300;
-  font-size: 12px;
-  text-align: center;
-}
-
-#donation-link{
-  background-color: #FF5E5E;
-  padding: 10px;
-  border-radius: 5px;
-  color: white;
-}
-
-#infos {
-  margin-top: 50px;
-  padding: 20px;
-  font-size: 16px;
-  font-weight: 300;
-  background-color: #334d5c;
-  color: #ecf0f1;
-}
-
-#errors .alert-danger {
-  font-size: 14px;
-  font-weight: 400;
-  text-transform: lowercase;
-  text-align: left;
-  background-color: white;
-  border-radius: 2px;
-}
-
-#infos h2 {
-  font-family: Open Sans;
-  font-weight: 700;
-  color: #FCFCFB;
-  font-size: 20px;
-}
-/* MOBILE device view */
-@media screen and (max-width: 990px) {
-    #github-banner {
-      visibility: hidden;
+@media screen and (max-width: 992px) {
+    #home #hero {
+        padding-top: 50px;
     }
-    #overview {
-    visibility: hidden;
+    #home #submit {
+        margin-top: 10px;
     }
-    #report > .navbar-fixed-top > div > h3 {
-    visibility: hidden;
-    }
-    #main-title {
-      font-size: 32px;
-    }
-    #slogan {
-      font-size: 20px;
-    }
-    #home header {
-      padding-top: 20px;
-    }
-    #home > header > form > div > #url {
-      margin-top: 40px;
-    }
-    #home > header > form > div > button {
-      margin-top: 20px;
-    }
-    .device-selector {
-      width: 100%;
-    }
-    .border {
-      margin-top: 40px;
-    }
-    #home > header > form > div > button {
-      margin-top: 5px;
-    }
-    #home > header > form > div > #url {
-      margin-top: 10px;
+    footer {
+        text-align: left;
     }
 }

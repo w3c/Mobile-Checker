@@ -3,9 +3,9 @@
     "lang": "en",
     "start_url": "./",
     "icons": [
-        {"src": "img/mobilechecker-icon.svg",
+        {"src": "img/mobile-checker-icon.png",
          "sizes": "any",
-         "type": "image/svg+xml"
+         "type": "image/png"
         }
     ],
     "display": "standalone"
