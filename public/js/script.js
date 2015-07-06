@@ -230,7 +230,7 @@ socket.on('err', function(data) {
         if (errors == 0) {
             $('#error-issue-feed').show();
             var errortitle = "<div class='alert alert-danger alert-dismissible' role='alert'>"
-            + " Should be fixed</div>";
+            + " <h2>Should be fixed</h2></div>";
             $('#error-issue-feed').append($(errortitle));
         }
         $('#error-issue-feed').append($(data.issue));
@@ -239,8 +239,8 @@ socket.on('err', function(data) {
     if (data.status == "warning") {
         if (warnings == 0) {
             $('#warning-issue-feed').show();
-            var warningtitle = "<div class='alert alert-warning alert-dismissible' role='alert'>"
-            + " Consider fixing</div>";
+            var warningtitle = "<div class='alert alert-warning alert-dismissible' role='alert'><h2>"
+            + " Consider fixing</h2></div>";
             $('#warning-issue-feed').append($(warningtitle));
         }
         $('#warning-issue-feed').append($(data.issue));
@@ -250,7 +250,7 @@ socket.on('err', function(data) {
         if (infos == 0) {
             $('#info-issue-feed').show();
             var infotitle = "<div class='alert alert-info alert-dismissible' role='alert'>"
-            + " Potential improvements</div>";
+            + "<h2>Potential improvements</h2></div>";
             $('#info-issue-feed').append($(infotitle));
         }
         $('#info-issue-feed').append($(data.issue));
