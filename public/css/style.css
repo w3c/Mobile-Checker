@@ -175,6 +175,11 @@ footer a {
     color: #89C4F4;
 }
 
+footer #copyright {
+        font-size: 0.8rem;
+        margin-top: 20px;
+}
+
 @media screen and (max-width: 992px) {
     #home #hero {
         padding-top: 50px;
