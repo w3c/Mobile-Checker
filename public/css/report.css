@@ -160,6 +160,11 @@ table {
 
 }
 
+#report .alert h2 {
+    font-size:1.2em;
+    margin: 5px 0;
+}
+
 #system-info p{
     text-align: left;
     font-size: 14px;
@@ -229,7 +234,7 @@ table {
 }
 
 .alert-warning {
-   color: #efc94c;
+   color: #9F890C;
 }
 
 .alert-info {

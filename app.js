@@ -166,7 +166,7 @@ function displayTip(socket) {
                 if (err) {
                     return;
                 }
-                formatter.format("<div class='issue'>" + data + "</div>", "tip", function(content) {
+                formatter.format("<div class='issue'>" + data + "</div>", "info", "tip", function(content) {
                     socket.emit("tip", content);
                 });
                 validProfiles = files;
