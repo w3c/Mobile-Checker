@@ -20,18 +20,17 @@ That's why, contrary to most of the current online mobile emulators, the Mobile 
 Mobile Checker is a Node application. It will eventually be distributed through npm, but in the meantime
 you can simply clone this repository:
 
-	git clone https://github.com/w3c/Mobile-Checker.git
+    git clone https://github.com/w3c/Mobile-Checker.git
 
 1. Install [Node.js](http://nodejs.org/)
 
 2. Install npm dependencies:
-````
-npm install -d
-```
+
+    npm install -d
 
 3. In addition to the npm dependencies, install:
 
-* [google-chrome](https://www.google.com/chrome/)
+* [Google Chrome](https://www.google.com/chrome/)
 * [browsermob-proxy](https://github.com/lightbody/browsermob-proxy/) running on port 8080
 * [ImageMagick](http://www.imagemagick.org/)
 * [XVFB](http://www.x.org/archive/X11R7.6/doc/man/man1/Xvfb.1.xhtml)
