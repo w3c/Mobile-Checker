@@ -1,8 +1,8 @@
 language: node.js
 install:
- - wget https://s3-us-west-1.amazonaws.com/lightbody-bmp/browsermob-proxy-2.0-beta-9-bin.zip
- - unzip browsermob-proxy-2.0-beta-9-bin.zip
- - browsermob-proxy-2.0-beta-9/bin/browsermob-proxy &
+ - wget https://github.com/lightbody/browsermob-proxy/releases/download/browsermob-proxy-2.0.0/browsermob-proxy-2.0.0-bin.zip
+ - unzip browsermob-proxy-2.0.0-bin.zip
+ - browsermob-proxy-2.0.0/bin/browsermob-proxy &
  - npm install
  - ./.travis-setup.sh
 script:
