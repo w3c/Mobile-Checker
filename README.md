@@ -26,7 +26,9 @@ you can simply clone this repository:
 
 2. Install npm dependencies:
 
+    ```
     npm install -d
+    ```
 
 3. In addition to the npm dependencies, install:
 
