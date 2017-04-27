@@ -1,4 +1,6 @@
 language: node.js
+node_js:
+ - "6"
 install:
  - wget https://github.com/lightbody/browsermob-proxy/releases/download/browsermob-proxy-2.0.0/browsermob-proxy-2.0.0-bin.zip
  - unzip browsermob-proxy-2.0.0-bin.zip
