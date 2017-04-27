@@ -24,9 +24,9 @@ else
 fi
 
 # Download a custom chrome-sandbox which works inside OpenVC containers (used on travis).
-sudo rm -f $CHROME_SANDBOX
-sudo wget https://googledrive.com/host/0B5VlNZ_Rvdw6NTJoZDBSVy1ZdkE -O $CHROME_SANDBOX
-sudo chown root:root $CHROME_SANDBOX; sudo chmod 4755 $CHROME_SANDBOX
-sudo md5sum $CHROME_SANDBOX
+#sudo rm -f $CHROME_SANDBOX
+#sudo wget https://googledrive.com/host/0B5VlNZ_Rvdw6NTJoZDBSVy1ZdkE -O $CHROME_SANDBOX
+#sudo chown root:root $CHROME_SANDBOX; sudo chmod 4755 $CHROME_SANDBOX
+#sudo md5sum $CHROME_SANDBOX
 
 google-chrome --version
