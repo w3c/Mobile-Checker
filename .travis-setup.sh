@@ -13,7 +13,7 @@ VERSION="stable"
 echo "Getting $VERSION of $BROWSER"
 export CHROME=google-chrome-${VERSION}_current_amd64.deb
 wget https://dl.google.com/linux/direct/$CHROME
-sudo dpkg --install $CHROME || sudo apt-get -f install
+sudo dpkg --install $CHROME libfontconfig1 fonts-liberation libappindicator1 lsb-base || sudo apt-get -f install
 which google-chrome
 ls -l `which google-chrome`
 
