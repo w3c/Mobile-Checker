@@ -29,6 +29,7 @@ script:
  - mocha --timeout 20000 --globals Intl,IntlPolyfill,ErrorHandler test/tests.js
  - echo "Tests completed."
  - sleep 10
+after_script:
  - echo "Running coveralls..."
  - npm run coveralls
  - sleep 10
