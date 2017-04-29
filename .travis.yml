@@ -20,12 +20,17 @@ install:
  - npm install
  - echo "Install phase completed."
  - sleep 10
+before_script:
+ - export DISPLAY=:99.0
+ - sh -e /etc/init.d/xvfb start
+ - npm i -g npm@^3
+ - sleep 10
 script:
  - echo "Running tests..."
  - mocha --timeout 20000 --globals Intl,IntlPolyfill,ErrorHandler test/tests.js
  - echo "Tests completed."
  - sleep 10
-after_script:
  - echo "Running coveralls..."
  - npm run coveralls
  - sleep 10
+ 
