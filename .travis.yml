@@ -3,16 +3,12 @@ dist: trusty
 language: node_js
 node_js:
  - "4"
-env:
-  - CXX=g++-4.8
 addons:
   apt:
     sources:
       - google-chrome
-      - ubuntu-toolchain-r-test
     packages:
       - google-chrome-stable
-      - g++-4.8
 install:
  - wget https://github.com/lightbody/browsermob-proxy/releases/download/browsermob-proxy-2.1.4/browsermob-proxy-2.1.4-bin.zip
  - unzip browsermob-proxy-2.1.4-bin.zip
