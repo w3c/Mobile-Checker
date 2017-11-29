@@ -37,7 +37,7 @@
     "mocha": "^2.2.5"
   },
   "scripts": {
-    "coverage": "istanbul cover _mocha --timeout 20000",
+    "coverage": "istanbul cover _mocha",
     "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls",
     "start": "node app.js",
     "test": "mocha --timeout 20000 --globals Intl,IntlPolyfill,ErrorHandler"
