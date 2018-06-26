@@ -1,11 +1,30 @@
-language: node.js
+dist: trusty
+language: node_js
+node_js:
+ - "4"
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
 install:
- - wget https://s3-us-west-1.amazonaws.com/lightbody-bmp/browsermob-proxy-2.0-beta-9-bin.zip
- - unzip browsermob-proxy-2.0-beta-9-bin.zip
- - browsermob-proxy-2.0-beta-9/bin/browsermob-proxy &
+ - echo "Starting install phase..."
+ - wget https://github.com/lightbody/browsermob-proxy/releases/download/browsermob-proxy-2.1.4/browsermob-proxy-2.1.4-bin.zip
+ - unzip browsermob-proxy-2.1.4-bin.zip
+ - ln -s browsermob-proxy-2.1.4 browsermob-proxy-2.0-beta-9
+ - browsermob-proxy-2.1.4/bin/browsermob-proxy --use-littleproxy false &
  - npm install
- - ./.travis-setup.sh
+ - echo "Install phase completed."
+ - google-chrome --version
+before_script:
+ - export DISPLAY=:99.0
+ - sh -e /etc/init.d/xvfb start
 script:
+ - echo "Running tests..."
  - mocha --timeout 20000 --globals Intl,IntlPolyfill,ErrorHandler test/tests.js
+ - echo "Tests completed."
 after_script:
-  - npm run coveralls
+ - echo "Running coveralls..."
+ - npm run coveralls
+ - echo "Running coveralls completed."
